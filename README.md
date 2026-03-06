@@ -42,6 +42,72 @@ The workspace contains two folders by default, where:
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
+## Directory Tree
+
+```txt
+.
+├── .vscode
+│   └── VS Code workspace configuration files
+│
+├── src
+│   └── com/lnw/acceeeeeppt
+│       ├── core
+│       │   └── Core game systems such as game loop, scene manager, and global game control
+│       │
+│       ├── main
+│       │   └── Program entry point and game startup logic (e.g., Main class)
+│       │
+│       ├── model
+│       │   └── Data models and game state objects such as player data, scores, and level data
+│       │
+│       ├── scene
+│       │   ├── level
+│       │   │   └── Gameplay levels and stage implementations
+│       │   │
+│       │   ├── menu
+│       │   │   └── Main menu, options menu, and other menu-related scenes
+│       │   │
+│       │   └── tutorial
+│       │       └── Tutorial scenes that introduce game mechanics to the player
+│       │
+│       ├── system
+│       │   └── Technical subsystems such as input handling, audio system, save/load system
+│       │
+│       ├── ui
+│       │   └── Reusable user interface components such as buttons, labels, and dialogs
+│       │
+│       └── util
+│           └── Helper and utility classes used throughout the project
+│
+├── bin
+│   └── Compiled Java bytecode (.class files) generated during compilation
+│
+├── lib
+│   └── External libraries (.jar files) used by the project
+│
+└── resource
+    ├── fonts
+    │   └── Custom fonts used in the game UI
+    │
+    ├── images
+    │   └── Sprites, textures, icons, and other graphical assets
+    │
+    └── sounds
+        └── Sound effects and background music used by the game
+```
+
+## Summary
+
+| Folder     | Purpose                                        |
+| ---------- | ---------------------------------------------- |
+| `.vscode`  | IDE configuration for Visual Studio Code       |
+| `src`      | All Java source code organized by package      |
+| `bin`      | Compiled `.class` files generated during build |
+| `lib`      | External `.jar` libraries                      |
+| `resource` | Game assets such as images, sounds, and fonts  |
+
+This structure separates **source code, compiled files, external libraries, and game assets**, making the project easier to maintain and expand.
+
 > If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
 ## Dependency Management
