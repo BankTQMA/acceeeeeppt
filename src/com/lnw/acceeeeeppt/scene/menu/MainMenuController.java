@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.event.ActionEvent;
 
 public class MainMenuController {
+    // TODO: To be implemented later when these page are created
     public void onNewGame(ActionEvent e) {
         System.out.println("New Game");
     }
