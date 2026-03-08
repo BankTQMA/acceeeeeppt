@@ -6,7 +6,7 @@ import javax.swing.*;
 import com.lnw.acceeeeeppt.system.LookAndFeelManager;
 import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 
-public class MainMenu {
+public class MainMenuView {
     private JFrame frame;
     private JLabel gameTitle;
     private JLabel madeWithLoveLabel;
@@ -19,7 +19,7 @@ public class MainMenu {
     private JButton creditButton;
     private JButton exitButton;
 
-    public MainMenu() {
+    public MainMenuView() {
         LookAndFeelManager.applySystemLookAndFeel();
 
         SwingUtilities.invokeLater(() -> {
@@ -71,6 +71,6 @@ public class MainMenu {
     }
 
     public static void main(String[] args) {
-        new MainMenu();
+        new MainMenuView();
     }
 }
