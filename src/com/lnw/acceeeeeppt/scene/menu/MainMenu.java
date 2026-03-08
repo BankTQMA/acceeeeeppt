@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.*;
 import javax.swing.*;
 
+import com.lnw.acceeeeeppt.system.LookAndFeelManager;
 import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 
 public class MainMenu {
@@ -19,50 +20,54 @@ public class MainMenu {
     private JButton exitButton;
 
     public MainMenu() {
-        frame = new JFrame("Acceeeeeppt");
-        menuPanel = new JPanel();
-        menuComponentContainer = new JPanel();
-        buttonContainer = new JPanel();
-        gameTitle = new JLabel("Acceeeeeppt");
-        newGameButton = new JButton("New Game");
-        loadGameButton = new JButton("Load");
-        optionButton = new JButton("Option");
-        creditButton = new JButton("Credit");
-        exitButton = new JButton("Exit");
-        madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
+        LookAndFeelManager.applySystemLookAndFeel();
 
-        frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(1080, 640);
-        frame.setResizable(false);
+        SwingUtilities.invokeLater(() -> {
+            frame = new JFrame("Acceeeeeppt");
+            menuPanel = new JPanel();
+            menuComponentContainer = new JPanel();
+            buttonContainer = new JPanel();
+            gameTitle = new JLabel("Acceeeeeppt");
+            newGameButton = new JButton("New Game");
+            loadGameButton = new JButton("Load");
+            optionButton = new JButton("Option");
+            creditButton = new JButton("Credit");
+            exitButton = new JButton("Exit");
+            madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
 
-        menuPanel.setLayout(new GridBagLayout());
+            frame.setLayout(new BorderLayout());
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setSize(1080, 640);
+            frame.setResizable(false);
 
-        menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
+            menuPanel.setLayout(new GridBagLayout());
 
-        gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        gameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        menuComponentContainer.add(gameTitle);
-        menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN1_V_GAP));
+            menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
 
-        buttonContainer.setLayout(new GridLayout(5, 1, 0, MainMenuConstants.BUTTON_V_GAP));
-        buttonContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonContainer.add(newGameButton);
-        buttonContainer.add(loadGameButton);
-        buttonContainer.add(optionButton);
-        buttonContainer.add(creditButton);
-        buttonContainer.add(exitButton);
+            gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
+            gameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+            menuComponentContainer.add(gameTitle);
+            menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN1_V_GAP));
 
-        menuComponentContainer.add(buttonContainer);
-        menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN2_V_GAP));
+            buttonContainer.setLayout(new GridLayout(5, 1, 0, MainMenuConstants.BUTTON_V_GAP));
+            buttonContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
+            buttonContainer.add(newGameButton);
+            buttonContainer.add(loadGameButton);
+            buttonContainer.add(optionButton);
+            buttonContainer.add(creditButton);
+            buttonContainer.add(exitButton);
 
-        madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        menuComponentContainer.add(madeWithLoveLabel);
-        menuPanel.add(menuComponentContainer);
+            menuComponentContainer.add(buttonContainer);
+            menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN2_V_GAP));
 
-        frame.add(menuPanel);
+            madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            menuComponentContainer.add(madeWithLoveLabel);
+            menuPanel.add(menuComponentContainer);
 
-        frame.setVisible(true);
+            frame.add(menuPanel);
+
+            frame.setVisible(true);
+        });
     }
 
     public static void main(String[] args) {
