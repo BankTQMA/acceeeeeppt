@@ -18,6 +18,7 @@ public class MainMenuView {
     private JButton optionButton;
     private JButton creditButton;
     private JButton exitButton;
+    private MainMenuController menuController;
 
     public MainMenuView() {
         LookAndFeelManager.applySystemLookAndFeel();
@@ -33,7 +34,14 @@ public class MainMenuView {
             optionButton = new JButton("Option");
             creditButton = new JButton("Credit");
             exitButton = new JButton("Exit");
+            menuController = new MainMenuController();
             madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
+
+            newGameButton.addActionListener(menuController::onNewGame);
+            loadGameButton.addActionListener(menuController::onLoadGame);
+            optionButton.addActionListener(menuController::onOption);
+            creditButton.addActionListener(menuController::onCredit);
+            exitButton.addActionListener(menuController::onExit);
 
             frame.setLayout(new BorderLayout());
             frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
