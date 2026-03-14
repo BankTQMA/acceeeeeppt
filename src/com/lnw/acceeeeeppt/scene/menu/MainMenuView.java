@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 
@@ -28,49 +27,47 @@ public class MainMenuView {
     private MainMenuController menuController;
 
     public MainMenuView() {
-        SwingUtilities.invokeLater(() -> {
-            mainJPanel = new JPanel();
-            menuComponentContainer = new JPanel();
-            buttonContainer = new JPanel();
-            gameTitle = new JLabel("Acceeeeeppt");
-            newGameButton = new JButton("New Game");
-            loadGameButton = new JButton("Load");
-            optionButton = new JButton("Option");
-            creditButton = new JButton("Credit");
-            exitButton = new JButton("Exit");
-            menuController = new MainMenuController();
-            madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
+        mainJPanel = new JPanel();
+        menuComponentContainer = new JPanel();
+        buttonContainer = new JPanel();
+        gameTitle = new JLabel("Acceeeeeppt");
+        newGameButton = new JButton("New Game");
+        loadGameButton = new JButton("Load");
+        optionButton = new JButton("Option");
+        creditButton = new JButton("Credit");
+        exitButton = new JButton("Exit");
+        menuController = new MainMenuController();
+        madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
 
-            newGameButton.addActionListener(menuController::onNewGame);
-            loadGameButton.addActionListener(menuController::onLoadGame);
-            optionButton.addActionListener(menuController::onOption);
-            creditButton.addActionListener(menuController::onCredit);
-            exitButton.addActionListener(menuController::onExit);
+        newGameButton.addActionListener(menuController::onNewGame);
+        loadGameButton.addActionListener(menuController::onLoadGame);
+        optionButton.addActionListener(menuController::onOption);
+        creditButton.addActionListener(menuController::onCredit);
+        exitButton.addActionListener(menuController::onExit);
 
-            mainJPanel.setLayout(new GridBagLayout());
+        mainJPanel.setLayout(new GridBagLayout());
 
-            menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
+        menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
 
-            gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
-            gameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-            menuComponentContainer.add(gameTitle);
-            menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN1_V_GAP));
+        gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        gameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        menuComponentContainer.add(gameTitle);
+        menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN1_V_GAP));
 
-            buttonContainer.setLayout(new GridLayout(5, 1, 0, MainMenuConstants.BUTTON_V_GAP));
-            buttonContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
-            buttonContainer.add(newGameButton);
-            buttonContainer.add(loadGameButton);
-            buttonContainer.add(optionButton);
-            buttonContainer.add(creditButton);
-            buttonContainer.add(exitButton);
+        buttonContainer.setLayout(new GridLayout(5, 1, 0, MainMenuConstants.BUTTON_V_GAP));
+        buttonContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonContainer.add(newGameButton);
+        buttonContainer.add(loadGameButton);
+        buttonContainer.add(optionButton);
+        buttonContainer.add(creditButton);
+        buttonContainer.add(exitButton);
 
-            menuComponentContainer.add(buttonContainer);
-            menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN2_V_GAP));
+        menuComponentContainer.add(buttonContainer);
+        menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN2_V_GAP));
 
-            madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-            menuComponentContainer.add(madeWithLoveLabel);
-            mainJPanel.add(menuComponentContainer);
-        });
+        madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        menuComponentContainer.add(madeWithLoveLabel);
+        mainJPanel.add(menuComponentContainer);
     }
 
     public JPanel getMainJPanel() {
