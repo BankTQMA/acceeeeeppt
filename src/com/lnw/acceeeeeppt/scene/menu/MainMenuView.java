@@ -72,4 +72,8 @@ public class MainMenuView {
             mainJPanel.add(menuComponentContainer);
         });
     }
+
+    public JPanel getMainJPanel() {
+        return mainJPanel;
+    }
 }
