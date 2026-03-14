@@ -1,5 +1,9 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
-public class NewGameView {
+import javax.swing.JPanel;
 
+public class NewGameView extends JPanel {
+    public NewGameView() {
+
+    }
 }
