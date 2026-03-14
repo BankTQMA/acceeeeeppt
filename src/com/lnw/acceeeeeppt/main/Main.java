@@ -17,7 +17,7 @@ public class Main {
 
             JPanel mainMenuJPanel = mainMenuView.getMainJPanel();
             JPanel newGameJPanel = new NewGameView();
-            new MainMenuController(mainMenuView);
+            new MainMenuController(mainMenuView, mainView);
 
             mainView.registerPanel(mainMenuJPanel, SceneConstants.MAINMENU);
             mainView.registerPanel(newGameJPanel, SceneConstants.NEWGAMEMENU);

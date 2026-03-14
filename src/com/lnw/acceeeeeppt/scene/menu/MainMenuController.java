@@ -2,11 +2,17 @@ package com.lnw.acceeeeeppt.scene.menu;
 
 import java.awt.event.ActionEvent;
 
+import com.lnw.acceeeeeppt.scene.MainView;
+import com.lnw.acceeeeeppt.ui.SceneConstants;
+
 public class MainMenuController {
     private MainMenuView mainMenuView;
+    private MainView mainView;
 
-    public MainMenuController(MainMenuView mainMenuView) {
+    public MainMenuController(MainMenuView mainMenuView, MainView mainView) {
         this.mainMenuView = mainMenuView;
+        this.mainView = mainView;
+
         setupButtonsActionHandler();
     }
 
@@ -18,9 +24,8 @@ public class MainMenuController {
         mainMenuView.addExitButtonActionHandler(this::onExit);
     }
 
-    // TODO: To be implemented later when these page are created
     public void onNewGame(ActionEvent e) {
-        System.out.println("New Game");
+        mainView.switchPanelCard(SceneConstants.NEWGAMEMENU);
     }
 
     public void onLoadGame(ActionEvent e) {
