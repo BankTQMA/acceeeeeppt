@@ -3,11 +3,9 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.*;
 import javax.swing.*;
 
-import com.lnw.acceeeeeppt.system.LookAndFeelManager;
 import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 
 public class MainMenuView {
-    private JFrame frame;
     private JLabel gameTitle;
     private JLabel madeWithLoveLabel;
     private JPanel menuPanel;
@@ -21,10 +19,7 @@ public class MainMenuView {
     private MainMenuController menuController;
 
     public MainMenuView() {
-        LookAndFeelManager.applySystemLookAndFeel();
-
         SwingUtilities.invokeLater(() -> {
-            frame = new JFrame("Acceeeeeppt");
             menuPanel = new JPanel();
             menuComponentContainer = new JPanel();
             buttonContainer = new JPanel();
@@ -42,11 +37,6 @@ public class MainMenuView {
             optionButton.addActionListener(menuController::onOption);
             creditButton.addActionListener(menuController::onCredit);
             exitButton.addActionListener(menuController::onExit);
-
-            frame.setLayout(new BorderLayout());
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame.setSize(1080, 640);
-            frame.setResizable(false);
 
             menuPanel.setLayout(new GridBagLayout());
 
@@ -71,10 +61,6 @@ public class MainMenuView {
             madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             menuComponentContainer.add(madeWithLoveLabel);
             menuPanel.add(menuComponentContainer);
-
-            frame.add(menuPanel);
-
-            frame.setVisible(true);
         });
     }
 
