@@ -72,8 +72,4 @@ public class MainMenuView {
             mainJPanel.add(menuComponentContainer);
         });
     }
-
-    public static void main(String[] args) {
-        new MainMenuView();
-    }
 }
