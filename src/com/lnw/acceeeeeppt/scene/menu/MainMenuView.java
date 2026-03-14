@@ -17,7 +17,7 @@ import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 public class MainMenuView {
     private JLabel gameTitle;
     private JLabel madeWithLoveLabel;
-    private JPanel menuPanel;
+    private JPanel mainJPanel;
     private JPanel menuComponentContainer;
     private JPanel buttonContainer;
     private JButton newGameButton;
@@ -29,7 +29,7 @@ public class MainMenuView {
 
     public MainMenuView() {
         SwingUtilities.invokeLater(() -> {
-            menuPanel = new JPanel();
+            mainJPanel = new JPanel();
             menuComponentContainer = new JPanel();
             buttonContainer = new JPanel();
             gameTitle = new JLabel("Acceeeeeppt");
@@ -47,7 +47,7 @@ public class MainMenuView {
             creditButton.addActionListener(menuController::onCredit);
             exitButton.addActionListener(menuController::onExit);
 
-            menuPanel.setLayout(new GridBagLayout());
+            mainJPanel.setLayout(new GridBagLayout());
 
             menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
 
@@ -69,7 +69,7 @@ public class MainMenuView {
 
             madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             menuComponentContainer.add(madeWithLoveLabel);
-            menuPanel.add(menuComponentContainer);
+            mainJPanel.add(menuComponentContainer);
         });
     }
 
