@@ -25,7 +25,6 @@ public class MainMenuView {
     private JButton optionButton;
     private JButton creditButton;
     private JButton exitButton;
-    private MainMenuController menuController;
 
     public MainMenuView() {
         mainJPanel = new JPanel();
@@ -37,7 +36,6 @@ public class MainMenuView {
         optionButton = new JButton("Option");
         creditButton = new JButton("Credit");
         exitButton = new JButton("Exit");
-        menuController = new MainMenuController();
         madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
 
         mainJPanel.setLayout(new GridBagLayout());
