@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.Component;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -39,12 +40,6 @@ public class MainMenuView {
         menuController = new MainMenuController();
         madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
 
-        newGameButton.addActionListener(menuController::onNewGame);
-        loadGameButton.addActionListener(menuController::onLoadGame);
-        optionButton.addActionListener(menuController::onOption);
-        creditButton.addActionListener(menuController::onCredit);
-        exitButton.addActionListener(menuController::onExit);
-
         mainJPanel.setLayout(new GridBagLayout());
 
         menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
@@ -68,6 +63,26 @@ public class MainMenuView {
         madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         menuComponentContainer.add(madeWithLoveLabel);
         mainJPanel.add(menuComponentContainer);
+    }
+
+    public void addNewGameButtonActionHandler(ActionListener l) {
+        newGameButton.addActionListener(l);
+    }
+
+    public void addLoadGameButtonActionHandler(ActionListener l) {
+        loadGameButton.addActionListener(l);
+    }
+
+    public void addOptionButtonActionHandler(ActionListener l) {
+        optionButton.addActionListener(l);
+    }
+
+    public void addCreditButtonActionHandler(ActionListener l) {
+        creditButton.addActionListener(l);
+    }
+
+    public void addExitButtonActionHandler(ActionListener l) {
+        exitButton.addActionListener(l);
     }
 
     public JPanel getMainJPanel() {
