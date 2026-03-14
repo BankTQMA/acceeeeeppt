@@ -1,7 +1,16 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Component;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 
