@@ -1,23 +1,16 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
-import java.awt.Component;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import javax.swing.*;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
+import com.lnw.acceeeeeppt.system.LookAndFeelManager;
 import com.lnw.acceeeeeppt.ui.MainMenuConstants;
 
 public class MainMenuView {
+    private JFrame frame;
     private JLabel gameTitle;
     private JLabel madeWithLoveLabel;
-    private JPanel mainJPanel;
+    private JPanel menuPanel;
     private JPanel menuComponentContainer;
     private JPanel buttonContainer;
     private JButton newGameButton;
@@ -25,65 +18,67 @@ public class MainMenuView {
     private JButton optionButton;
     private JButton creditButton;
     private JButton exitButton;
+    private MainMenuController menuController;
 
     public MainMenuView() {
-        mainJPanel = new JPanel();
-        menuComponentContainer = new JPanel();
-        buttonContainer = new JPanel();
-        gameTitle = new JLabel("Acceeeeeppt");
-        newGameButton = new JButton("New Game");
-        loadGameButton = new JButton("Load");
-        optionButton = new JButton("Option");
-        creditButton = new JButton("Credit");
-        exitButton = new JButton("Exit");
-        madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
+        LookAndFeelManager.applySystemLookAndFeel();
 
-        mainJPanel.setLayout(new GridBagLayout());
+        SwingUtilities.invokeLater(() -> {
+            frame = new JFrame("Acceeeeeppt");
+            menuPanel = new JPanel();
+            menuComponentContainer = new JPanel();
+            buttonContainer = new JPanel();
+            gameTitle = new JLabel("Acceeeeeppt");
+            newGameButton = new JButton("New Game");
+            loadGameButton = new JButton("Load");
+            optionButton = new JButton("Option");
+            creditButton = new JButton("Credit");
+            exitButton = new JButton("Exit");
+            menuController = new MainMenuController();
+            madeWithLoveLabel = new JLabel("Made with ❤️ for your Potato PC.");
 
-        menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
+            newGameButton.addActionListener(menuController::onNewGame);
+            loadGameButton.addActionListener(menuController::onLoadGame);
+            optionButton.addActionListener(menuController::onOption);
+            creditButton.addActionListener(menuController::onCredit);
+            exitButton.addActionListener(menuController::onExit);
 
-        gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        gameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        menuComponentContainer.add(gameTitle);
-        menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN1_V_GAP));
+            frame.setLayout(new BorderLayout());
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setSize(1080, 640);
+            frame.setResizable(false);
 
-        buttonContainer.setLayout(new GridLayout(5, 1, 0, MainMenuConstants.BUTTON_V_GAP));
-        buttonContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttonContainer.add(newGameButton);
-        buttonContainer.add(loadGameButton);
-        buttonContainer.add(optionButton);
-        buttonContainer.add(creditButton);
-        buttonContainer.add(exitButton);
+            menuPanel.setLayout(new GridBagLayout());
 
-        menuComponentContainer.add(buttonContainer);
-        menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN2_V_GAP));
+            menuComponentContainer.setLayout(new BoxLayout(menuComponentContainer, BoxLayout.Y_AXIS));
 
-        madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        menuComponentContainer.add(madeWithLoveLabel);
-        mainJPanel.add(menuComponentContainer);
+            gameTitle.setHorizontalAlignment(SwingConstants.CENTER);
+            gameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+            menuComponentContainer.add(gameTitle);
+            menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN1_V_GAP));
+
+            buttonContainer.setLayout(new GridLayout(5, 1, 0, MainMenuConstants.BUTTON_V_GAP));
+            buttonContainer.setAlignmentX(Component.CENTER_ALIGNMENT);
+            buttonContainer.add(newGameButton);
+            buttonContainer.add(loadGameButton);
+            buttonContainer.add(optionButton);
+            buttonContainer.add(creditButton);
+            buttonContainer.add(exitButton);
+
+            menuComponentContainer.add(buttonContainer);
+            menuComponentContainer.add(Box.createVerticalStrut(MainMenuConstants.MAIN2_V_GAP));
+
+            madeWithLoveLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            menuComponentContainer.add(madeWithLoveLabel);
+            menuPanel.add(menuComponentContainer);
+
+            frame.add(menuPanel);
+
+            frame.setVisible(true);
+        });
     }
 
-    public void addNewGameButtonActionHandler(ActionListener l) {
-        newGameButton.addActionListener(l);
-    }
-
-    public void addLoadGameButtonActionHandler(ActionListener l) {
-        loadGameButton.addActionListener(l);
-    }
-
-    public void addOptionButtonActionHandler(ActionListener l) {
-        optionButton.addActionListener(l);
-    }
-
-    public void addCreditButtonActionHandler(ActionListener l) {
-        creditButton.addActionListener(l);
-    }
-
-    public void addExitButtonActionHandler(ActionListener l) {
-        exitButton.addActionListener(l);
-    }
-
-    public JPanel getMainJPanel() {
-        return mainJPanel;
+    public static void main(String[] args) {
+        new MainMenuView();
     }
 }
