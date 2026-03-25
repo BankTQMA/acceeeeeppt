@@ -17,7 +17,6 @@ public class DrunkCursorView extends JPanel implements MouseMotionListener, Mous
     private Robot robot;
     private boolean isRecentering = false;
 
-    // ตัวแปรสำหรับแจ้งเตือนให้ระบบหลักรู้ว่าด่านนี้ผ่านแล้ว
     private Runnable onLevelComplete; 
 
     public DrunkCursorView() {
@@ -32,7 +31,6 @@ public class DrunkCursorView extends JPanel implements MouseMotionListener, Mous
 
         resetToStart();
 
-        // ทริคซ่อนเมาส์จริงของผู้เล่น
         BufferedImage blankImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(blankImg, new Point(0, 0), "blank");
         setCursor(blankCursor);
@@ -41,12 +39,10 @@ public class DrunkCursorView extends JPanel implements MouseMotionListener, Mous
         addMouseListener(this);
     }
 
-    // ฟังก์ชันนี้เพื่อนจะเอาไว้เรียกเพื่อผูกระบบสลับด่าน
     public void setOnLevelCompleteHandler(Runnable handler) {
         this.onLevelComplete = handler;
     }
 
-    // เลียนแบบโครงสร้าง View ของเพื่อน เพื่อให้ Manager ดึงไปใช้ได้ง่ายๆ
     public JPanel getMainJPanel() {
         return this;
     }
@@ -113,7 +109,6 @@ public class DrunkCursorView extends JPanel implements MouseMotionListener, Mous
             isWin = true;
             repaint();
             
-            // เรียกฟังก์ชันเปลี่ยนด่านของระบบเพื่อน (ถ้ามีคนมาผูกไว้)
             if (onLevelComplete != null) {
                 onLevelComplete.run(); 
             }
