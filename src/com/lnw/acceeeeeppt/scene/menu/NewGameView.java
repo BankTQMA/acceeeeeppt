@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
@@ -31,6 +32,7 @@ public class NewGameView extends JPanel {
     private JButton standardDifficultyButton;
     private JButton hardcoreDifficultyButton;
     private JLabel difficultyDesciptionLabel;
+    private JButton acceptButton;
 
     public NewGameView() {
         // Container initialisation
@@ -48,6 +50,7 @@ public class NewGameView extends JPanel {
         standardDifficultyButton = new JButton("Standard");
         hardcoreDifficultyButton = new JButton("Hardcore");
         difficultyDesciptionLabel = new JLabel(standardDifficultyDescription);
+        acceptButton = new JButton("Acceeeeeppt");
 
         // Container Configuration
         setLayout(new BorderLayout());
@@ -86,6 +89,11 @@ public class NewGameView extends JPanel {
         difficultyDesciptionLabel.setFont(FontPresets.REGULARPLAINFONT);
         difficultyDesciptionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        acceptButton.setFont(FontPresets.H1BOLDFONT);
+        acceptButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        acceptButton.setMaximumSize(
+                new Dimension(acceptButton.getPreferredSize().width + 25, acceptButton.getPreferredSize().height));
+
         topBar.add(backButton, BorderLayout.WEST);
         contentPanel.add(newGameTitle);
         contentPanel.add(Box.createVerticalStrut(10));
@@ -96,6 +104,8 @@ public class NewGameView extends JPanel {
         contentPanel.add(difficultyButtonPanel);
         contentPanel.add(Box.createVerticalStrut(10));
         contentPanel.add(difficultyDesciptionLabel);
+        contentPanel.add(Box.createVerticalStrut(50));
+        contentPanel.add(acceptButton);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
