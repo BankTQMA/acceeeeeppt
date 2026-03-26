@@ -59,7 +59,7 @@ public class NewGameView extends JPanel {
         // Container Configuration
         setLayout(new BorderLayout());
         topBar.setLayout(new BorderLayout());
-        topBar.setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
+        setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
                 MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         difficultyButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
