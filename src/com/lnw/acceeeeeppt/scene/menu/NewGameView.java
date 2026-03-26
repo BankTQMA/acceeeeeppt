@@ -45,7 +45,7 @@ public class NewGameView extends JPanel {
         hardcoreDifficultyDescription = "Hardcore Difficulty Description Placeholder Text";
         backButton = new JButton("< Back");
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
-        saveNameTextField = new JTextField("");
+        saveNameTextField = new JTextField("Untitled Savefile");
         pleaseSelectDifficultyLabel = new JLabel("Please Select Difficulty");
         standardDifficultyButton = new JButton("Standard");
         hardcoreDifficultyButton = new JButton("Hardcore");
