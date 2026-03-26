@@ -1,6 +1,5 @@
 package com.lnw.acceeeeeppt.main;
 
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import com.lnw.acceeeeeppt.scene.MainView;
@@ -17,11 +16,10 @@ public class Main {
             MainMenuView mainMenuView = new MainMenuView();
             NewGameView newGameView = new NewGameView();
 
-            JPanel mainMenuJPanel = mainMenuView.getMainJPanel();
             new MainMenuController(mainMenuView, mainView);
             new NewGameController(mainView, newGameView);
 
-            mainView.registerPanel(mainMenuJPanel, SceneConstants.MAINMENU);
+            mainView.registerPanel(mainMenuView, SceneConstants.MAINMENU);
             mainView.registerPanel(newGameView, SceneConstants.NEWGAMEMENU);
 
             mainView.switchPanelCard(SceneConstants.MAINMENU);
