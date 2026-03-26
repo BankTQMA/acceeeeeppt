@@ -1,14 +1,19 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
-public class NewGameController {
-    private NewGameView view;
+import com.lnw.acceeeeeppt.scene.MainView;
+import com.lnw.acceeeeeppt.ui.SceneConstants;
 
-    public NewGameController(NewGameView view) {
-        this.view = view;
-        this.view.addBackButtonActionListener(e -> onBackButton());
+public class NewGameController {
+    private MainView mainView;
+    private NewGameView newGameView;
+
+    public NewGameController(MainView mainView, NewGameView view) {
+        this.newGameView = view;
+        this.mainView = mainView;
+        this.newGameView.addBackButtonActionListener(e -> onBackButton());
     }
 
     public void onBackButton() {
-        System.exit(0);
+        mainView.switchPanelCard(SceneConstants.MAINMENU);
     }
 }
