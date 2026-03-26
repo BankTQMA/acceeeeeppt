@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -39,5 +40,9 @@ public class NewGameView extends JPanel {
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
+    }
+
+    public void addBackButtonActionListener(ActionListener l) {
+        backButton.addActionListener(l);
     }
 }
