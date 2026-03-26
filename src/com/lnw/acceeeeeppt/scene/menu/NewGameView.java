@@ -23,16 +23,16 @@ public class NewGameView extends JPanel {
     private JButton backButton;
     private JLabel newGameTitle;
     private JTextField saveNameTextField;
+    private JLabel pleaseSelectDifficultyLabel;
 
     public NewGameView() {
         topBar = new JPanel();
         contentPanel = new JPanel();
 
         backButton = new JButton("< Back");
-
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
-
         saveNameTextField = new JTextField("");
+        pleaseSelectDifficultyLabel = new JLabel("Please Select Difficulty");
 
         backButton.setBorderPainted(false);
         backButton.setContentAreaFilled(false);
@@ -55,10 +55,15 @@ public class NewGameView extends JPanel {
         saveNameTextField.setColumns(20);
         saveNameTextField.setMaximumSize(saveNameTextField.getPreferredSize());
 
+        pleaseSelectDifficultyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        pleaseSelectDifficultyLabel.setFont(FontPresets.H2BOLDFONT);
+
         topBar.add(backButton, BorderLayout.WEST);
         contentPanel.add(newGameTitle);
         contentPanel.add(Box.createVerticalStrut(10));
         contentPanel.add(saveNameTextField);
+        contentPanel.add(Box.createVerticalStrut(25));
+        contentPanel.add(pleaseSelectDifficultyLabel);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
