@@ -19,6 +19,8 @@ import com.lnw.acceeeeeppt.ui.MarginConstants;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
 
 public class NewGameView extends JPanel {
+    private final String standardDifficultyDescription;
+    private final String hardcoreDifficultyDescription;
     private JPanel topBar;
     private JPanel contentPanel;
     private JPanel difficultyButtonPanel;
@@ -28,6 +30,7 @@ public class NewGameView extends JPanel {
     private JLabel pleaseSelectDifficultyLabel;
     private JButton standardDifficultyButton;
     private JButton hardcoreDifficultyButton;
+    private JLabel difficultyDesciptionLabel;
 
     public NewGameView() {
         // Container initialisation
@@ -36,12 +39,15 @@ public class NewGameView extends JPanel {
         difficultyButtonPanel = new JPanel();
 
         // Component initiallisation
+        standardDifficultyDescription = "Standard Difficulty Description Placeholder Text";
+        hardcoreDifficultyDescription = "Hardcore Difficulty Description Placeholder Text";
         backButton = new JButton("< Back");
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
         saveNameTextField = new JTextField("");
         pleaseSelectDifficultyLabel = new JLabel("Please Select Difficulty");
         standardDifficultyButton = new JButton("Standard");
         hardcoreDifficultyButton = new JButton("Hardcore");
+        difficultyDesciptionLabel = new JLabel(standardDifficultyDescription);
 
         // Container Configuration
         setLayout(new BorderLayout());
@@ -77,6 +83,9 @@ public class NewGameView extends JPanel {
         difficultyButtonPanel.add(hardcoreDifficultyButton);
         difficultyButtonPanel.setMaximumSize(difficultyButtonPanel.getPreferredSize());
 
+        difficultyDesciptionLabel.setFont(FontPresets.REGULARPLAINFONT);
+        difficultyDesciptionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         topBar.add(backButton, BorderLayout.WEST);
         contentPanel.add(newGameTitle);
         contentPanel.add(Box.createVerticalStrut(10));
@@ -85,6 +94,8 @@ public class NewGameView extends JPanel {
         contentPanel.add(pleaseSelectDifficultyLabel);
         contentPanel.add(Box.createVerticalStrut(5));
         contentPanel.add(difficultyButtonPanel);
+        contentPanel.add(Box.createVerticalStrut(10));
+        contentPanel.add(difficultyDesciptionLabel);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
