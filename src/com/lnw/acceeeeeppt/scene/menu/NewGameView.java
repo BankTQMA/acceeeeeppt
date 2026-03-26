@@ -26,13 +26,22 @@ public class NewGameView extends JPanel {
     private JLabel pleaseSelectDifficultyLabel;
 
     public NewGameView() {
+        // Container initialisation
         topBar = new JPanel();
         contentPanel = new JPanel();
 
+        // Component initiallisation
         backButton = new JButton("< Back");
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
         saveNameTextField = new JTextField("");
         pleaseSelectDifficultyLabel = new JLabel("Please Select Difficulty");
+
+        // Container Configuration
+        setLayout(new BorderLayout());
+        topBar.setLayout(new BorderLayout());
+        topBar.setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
+                MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
+        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
 
         backButton.setBorderPainted(false);
         backButton.setContentAreaFilled(false);
@@ -40,12 +49,6 @@ public class NewGameView extends JPanel {
         backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         backButton.setFont(FontPresets.H2BOLDFONT);
         backButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        setLayout(new BorderLayout());
-        topBar.setLayout(new BorderLayout());
-        topBar.setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
-                MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
-        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
 
         newGameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         newGameTitle.setFont(FontPresets.H1BOLDFONT);
