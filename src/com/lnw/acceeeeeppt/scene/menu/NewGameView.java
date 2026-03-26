@@ -100,14 +100,16 @@ public class NewGameView extends JPanel {
                 new Dimension(acceptButton.getPreferredSize().width + 25, acceptButton.getPreferredSize().height));
 
         topBar.add(backButton, BorderLayout.WEST);
+
+        contentPanel.add(Box.createVerticalStrut(50));
         contentPanel.add(newGameTitle);
-        contentPanel.add(Box.createVerticalStrut(10));
+        contentPanel.add(Box.createVerticalStrut(20));
         contentPanel.add(saveNameTextField);
-        contentPanel.add(Box.createVerticalStrut(25));
+        contentPanel.add(Box.createVerticalStrut(40));
         contentPanel.add(pleaseSelectDifficultyLabel);
         contentPanel.add(Box.createVerticalStrut(5));
         contentPanel.add(difficultyButtonPanel);
-        contentPanel.add(Box.createVerticalStrut(10));
+        contentPanel.add(Box.createVerticalStrut(5));
         contentPanel.add(difficultyDesciptionLabel);
         contentPanel.add(Box.createVerticalStrut(50));
         contentPanel.add(acceptButton);
