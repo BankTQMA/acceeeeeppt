@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
@@ -20,21 +21,27 @@ import com.lnw.acceeeeeppt.ui.SceneConstants;
 public class NewGameView extends JPanel {
     private JPanel topBar;
     private JPanel contentPanel;
+    private JPanel difficultyButtonPanel;
     private JButton backButton;
     private JLabel newGameTitle;
     private JTextField saveNameTextField;
     private JLabel pleaseSelectDifficultyLabel;
+    private JButton standardDifficultyButton;
+    private JButton hardcoreDifficultyButton;
 
     public NewGameView() {
         // Container initialisation
         topBar = new JPanel();
         contentPanel = new JPanel();
+        difficultyButtonPanel = new JPanel();
 
         // Component initiallisation
         backButton = new JButton("< Back");
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
         saveNameTextField = new JTextField("");
         pleaseSelectDifficultyLabel = new JLabel("Please Select Difficulty");
+        standardDifficultyButton = new JButton("Standard");
+        hardcoreDifficultyButton = new JButton("Hardcore");
 
         // Container Configuration
         setLayout(new BorderLayout());
@@ -42,6 +49,7 @@ public class NewGameView extends JPanel {
         topBar.setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
                 MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+        difficultyButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         backButton.setBorderPainted(false);
         backButton.setContentAreaFilled(false);
@@ -61,12 +69,21 @@ public class NewGameView extends JPanel {
         pleaseSelectDifficultyLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         pleaseSelectDifficultyLabel.setFont(FontPresets.H2BOLDFONT);
 
+        standardDifficultyButton.setFont(FontPresets.H3PLAINFONT);
+        hardcoreDifficultyButton.setFont(FontPresets.H3PLAINFONT);
+
+        difficultyButtonPanel.add(standardDifficultyButton);
+        difficultyButtonPanel.add(Box.createVerticalStrut(10));
+        difficultyButtonPanel.add(hardcoreDifficultyButton);
+
         topBar.add(backButton, BorderLayout.WEST);
         contentPanel.add(newGameTitle);
         contentPanel.add(Box.createVerticalStrut(10));
         contentPanel.add(saveNameTextField);
         contentPanel.add(Box.createVerticalStrut(25));
         contentPanel.add(pleaseSelectDifficultyLabel);
+        contentPanel.add(Box.createVerticalStrut(5));
+        contentPanel.add(difficultyButtonPanel);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
