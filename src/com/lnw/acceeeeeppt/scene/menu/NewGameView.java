@@ -25,6 +25,7 @@ public class NewGameView extends JPanel {
     private JPanel topBar;
     private JPanel contentPanel;
     private JPanel difficultyButtonPanel;
+    private JPanel bottomBar;
     private JButton backButton;
     private JLabel newGameTitle;
     private JTextField saveNameTextField;
@@ -33,12 +34,14 @@ public class NewGameView extends JPanel {
     private JButton hardcoreDifficultyButton;
     private JLabel difficultyDesciptionLabel;
     private JButton acceptButton;
+    private JLabel madeWithHeartLabel;
 
     public NewGameView() {
         // Container initialisation
         topBar = new JPanel();
         contentPanel = new JPanel();
         difficultyButtonPanel = new JPanel();
+        bottomBar = new JPanel();
 
         // Component initiallisation
         standardDifficultyDescription = "Standard Difficulty Description Placeholder Text";
@@ -51,6 +54,7 @@ public class NewGameView extends JPanel {
         hardcoreDifficultyButton = new JButton("Hardcore");
         difficultyDesciptionLabel = new JLabel(standardDifficultyDescription);
         acceptButton = new JButton("Acceeeeeppt");
+        madeWithHeartLabel = new JLabel("Made with ♥ for your potato PC.");
 
         // Container Configuration
         setLayout(new BorderLayout());
@@ -59,6 +63,7 @@ public class NewGameView extends JPanel {
                 MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         difficultyButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        bottomBar.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
         backButton.setBorderPainted(false);
         backButton.setContentAreaFilled(false);
@@ -107,8 +112,11 @@ public class NewGameView extends JPanel {
         contentPanel.add(Box.createVerticalStrut(50));
         contentPanel.add(acceptButton);
 
+        bottomBar.add(madeWithHeartLabel);
+
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
+        add(bottomBar, BorderLayout.SOUTH);
     }
 
     public void addBackButtonActionListener(ActionListener l) {
