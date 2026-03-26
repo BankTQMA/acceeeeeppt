@@ -6,10 +6,12 @@ import java.awt.Cursor;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
@@ -20,6 +22,7 @@ public class NewGameView extends JPanel {
     private JPanel contentPanel;
     private JButton backButton;
     private JLabel newGameTitle;
+    private JTextField saveNameTextField;
 
     public NewGameView() {
         topBar = new JPanel();
@@ -28,6 +31,8 @@ public class NewGameView extends JPanel {
         backButton = new JButton("< Back");
 
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
+
+        saveNameTextField = new JTextField("");
 
         backButton.setBorderPainted(false);
         backButton.setContentAreaFilled(false);
@@ -45,8 +50,15 @@ public class NewGameView extends JPanel {
         newGameTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         newGameTitle.setFont(FontPresets.H1BOLDFONT);
 
+        saveNameTextField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        saveNameTextField.setFont(FontPresets.H2PLAINFONT);
+        saveNameTextField.setColumns(20);
+        saveNameTextField.setMaximumSize(saveNameTextField.getPreferredSize());
+
         topBar.add(backButton, BorderLayout.WEST);
         contentPanel.add(newGameTitle);
+        contentPanel.add(Box.createVerticalStrut(10));
+        contentPanel.add(saveNameTextField);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
