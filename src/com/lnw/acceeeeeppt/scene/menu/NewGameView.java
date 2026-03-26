@@ -75,6 +75,7 @@ public class NewGameView extends JPanel {
         difficultyButtonPanel.add(standardDifficultyButton);
         difficultyButtonPanel.add(Box.createVerticalStrut(10));
         difficultyButtonPanel.add(hardcoreDifficultyButton);
+        difficultyButtonPanel.setMaximumSize(difficultyButtonPanel.getPreferredSize());
 
         topBar.add(backButton, BorderLayout.WEST);
         contentPanel.add(newGameTitle);
