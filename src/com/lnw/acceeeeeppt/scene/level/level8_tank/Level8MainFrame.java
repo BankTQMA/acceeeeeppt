@@ -1,9 +1,8 @@
-package level8_tank;
+package com.lnw.acceeeeeppt.scene.level.level8_tank;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.Font;
 
 public class Level8MainFrame {
     public Level8MainFrame() {

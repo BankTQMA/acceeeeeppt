@@ -1,4 +1,4 @@
-package level8_tank;
+package com.lnw.acceeeeeppt.scene.level.level8_tank;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class TankMinigame extends JPanel implements ActionListener, KeyListener, MouseListener {
-    // this is based on a certain flash game.
-    // this is pretty long and complicated, so I will only leave a general idea of it:
-    // most of the code is taught in class, some part require research and AI help. -Jo_jo
+    // This is based on a certain flash game.
+    // This is pretty long and complicated, so I will only leave a general idea of it:
+    // Most of the code is taught in class, some parts require research and AI help. -Jo_jo
     private static final int MAP_W = 800, MAP_H = 480;
     private static final int WALL_T = 12;
 
@@ -112,7 +112,7 @@ public class TankMinigame extends JPanel implements ActionListener, KeyListener,
     }
 
     @Override
-    // This draw the game
+    // This draws the game
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
@@ -233,6 +233,7 @@ public class TankMinigame extends JPanel implements ActionListener, KeyListener,
 
         if (enemies.isEmpty() && !gameWon) {
             gameWon = true;
+            timer.stop();
             continueButton.setEnabled(true);
         }
 
