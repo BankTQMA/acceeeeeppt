@@ -146,7 +146,7 @@ public class InvestView extends JPanel {
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JPanel topPanel = new JPanel(new BorderLayout());
-        JLabel lblTitle = new JLabel("                 Slot Machine", SwingConstants.CENTER);
+        JLabel lblTitle = new JLabel("                Slot Machine", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Tahoma", Font.BOLD, 24));
 
         lblMoneySlot = new JLabel("Money: $0");
@@ -157,7 +157,8 @@ public class InvestView extends JPanel {
         topPanel.add(lblMoneySlot, BorderLayout.EAST);
         panel.add(topPanel, BorderLayout.NORTH);
 
-        SlotGraphicsPanel slotArea = new SlotGraphicsPanel();
+        JPanel slotArea = new JPanel(new GridLayout(1, 3, 20, 0));
+        slotArea.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
         Font slotFont = new Font("Tahoma", Font.BOLD, 60);
         lblSlot1 = createBasicSlotLabel("7", slotFont);
@@ -208,21 +209,5 @@ public class InvestView extends JPanel {
         label.setBackground(Color.WHITE);
         label.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         return label;
-    }
-}
-
-class SlotGraphicsPanel extends JPanel {
-    public SlotGraphicsPanel() {
-        setLayout(new GridLayout(1, 3, 20, 0));
-        setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(new Color(50, 50, 50));
-        g.fillRect(0, 0, getWidth(), getHeight());
-        g.setColor(Color.ORANGE);
-        g.drawRect(5, 5, getWidth() - 10, getHeight() - 10);
     }
 }
