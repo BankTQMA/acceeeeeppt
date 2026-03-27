@@ -1,5 +1,6 @@
 package com.lnw.acceeeeeppt.system;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -33,7 +34,11 @@ public class SaveManager {
         return new PlayerModel(saveName);
     }
 
-    public static void saveToDisk(PlayerModel playerModel) {
+    /**
+     * @param playerModel
+     * @return 0 on success, 1 on file exists
+     */
+    public static int saveToDisk(PlayerModel playerModel) {
         String fileName = playerModel.getSaveName();
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -50,10 +55,15 @@ public class SaveManager {
             e.printStackTrace();
         }
 
+        if (Files.exists(path))
+            return 1;
+
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path.toFile()))) {
             oos.writeObject(playerModel);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return 0;
     }
 }
