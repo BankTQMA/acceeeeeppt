@@ -125,4 +125,12 @@ public class NewGameView extends JPanel {
     public void addBackButtonActionListener(ActionListener l) {
         backButton.addActionListener(l);
     }
+
+    public void addStandardButtonActionListener(ActionListener l) {
+        standardDifficultyButton.addActionListener(l);
+    }
+
+    public void addHardcoreButtonActionListener(ActionListener l) {
+        hardcoreDifficultyButton.addActionListener(l);
+    }
 }
