@@ -22,10 +22,12 @@ public class NewGameController {
     public void onStandardDifficulty() {
         newGameView.setStandardButtonEnabled(false);
         newGameView.setHardcoreButtonEnabled(true);
+        newGameView.setDifficultyDescriptionType(true);
     }
 
     public void onHardcoreDifficulty() {
         newGameView.setHardcoreButtonEnabled(false);
         newGameView.setStandardButtonEnabled(true);
+        newGameView.setDifficultyDescriptionType(false);
     }
 }

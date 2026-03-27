@@ -141,4 +141,8 @@ public class NewGameView extends JPanel {
     public void setHardcoreButtonEnabled(boolean b) {
         hardcoreDifficultyButton.setEnabled(b);
     }
+
+    public void setDifficultyDescriptionType(boolean isStandard) {
+        difficultyDesciptionLabel.setText(isStandard ? standardDifficultyDescription : hardcoreDifficultyDescription);
+    }
 }
