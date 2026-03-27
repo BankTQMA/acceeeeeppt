@@ -1,6 +1,8 @@
 package com.lnw.acceeeeeppt.scene.level.level2_term_of_investment;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 // This is for testing only. Once the Main Menu is finished. Youn can delete this
 public class MainGame {

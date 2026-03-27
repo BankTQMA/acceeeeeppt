@@ -1,8 +1,13 @@
 package com.lnw.acceeeeeppt.scene.level.level2_term_of_investment;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class InvestController {
     private InvestModel model;
