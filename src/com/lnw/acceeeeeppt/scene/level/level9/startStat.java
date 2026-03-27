@@ -1,6 +1,7 @@
 package com.lnw.acceeeeeppt.scene.level.level9;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class startStat {
     public int points = 0;
@@ -16,4 +17,5 @@ public class startStat {
     public boolean tosUnlocked = false;
 
     public JButton agreeButtonRef = null;
+    public JFrame tosFrameRef = null;
 }

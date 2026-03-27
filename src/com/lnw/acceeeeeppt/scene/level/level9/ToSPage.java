@@ -8,6 +8,7 @@ public class ToSPage {
     public ToSPage(startStat game){
 
         JFrame frame = new JFrame("Terms of Locked Consent");
+        game.tosFrameRef = frame;
         frame.setSize(400,300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout(10,10));
@@ -53,7 +54,7 @@ public class ToSPage {
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setEditable(false);
-        textArea.setFont(new Font("Arial", Font.PLAIN, 14));
+        textArea.setFont(new Font("Serif", Font.PLAIN, 14));
         textArea.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         JScrollPane scrollPane = new JScrollPane(textArea);

@@ -135,8 +135,41 @@ public class idleMain {
 
             if(game.timeLeft <= 0){
                 ((Timer)e.getSource()).stop();
-                JOptionPane.showMessageDialog(frame, "Time's up! You lose.");
-                System.exit(0);
+                JDialog dialog = new JDialog(frame, "Game Over", true);
+                dialog.setSize(300,150);
+                dialog.setLayout(new BorderLayout());
+                dialog.setLocationRelativeTo(frame);
+
+                JLabel msg = new JLabel("Time's up! You lose.", SwingConstants.CENTER);
+                JButton restartBtn = new JButton("Restart");
+
+                restartBtn.addActionListener(ev -> {
+                    dialog.dispose();
+                    frame.dispose();
+
+                    if(game.tosFrameRef != null){
+                        game.tosFrameRef.dispose();
+                    }
+
+                    startStat newGame = new startStat();
+                    new ToSPage(newGame);
+                });
+
+                dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+
+                JPanel bottomPanel = new JPanel();
+                bottomPanel.add(restartBtn);
+
+                dialog.add(msg, BorderLayout.CENTER);
+                dialog.add(bottomPanel, BorderLayout.SOUTH);
+
+                dialog.setVisible(true);
             }
 
             updateLabels();
