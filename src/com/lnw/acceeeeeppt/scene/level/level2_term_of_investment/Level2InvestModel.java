@@ -1,9 +1,9 @@
 package com.lnw.acceeeeeppt.scene.level.level2_term_of_investment;
 
-public class InvestModel {
+public class Level2InvestModel {
     private int playerMoney;
 
-    public InvestModel(int initialMoney) {
+    public Level2InvestModel(int initialMoney) {
         this.playerMoney = initialMoney;
     }
 

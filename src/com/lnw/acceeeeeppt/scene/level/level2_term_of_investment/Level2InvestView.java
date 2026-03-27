@@ -21,7 +21,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class InvestView extends JPanel {
+public class Level2InvestView extends JPanel {
     CardLayout cardLayout;
     JPanel mainCardPanel;
 
@@ -44,7 +44,7 @@ public class InvestView extends JPanel {
 
     private static final String FONTNAME = "Tahoma";
 
-    public InvestView() {
+    public Level2InvestView() {
         setLayout(new BorderLayout());
         cardLayout = new CardLayout();
         mainCardPanel = new JPanel(cardLayout);

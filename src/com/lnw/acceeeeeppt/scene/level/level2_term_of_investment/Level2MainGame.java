@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 // This is for testing only. Once the Main Menu is finished. Youn can delete this
-public class MainGame {
+public class Level2MainGame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
 
@@ -15,10 +15,10 @@ public class MainGame {
             frame.setSize(800, 500);
             frame.setLocationRelativeTo(null);
 
-            InvestModel model = new InvestModel(15);
-            InvestView view = new InvestView();
+            Level2InvestModel model = new Level2InvestModel(15);
+            Level2InvestView view = new Level2InvestView();
 
-            InvestIntegration integration = new InvestIntegration() {
+            Level2InvestIntegration integration = new Level2InvestIntegration() {
                 public void navigateToMenu() {
                     JOptionPane.showMessageDialog(frame, "Back to Menu");
                 }
@@ -27,7 +27,7 @@ public class MainGame {
                     JOptionPane.showMessageDialog(frame, "Next Stage");
                 }
             };
-            new InvestController(model, view, integration);
+            new Level2InvestController(model, view, integration);
 
             frame.add(view);
             frame.setVisible(true);

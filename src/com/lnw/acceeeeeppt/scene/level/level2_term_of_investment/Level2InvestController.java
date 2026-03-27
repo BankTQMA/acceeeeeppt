@@ -10,13 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
-public class InvestController {
+public class Level2InvestController {
     private Random random;
-    private InvestModel model;
-    private InvestView view;
-    private InvestIntegration integration;
+    private Level2InvestModel model;
+    private Level2InvestView view;
+    private Level2InvestIntegration integration;
 
-    public InvestController(InvestModel model, InvestView view, InvestIntegration integration) {
+    public Level2InvestController(Level2InvestModel model, Level2InvestView view, Level2InvestIntegration integration) {
         random = new Random();
         this.model = model;
         this.view = view;
