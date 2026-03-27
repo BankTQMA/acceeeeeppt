@@ -3,6 +3,7 @@ package level8_tank;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.Font;
 
 public class Level8MainFrame {
     public Level8MainFrame() {
@@ -12,9 +13,10 @@ public class Level8MainFrame {
 
         JTextArea textArea = new JTextArea("The terms are as follows: \n" +
                 "1. You are to continue to the next level only after this requirement is met.\n" +
-                "There are required to be no Disagree present" + 
-                "\n \n \n \n \n“I cannot force anybody anything. I can only make them perish.” -not Socrates");
+                "It is required that there is no Disagree present" + 
+                "\n \n \n \n“I cannot force anybody anything. I can only make them perish.” -not Socrates");
         textArea.setEditable(false);
+        textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setPreferredSize(new Dimension(800, 150));

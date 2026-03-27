@@ -100,15 +100,15 @@ public class TankMinigame extends JPanel implements ActionListener, KeyListener,
     }
 
     private void buildEnemies() {
-        enemies.add(new Rectangle(20, 20, 70, 25));
+        enemies.add(new Rectangle(16, 20, 70, 25));
         enemies.add(new Rectangle(700, 20, 70, 25));
-        enemies.add(new Rectangle(400, 100, 70, 25));
+        enemies.add(new Rectangle(16, 230, 70, 25));
         enemies.add(new Rectangle(590, 100, 70, 25));
-        enemies.add(new Rectangle(25, 210, 70, 25));
-        enemies.add(new Rectangle(580, 290, 70, 25));
-        enemies.add(new Rectangle(320, 420, 70, 25));
-        enemies.add(new Rectangle(530, 420, 70, 25));
-        enemies.add(new Rectangle(680, 420, 70, 25));
+        enemies.add(new Rectangle(110, 20, 70, 25));
+        enemies.add(new Rectangle(565, 430, 70, 25));
+        enemies.add(new Rectangle(260, 290, 70, 25));
+        enemies.add(new Rectangle(520, 240, 70, 25));
+        enemies.add(new Rectangle(665, 360, 70, 25));
     }
 
     @Override
