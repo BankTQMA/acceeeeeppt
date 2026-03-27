@@ -44,8 +44,10 @@ public class NewGameView extends JPanel {
         bottomBar = new JPanel();
 
         // Component initiallisation
-        standardDifficultyDescription = "Standard Difficulty Description Placeholder Text";
-        hardcoreDifficultyDescription = "Hardcore Difficulty Description Placeholder Text";
+        standardDifficultyDescription = difficultyDescriptionHtmlWrapper(
+                "<b>Standard:</b> For those who value their sanity. <br>Frequent auto-saves keep your progress intact.");
+        hardcoreDifficultyDescription = difficultyDescriptionHtmlWrapper(
+                "<b>Hardcore:</b> The pure experience. Auto-saving is disabled. <br>If you fail, you lose everything.");
         backButton = new JButton("< Back");
         newGameTitle = new JLabel(SceneConstants.NEWGAMEMENU);
         saveNameTextField = new JTextField("Untitled Savefile");
@@ -120,6 +122,10 @@ public class NewGameView extends JPanel {
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
         add(bottomBar, BorderLayout.SOUTH);
+    }
+
+    private String difficultyDescriptionHtmlWrapper(String text) {
+        return "<html><center>" + text + "</center></html>";
     }
 
     public void addBackButtonActionListener(ActionListener l) {
