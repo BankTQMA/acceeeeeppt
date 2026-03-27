@@ -27,10 +27,21 @@ public class InvestView extends JPanel {
     CardLayout cardLayout;
     JPanel mainCardPanel;
 
-    JLabel lblMoneyTerm, lblWarning, lblMoneySlot, lblSlot1, lblSlot2, lblSlot3, lblInvestLink;
-    JPanel pnlInvestText, textSwitcherPanel;
+    JLabel lblMoneyTerm;
+    JLabel lblWarning;
+    JLabel lblMoneySlot;
+    JLabel lblSlot1;
+    JLabel lblSlot2;
+    JLabel lblSlot3;
+    JLabel lblInvestLink;
+    JPanel pnlInvestText;
+    JPanel textSwitcherPanel;
     JCheckBox chkAccept;
-    JButton btnBuyAccept, btnAccept, btnGoBack, btnSpin, btnBackToTerm;
+    JButton btnBuyAccept;
+    JButton btnAccept;
+    JButton btnGoBack;
+    JButton btnSpin;
+    JButton btnBackToTerm;
     JTextField txtBetAmount;
 
     public InvestView() {
