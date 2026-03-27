@@ -36,7 +36,7 @@ public class SaveManager {
 
     /**
      * @param playerModel
-     * @return 0 on success, 1 on file exists
+     * @return 0 on success, 1 on file exists, 2 on IOException
      */
     public static int saveToDisk(PlayerModel playerModel) {
         String fileName = playerModel.getSaveName();
@@ -62,6 +62,7 @@ public class SaveManager {
             oos.writeObject(playerModel);
         } catch (IOException e) {
             e.printStackTrace();
+            return 2;
         }
 
         return 0;
