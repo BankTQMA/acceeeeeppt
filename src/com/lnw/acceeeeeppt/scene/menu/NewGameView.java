@@ -12,6 +12,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -166,5 +167,12 @@ public class NewGameView extends JPanel {
     public Difficulty getDifficulty() {
         return !standardDifficultyButton.isEnabled() && hardcoreDifficultyButton.isEnabled() ? Difficulty.STANDARD
                 : Difficulty.HARDCORE;
+    }
+
+    public void showDuplicateWarning() {
+        JOptionPane.showMessageDialog(this,
+                "Filename already exists, please rename.",
+                "Duplicate File",
+                JOptionPane.WARNING_MESSAGE);
     }
 }

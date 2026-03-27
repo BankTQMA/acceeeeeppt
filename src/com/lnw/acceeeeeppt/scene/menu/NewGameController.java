@@ -40,6 +40,8 @@ public class NewGameController {
         if (newGameView.getDifficulty() == Difficulty.HARDCORE)
             return;
         PlayerModel playerModel = SaveManager.createNewPlayerModel(newGameView.getSaveNameText());
-        SaveManager.saveToDisk(playerModel);
+        int status = SaveManager.saveToDisk(playerModel);
+        if (status == 1)
+            newGameView.showDuplicateWarning();
     }
 }
