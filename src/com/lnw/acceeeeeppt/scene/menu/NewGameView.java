@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
@@ -96,6 +97,7 @@ public class NewGameView extends JPanel {
 
         difficultyDesciptionLabel.setFont(FontPresets.REGULARPLAINFONT);
         difficultyDesciptionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        difficultyDesciptionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         acceptButton.setFont(FontPresets.H1BOLDFONT);
         acceptButton.setAlignmentX(Component.CENTER_ALIGNMENT);
