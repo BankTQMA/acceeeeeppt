@@ -205,7 +205,7 @@ public class InvestView extends JPanel {
 
         txtBetAmount = new JTextField("10", 5);
         txtBetAmount.setFont(new Font(FONTNAME, Font.BOLD, 16));
-        txtBetAmount.setHorizontalAlignment(JTextField.CENTER);
+        txtBetAmount.setHorizontalAlignment(SwingConstants.CENTER);
 
         betPanel.add(lblBetInfo);
         betPanel.add(txtBetAmount);
