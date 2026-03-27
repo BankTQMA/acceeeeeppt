@@ -84,6 +84,7 @@ public class NewGameView extends JPanel {
         pleaseSelectDifficultyLabel.setFont(FontPresets.H2BOLDFONT);
 
         standardDifficultyButton.setFont(FontPresets.H3PLAINFONT);
+        standardDifficultyButton.setEnabled(false);
         hardcoreDifficultyButton.setFont(FontPresets.H3PLAINFONT);
 
         difficultyButtonPanel.add(standardDifficultyButton);
