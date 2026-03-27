@@ -1,6 +1,8 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
+import com.lnw.acceeeeeppt.model.PlayerModel;
 import com.lnw.acceeeeeppt.scene.MainView;
+import com.lnw.acceeeeeppt.system.SaveManager;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
 
 public class NewGameController {
@@ -34,5 +36,7 @@ public class NewGameController {
 
     public void onAccept() {
         System.out.println("Acceeeeeppt Button Clicked! (Placeholder Action)");
+        PlayerModel playerModel = SaveManager.createNewPlayerModel(newGameView.getSaveNameText());
+        SaveManager.saveToDisk(playerModel);
     }
 }
