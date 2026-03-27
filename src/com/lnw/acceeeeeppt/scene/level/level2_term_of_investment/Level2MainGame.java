@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
-// This is for testing only. Once the Main Menu is finished. Youn can delete this
+// This is for testing only. Once the Main Menu is finished. You can delete this
 public class Level2MainGame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
