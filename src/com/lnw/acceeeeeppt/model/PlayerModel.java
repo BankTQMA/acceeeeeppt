@@ -10,4 +10,21 @@ public class PlayerModel implements Serializable {
         this.saveName = saveName;
         currLevel = Level.INITIAL;
     }
+
+    public String getSaveName() {
+        return saveName;
+    }
+
+    public void setSaveName(String saveName) {
+        this.saveName = saveName;
+    }
+
+    public Level getCurrLevel() {
+        return currLevel;
+    }
+
+    public void setCurrLevel(Level currLevel) {
+        this.currLevel = currLevel;
+    }
+
 }
