@@ -44,6 +44,8 @@ public class InvestView extends JPanel {
     JButton btnBackToTerm;
     JTextField txtBetAmount;
 
+    private static final String FONTNAME = "Tahoma";
+
     public InvestView() {
         setLayout(new BorderLayout());
         cardLayout = new CardLayout();
@@ -66,10 +68,10 @@ public class InvestView extends JPanel {
         topPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         JLabel lblTitle = new JLabel("                 Term of Investment", SwingConstants.CENTER);
-        lblTitle.setFont(new Font("Tahoma", Font.BOLD, 22));
+        lblTitle.setFont(new Font(FONTNAME, Font.BOLD, 22));
 
         lblMoneyTerm = new JLabel("Money: $0");
-        lblMoneyTerm.setFont(new Font("Tahoma", Font.BOLD, 16));
+        lblMoneyTerm.setFont(new Font(FONTNAME, Font.BOLD, 16));
         lblMoneyTerm.setForeground(new Color(0, 150, 0));
 
         topPanel.add(new JLabel(" "), BorderLayout.WEST);
@@ -81,7 +83,7 @@ public class InvestView extends JPanel {
         txtInfo.setEditable(false);
         txtInfo.setLineWrap(true);
         txtInfo.setWrapStyleWord(true);
-        txtInfo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        txtInfo.setFont(new Font(FONTNAME, Font.PLAIN, 14));
         txtInfo.setText(
                 """
                         Investment (N)
@@ -110,26 +112,26 @@ public class InvestView extends JPanel {
         JPanel warningPanel = new JPanel(new GridLayout(2, 1));
         lblWarning = new JLabel("*you must read all the terms before accepting");
         lblWarning.setForeground(Color.RED);
-        lblWarning.setFont(new Font("Tahoma", Font.ITALIC, 12));
+        lblWarning.setFont(new Font(FONTNAME, Font.ITALIC, 12));
 
         pnlInvestText = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         JLabel lblPart1 = new JLabel("I accept Term of Investment and want to ");
-        lblPart1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblPart1.setFont(new Font(FONTNAME, Font.PLAIN, 14));
 
         lblInvestLink = new JLabel("<html><u>Invest</u></html>");
-        lblInvestLink.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblInvestLink.setFont(new Font(FONTNAME, Font.BOLD, 14));
         lblInvestLink.setForeground(Color.BLUE);
         lblInvestLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         JLabel lblPart3 = new JLabel(" my money");
-        lblPart3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        lblPart3.setFont(new Font(FONTNAME, Font.PLAIN, 14));
 
         pnlInvestText.add(lblPart1);
         pnlInvestText.add(lblInvestLink);
         pnlInvestText.add(lblPart3);
 
         chkAccept = new JCheckBox("I accept Term of Investment");
-        chkAccept.setFont(new Font("Tahoma", Font.BOLD, 14));
+        chkAccept.setFont(new Font(FONTNAME, Font.BOLD, 14));
         chkAccept.setVisible(false);
 
         textSwitcherPanel = new JPanel(new CardLayout());
@@ -178,10 +180,10 @@ public class InvestView extends JPanel {
 
         JPanel topPanel = new JPanel(new BorderLayout());
         JLabel lblTitle = new JLabel("                Slot Machine", SwingConstants.CENTER);
-        lblTitle.setFont(new Font("Tahoma", Font.BOLD, 24));
+        lblTitle.setFont(new Font(FONTNAME, Font.BOLD, 24));
 
         lblMoneySlot = new JLabel("Money: $0");
-        lblMoneySlot.setFont(new Font("Tahoma", Font.BOLD, 18));
+        lblMoneySlot.setFont(new Font(FONTNAME, Font.BOLD, 18));
         lblMoneySlot.setForeground(new Color(0, 150, 0));
 
         topPanel.add(lblTitle, BorderLayout.CENTER);
@@ -191,7 +193,7 @@ public class InvestView extends JPanel {
         JPanel slotArea = new JPanel(new GridLayout(1, 3, 20, 0));
         slotArea.setBorder(BorderFactory.createEmptyBorder(40, 40, 40, 40));
 
-        Font slotFont = new Font("Tahoma", Font.BOLD, 60);
+        Font slotFont = new Font(FONTNAME, Font.BOLD, 60);
         lblSlot1 = createBasicSlotLabel("7", slotFont);
         lblSlot2 = createBasicSlotLabel("7", slotFont);
         lblSlot3 = createBasicSlotLabel("7", slotFont);
@@ -205,10 +207,10 @@ public class InvestView extends JPanel {
 
         JPanel betPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JLabel lblBetInfo = new JLabel("Invest Amount: $");
-        lblBetInfo.setFont(new Font("Tahoma", Font.BOLD, 16));
+        lblBetInfo.setFont(new Font(FONTNAME, Font.BOLD, 16));
 
         txtBetAmount = new JTextField("10", 5);
-        txtBetAmount.setFont(new Font("Tahoma", Font.BOLD, 16));
+        txtBetAmount.setFont(new Font(FONTNAME, Font.BOLD, 16));
         txtBetAmount.setHorizontalAlignment(JTextField.CENTER);
 
         betPanel.add(lblBetInfo);
@@ -218,11 +220,11 @@ public class InvestView extends JPanel {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
 
         btnSpin = new JButton("SPIN!");
-        btnSpin.setFont(new Font("Tahoma", Font.BOLD, 18));
+        btnSpin.setFont(new Font(FONTNAME, Font.BOLD, 18));
         btnSpin.setPreferredSize(new Dimension(150, 40));
 
         btnBackToTerm = new JButton("Back to Term");
-        btnBackToTerm.setFont(new Font("Tahoma", Font.BOLD, 16));
+        btnBackToTerm.setFont(new Font(FONTNAME, Font.BOLD, 16));
         btnBackToTerm.setPreferredSize(new Dimension(150, 40));
 
         buttonPanel.add(btnSpin);
