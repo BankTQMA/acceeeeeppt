@@ -14,16 +14,23 @@ public class Level8MainFrame {
         textArea.setEditable(false);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(800, 300));
+        scrollPane.setPreferredSize(new Dimension(800, 150));
 
         JPanel contentPanel = new JPanel(new BorderLayout());
-        contentPanel.setBorder(new EmptyBorder(10, 10, 10, 10)); // Add a 10-pixel border
+        contentPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         contentPanel.add(scrollPane, BorderLayout.NORTH);
 
         JButton continueButton = new JButton("Continue");
+        continueButton.setEnabled(false);
+        continueButton.addActionListener(e ->
+            JOptionPane.showMessageDialog(frame, "To be replaced with nextLevel()"));
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(continueButton);
         contentPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        TankMinigame tankMinigame = new TankMinigame(continueButton);
+        tankMinigame.setPreferredSize(new Dimension(800, 300));
+        contentPanel.add(tankMinigame, BorderLayout.CENTER);
 
         frame.setContentPane(contentPanel);
 
