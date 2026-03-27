@@ -94,7 +94,7 @@ public class InvestController {
         int betAmount = 0;
         try {
             betAmount = Integer.parseInt(view.txtBetAmount.getText());
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException _) {
             JOptionPane.showMessageDialog(view, "Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
