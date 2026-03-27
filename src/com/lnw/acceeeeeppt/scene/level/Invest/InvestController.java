@@ -49,10 +49,27 @@ public class InvestController {
                 handleGoBackSlot();
             }
         });
+
+        view.chkAccept.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (view.chkAccept.isSelected() == true) {
+                    view.btnAccept.setEnabled(true);
+                } else {
+                    view.btnAccept.setEnabled(false);
+                }
+            }
+        });
+
+        view.lblInvestLink.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                CardLayout cardLayout = (CardLayout) view.mainCardPanel.getLayout();
+                cardLayout.show(view.mainCardPanel, "SLOT");
+            }
+        });
     }
 
     private void handleBuyAccept() {
-        if (model.deductMoney(100)) {
+        if (model.deductMoney(100) == true) {
             view.updateMoneyDisplay(model.getPlayerMoney());
             view.btnBuyAccept.setVisible(false);
             view.btnAccept.setVisible(true);
@@ -64,7 +81,8 @@ public class InvestController {
             view.lblWarning.setText("*Please check the box to enable Accept button");
             view.lblWarning.setForeground(new Color(0, 150, 0));
         } else {
-            flashRedButton(view.btnBuyAccept);
+            FlashThread ft = new FlashThread(view.btnBuyAccept);
+            ft.start();
         }
     }
 
@@ -75,7 +93,7 @@ public class InvestController {
     }
 
     private void handleGoBackTerm() {
-        if (model.deductMoney(5)) {
+        if (model.deductMoney(5) == true) {
             view.updateMoneyDisplay(model.getPlayerMoney());
             JOptionPane.showMessageDialog(view, "Go back successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             integration.navigateToMenu();
@@ -86,11 +104,13 @@ public class InvestController {
     }
 
     private void handleGoBackSlot() {
-        if (model.deductMoney(5)) {
+        if (model.deductMoney(5) == true) {
             view.updateMoneyDisplay(model.getPlayerMoney());
             JOptionPane.showMessageDialog(view, "Back button isn't free. (-$5)", "HAHAHA",
                     JOptionPane.INFORMATION_MESSAGE);
-            view.cardLayout.show(view.mainCardPanel, "TERM");
+
+            CardLayout cardLayout = (CardLayout) view.mainCardPanel.getLayout();
+            cardLayout.show(view.mainCardPanel, "TERM");
         } else {
             JOptionPane.showMessageDialog(view, "I hope you have enough money to buy accept.", "xDDDD",
                     JOptionPane.WARNING_MESSAGE);
@@ -116,52 +136,15 @@ public class InvestController {
             return;
         }
 
-        if (model.deductMoney(betAmount)) {
+        if (model.deductMoney(betAmount) == true) {
             view.updateMoneyDisplay(model.getPlayerMoney());
             isSpinning = true;
             view.btnSpin.setEnabled(false);
             view.btnBackToTerm.setEnabled(false);
             view.txtBetAmount.setEnabled(false);
 
-            final int finalBet = betAmount;
-
-            Thread spinThread = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        for (int i = 0; i < 20; i++) {
-                            int r1 = (int) (Math.random() * 7) + 1;
-                            int r2 = (int) (Math.random() * 7) + 1;
-                            int r3 = (int) (Math.random() * 7) + 1;
-
-                            SwingUtilities.invokeLater(new Runnable() {
-                                public void run() {
-                                    view.lblSlot1.setText(String.valueOf(r1));
-                                    view.lblSlot2.setText(String.valueOf(r2));
-                                    view.lblSlot3.setText(String.valueOf(r3));
-                                }
-                            });
-                            Thread.sleep(50);
-                        }
-
-                        SwingUtilities.invokeLater(new Runnable() {
-                            public void run() {
-                                int num1 = Integer.parseInt(view.lblSlot1.getText());
-                                int num2 = Integer.parseInt(view.lblSlot2.getText());
-                                int num3 = Integer.parseInt(view.lblSlot3.getText());
-                                calculatePrize(finalBet, num1, num2, num3);
-
-                                isSpinning = false;
-                                view.btnSpin.setEnabled(true);
-                                view.btnBackToTerm.setEnabled(true);
-                                view.txtBetAmount.setEnabled(true);
-                            }
-                        });
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            });
-            spinThread.start();
+            SpinThread st = new SpinThread(betAmount);
+            st.start();
         } else {
             JOptionPane.showMessageDialog(view, "Not enough money for this investment!", "Warning",
                     JOptionPane.WARNING_MESSAGE);
@@ -196,27 +179,65 @@ public class InvestController {
         }
     }
 
-    private void flashRedButton(JButton btn) {
-        Color oldBg = btn.getBackground();
-        Color oldFg = btn.getForeground();
-        btn.setBackground(Color.RED);
-        btn.setForeground(Color.WHITE);
+    class FlashThread extends Thread {
+        private JButton btn;
 
-        Thread flashThread = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    Thread.sleep(500);
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            btn.setBackground(oldBg);
-                            btn.setForeground(oldFg);
-                        }
-                    });
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
+        public FlashThread(JButton btn) {
+            this.btn = btn;
+        }
+
+        public void run() {
+            Color oldBg = btn.getBackground();
+            Color oldFg = btn.getForeground();
+            btn.setBackground(Color.RED);
+            btn.setForeground(Color.WHITE);
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                System.out.println("Error");
             }
-        });
-        flashThread.start();
+
+            btn.setBackground(oldBg);
+            btn.setForeground(oldFg);
+        }
+    }
+
+    class SpinThread extends Thread {
+        private int bet;
+
+        public SpinThread(int betAmount) {
+            this.bet = betAmount;
+        }
+
+        public void run() {
+            try {
+                for (int i = 0; i < 20; i++) {
+                    int r1 = (int) (Math.random() * 7) + 1;
+                    int r2 = (int) (Math.random() * 7) + 1;
+                    int r3 = (int) (Math.random() * 7) + 1;
+
+                    view.lblSlot1.setText(String.valueOf(r1));
+                    view.lblSlot2.setText(String.valueOf(r2));
+                    view.lblSlot3.setText(String.valueOf(r3));
+
+                    Thread.sleep(50);
+                }
+
+                int num1 = Integer.parseInt(view.lblSlot1.getText());
+                int num2 = Integer.parseInt(view.lblSlot2.getText());
+                int num3 = Integer.parseInt(view.lblSlot3.getText());
+
+                calculatePrize(bet, num1, num2, num3);
+
+                isSpinning = false;
+                view.btnSpin.setEnabled(true);
+                view.btnBackToTerm.setEnabled(true);
+                view.txtBetAmount.setEnabled(true);
+
+            } catch (Exception ex) {
+                System.out.println("Error");
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ public class InvestView extends JPanel {
     CardLayout cardLayout;
     JPanel mainCardPanel;
 
-    JLabel lblMoneyTerm, lblWarning, lblMoneySlot, lblSlot1, lblSlot2, lblSlot3;
+    JLabel lblMoneyTerm, lblWarning, lblMoneySlot, lblSlot1, lblSlot2, lblSlot3, lblInvestLink;
     JPanel pnlInvestText, textSwitcherPanel;
     JCheckBox chkAccept;
     JButton btnBuyAccept, btnAccept, btnGoBack, btnSpin, btnBackToTerm;
@@ -86,7 +86,7 @@ public class InvestView extends JPanel {
         JLabel lblPart1 = new JLabel("I accept Term of Investment and want to ");
         lblPart1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-        JLabel lblInvestLink = new JLabel("<html><u>Invest</u></html>");
+        lblInvestLink = new JLabel("<html><u>Invest</u></html>");
         lblInvestLink.setFont(new Font("Tahoma", Font.BOLD, 14));
         lblInvestLink.setForeground(Color.BLUE);
         lblInvestLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
