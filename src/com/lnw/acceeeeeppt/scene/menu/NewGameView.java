@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.lnw.acceeeeeppt.model.Difficulty;
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
@@ -160,5 +161,10 @@ public class NewGameView extends JPanel {
 
     public String getSaveNameText() {
         return saveNameTextField.getText();
+    }
+
+    public Difficulty getDifficulty() {
+        return !standardDifficultyButton.isEnabled() && hardcoreDifficultyButton.isEnabled() ? Difficulty.STANDARD
+                : Difficulty.HARDCORE;
     }
 }
