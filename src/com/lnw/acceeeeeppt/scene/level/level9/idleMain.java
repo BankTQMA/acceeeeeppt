@@ -5,13 +5,15 @@ import java.awt.*;
 
 public class idleMain {
 
-    private startStat game = new startStat();
+    private startStat game;
 
     private JLabel pointsLbl;
     private JLabel incomeLbl;
     private JLabel timerLbl;
 
-    public idleMain() {
+    public idleMain(startStat game) {
+        this.game = game;
+
         JFrame frame = new JFrame("Idle Game");
         frame.setSize(800, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +30,7 @@ public class idleMain {
         leftTop.add(pointsLbl);
         leftTop.add(incomeLbl);
 
-        timerLbl = new JLabel("Time : 03:00 ", SwingConstants.RIGHT);
+        timerLbl = new JLabel("Time : 02:30 ", SwingConstants.RIGHT);
         timerLbl.setFont(new Font("Arial", Font.BOLD, 16));
 
         topPanel.add(leftTop, BorderLayout.WEST);
@@ -53,9 +55,6 @@ public class idleMain {
         JButton upg2Btn = idleUI.createButton("Upgrade Clicker", game.upg2Cost, "Give 5 Agree Points/sec");
         JButton upg3Btn = idleUI.createButton("Another Upgrade Clicker", game.upg3Cost, "Give 10 Agree Points/sec");
         JButton keyBtn = idleUI.createButton("Master Key", game.keyCost, "Unlock Agree Button");
-
-        JButton finalAgreeBtn = new JButton("FINAL AGREE");
-        finalAgreeBtn.setEnabled(false);
 
         upg1Btn.addActionListener(e -> {
             if(game.points >= game.upg1Cost){
@@ -93,15 +92,16 @@ public class idleMain {
         keyBtn.addActionListener(e -> {
             if(game.points >= game.keyCost){
                 game.points -= game.keyCost;
-                finalAgreeBtn.setEnabled(true);
+
+                game.tosUnlocked = true;
+
+                if(game.agreeButtonRef != null){
+                    game.agreeButtonRef.setEnabled(true);
+                }
+
                 keyBtn.setEnabled(false);
                 updateLabels();
             }
-        });
-
-        finalAgreeBtn.addActionListener(e -> {
-            JOptionPane.showMessageDialog(frame, "You win!");
-            System.exit(0);
         });
 
         upgradePanel.add(upg1Btn);
@@ -124,11 +124,6 @@ public class idleMain {
 
         frame.add(mainPanel, BorderLayout.CENTER);
 
-        JPanel bottomPanel = new JPanel();
-        finalAgreeBtn.setPreferredSize(new Dimension(150,40));
-        bottomPanel.add(finalAgreeBtn);
-        frame.add(bottomPanel, BorderLayout.SOUTH);
-
         Timer timer = new Timer(1000, e -> {
             game.points += game.incomePerSecond;
             game.timeLeft--;
@@ -148,6 +143,8 @@ public class idleMain {
         });
 
         timer.start();
+        frame.setLocation(600, 150);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -157,6 +154,7 @@ public class idleMain {
     }
 
     public static void main(String[] args) {
-        new idleMain();
+        startStat game = new startStat();
+        new ToSPage(game);
     }
 }
