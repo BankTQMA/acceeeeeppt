@@ -1,4 +1,4 @@
-package Invest;
+package com.lnw.acceeeeeppt.scene.level.level2_term_of_investment;
 
 import javax.swing.*;
 
