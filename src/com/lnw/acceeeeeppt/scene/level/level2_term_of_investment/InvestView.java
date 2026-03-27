@@ -157,6 +157,7 @@ public class InvestView extends JPanel {
         panel.add(bottomContainer, BorderLayout.SOUTH);
 
         lblInvestLink.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {
                 cardLayout.show(mainCardPanel, "SLOT");
             }
