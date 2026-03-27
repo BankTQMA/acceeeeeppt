@@ -157,4 +157,8 @@ public class NewGameView extends JPanel {
     public void setDifficultyDescriptionType(boolean isStandard) {
         difficultyDesciptionLabel.setText(isStandard ? standardDifficultyDescription : hardcoreDifficultyDescription);
     }
+
+    public String getSaveNameText() {
+        return saveNameTextField.getText();
+    }
 }
