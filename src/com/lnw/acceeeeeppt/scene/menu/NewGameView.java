@@ -142,6 +142,10 @@ public class NewGameView extends JPanel {
         hardcoreDifficultyButton.addActionListener(l);
     }
 
+    public void addAcceptButtonActionListener(ActionListener l) {
+        acceptButton.addActionListener(l);
+    }
+
     public void setStandardButtonEnabled(boolean b) {
         standardDifficultyButton.setEnabled(b);
     }

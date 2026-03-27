@@ -13,6 +13,7 @@ public class NewGameController {
         this.newGameView.addBackButtonActionListener(e -> onBackButton());
         this.newGameView.addStandardButtonActionListener(e -> onStandardDifficulty());
         this.newGameView.addHardcoreButtonActionListener(e -> onHardcoreDifficulty());
+        this.newGameView.addAcceptButtonActionListener(e -> onAccept());
     }
 
     public void onBackButton() {
@@ -29,5 +30,9 @@ public class NewGameController {
         newGameView.setHardcoreButtonEnabled(false);
         newGameView.setStandardButtonEnabled(true);
         newGameView.setDifficultyDescriptionType(false);
+    }
+
+    public void onAccept() {
+        System.out.println("Acceeeeeppt Button Clicked! (Placeholder Action)");
     }
 }
