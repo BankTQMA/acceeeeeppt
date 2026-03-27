@@ -8,15 +8,18 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
+import com.lnw.acceeeeeppt.ui.SceneConstants;
 
 public class CreditView extends JPanel {
     private JPanel topBar;
     private JPanel contentPanel;
     private JButton backButton;
+    private JLabel titleLabel;
 
     public CreditView() {
         // Container initialisation
@@ -38,7 +41,13 @@ public class CreditView extends JPanel {
         backButton.setFont(FontPresets.H2BOLDFONT);
         backButton.setAlignmentX(Component.LEFT_ALIGNMENT);
 
+        titleLabel = new JLabel(SceneConstants.CREDITMENU);
+        titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        titleLabel.setFont(FontPresets.H1BOLDFONT);
+
         topBar.add(backButton, BorderLayout.WEST);
+
+        contentPanel.add(titleLabel);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
