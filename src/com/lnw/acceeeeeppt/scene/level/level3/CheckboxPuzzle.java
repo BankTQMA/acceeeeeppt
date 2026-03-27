@@ -29,6 +29,11 @@ public class CheckboxPuzzle {
         checkWinCondition();
     }
 
+    public void toggle(int index1, int index2) {
+        toggle(index1);
+        toggle(index2);
+    }
+
     private void checkWinCondition() {
         for (boolean state : checkboxes) {
             if (!state) {
