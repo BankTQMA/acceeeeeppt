@@ -8,8 +8,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -165,11 +163,7 @@ public class InvestView extends JPanel {
             }
         });
 
-        chkAccept.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                btnAccept.setEnabled(chkAccept.isSelected());
-            }
-        });
+        chkAccept.addActionListener(e -> btnAccept.setEnabled(chkAccept.isSelected()));
 
         return panel;
     }
