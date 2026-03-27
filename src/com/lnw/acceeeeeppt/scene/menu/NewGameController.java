@@ -42,6 +42,6 @@ public class NewGameController {
         PlayerModel playerModel = SaveManager.createNewPlayerModel(newGameView.getSaveNameText());
         int status = SaveManager.saveToDisk(playerModel);
         if (status == 1)
-            newGameView.showDuplicateWarning();
+            newGameView.showJOptionPaneWarning("Filename already exists, please rename.", "Duplicate File");
     }
 }

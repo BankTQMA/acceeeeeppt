@@ -169,10 +169,7 @@ public class NewGameView extends JPanel {
                 : Difficulty.HARDCORE;
     }
 
-    public void showDuplicateWarning() {
-        JOptionPane.showMessageDialog(this,
-                "Filename already exists, please rename.",
-                "Duplicate File",
-                JOptionPane.WARNING_MESSAGE);
+    public void showJOptionPaneWarning(String message, String title) {
+        JOptionPane.showMessageDialog(this, message, title, JOptionPane.WARNING_MESSAGE);
     }
 }
