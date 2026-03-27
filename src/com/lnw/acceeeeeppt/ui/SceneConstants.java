@@ -1,5 +1,10 @@
 package com.lnw.acceeeeeppt.ui;
 
 public class SceneConstants {
-    public static String MAINMENU = "Main Menu";
+    private SceneConstants() {
+        /* This utility class should not be instantiated */
+    }
+
+    public static final String MAINMENU = "Main Menu";
+    public static final String NEWGAMEMENU = "New Game";
 }
