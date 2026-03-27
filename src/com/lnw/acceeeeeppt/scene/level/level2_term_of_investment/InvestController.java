@@ -4,17 +4,20 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class InvestController {
+    private Random random;
     private InvestModel model;
     private InvestView view;
     private InvestIntegration integration;
 
     public InvestController(InvestModel model, InvestView view, InvestIntegration integration) {
+        random = new Random();
         this.model = model;
         this.view = view;
         this.integration = integration;
@@ -107,9 +110,9 @@ public class InvestController {
 
         if (model.deductMoney(betAmount)) {
             view.updateMoneyDisplay(model.getPlayerMoney());
-            int r1 = (int) (Math.random() * 7) + 1;
-            int r2 = (int) (Math.random() * 7) + 1;
-            int r3 = (int) (Math.random() * 7) + 1;
+            int r1 = random.nextInt(7) + 1;
+            int r2 = random.nextInt(7) + 1;
+            int r3 = random.nextInt(7) + 1;
 
             view.lblSlot1.setText(String.valueOf(r1));
             view.lblSlot2.setText(String.valueOf(r2));
