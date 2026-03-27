@@ -161,10 +161,10 @@ public class TankMinigame extends JPanel implements ActionListener, KeyListener,
         // Win message
         if (gameWon) {
             g2.setColor(new Color(0, 0, 0, 150));
-            g2.fillRect(MAP_W / 2 - 120, MAP_H / 2 - 20, 300, 40);
+            g2.fillRect(MAP_W / 2 - 120, MAP_H / 2 - 20, 200, 40);
             g2.setColor(Color.WHITE);
             g2.setFont(new Font("SansSerif", Font.BOLD, 18));
-            g2.drawString("You have agreed to the terms.", MAP_W / 2 - 100, MAP_H / 2 + 6);
+            g2.drawString("Requirement met.", MAP_W / 2 - 100, MAP_H / 2 + 6);
         }
     }
 

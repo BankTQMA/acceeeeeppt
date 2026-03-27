@@ -10,7 +10,10 @@ public class Level8MainFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
 
-        JTextArea textArea = new JTextArea("Text Area");
+        JTextArea textArea = new JTextArea("The terms are as follows: \n" +
+                "1. You are to continue to the next level only after this requirement is met.\n" +
+                "There are required to be no Disagree present" + 
+                "\n \n \n \n \n“I cannot force anybody anything. I can only make them perish.” -not Socrates");
         textArea.setEditable(false);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
