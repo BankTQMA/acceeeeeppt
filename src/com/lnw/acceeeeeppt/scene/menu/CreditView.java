@@ -3,16 +3,23 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
+import com.lnw.acceeeeeppt.ui.ResourceConstants;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
 
 public class CreditView extends JPanel {
@@ -20,6 +27,7 @@ public class CreditView extends JPanel {
     private JPanel contentPanel;
     private JButton backButton;
     private JLabel titleLabel;
+    private JLabel pictureLabel;
 
     public CreditView() {
         // Container initialisation
@@ -45,9 +53,22 @@ public class CreditView extends JPanel {
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         titleLabel.setFont(FontPresets.H1BOLDFONT);
 
+        try {
+            BufferedImage tokidokiImage = ImageIO.read(new File(ResourceConstants.TOKIDOKI_ACTIONGAME_PATH));
+            Image image = tokidokiImage.getScaledInstance(600, 350, Image.SCALE_SMOOTH);
+
+            pictureLabel = new JLabel(new ImageIcon(image));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        pictureLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         topBar.add(backButton, BorderLayout.WEST);
 
         contentPanel.add(titleLabel);
+        contentPanel.add(Box.createVerticalStrut(10));
+        contentPanel.add(pictureLabel);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
