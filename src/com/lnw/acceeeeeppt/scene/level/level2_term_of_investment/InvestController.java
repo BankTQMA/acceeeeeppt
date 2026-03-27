@@ -151,21 +151,11 @@ public class InvestController {
         btn.setBackground(Color.RED);
         btn.setForeground(Color.WHITE);
 
-        Thread flashThread = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    Thread.sleep(500);
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            btn.setBackground(oldBg);
-                            btn.setForeground(oldFg);
-                        }
-                    });
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            }
+        Timer timer = new Timer(500, e -> {
+            btn.setBackground(oldBg);
+            btn.setForeground(oldFg);
         });
-        flashThread.start();
+        timer.setRepeats(false);
+        timer.start();
     }
 }
