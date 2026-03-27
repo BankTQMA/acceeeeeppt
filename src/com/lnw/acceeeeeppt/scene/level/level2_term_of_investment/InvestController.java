@@ -37,6 +37,7 @@ public class InvestController {
         view.chkAccept.addItemListener(e -> view.btnAccept.setEnabled(view.chkAccept.isSelected()));
 
         view.lblInvestLink.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseClicked(MouseEvent e) {
                 view.cardLayout.show(view.mainCardPanel, "SLOT");
             }
