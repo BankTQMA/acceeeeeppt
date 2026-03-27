@@ -110,13 +110,13 @@ public class NewGameView extends JPanel {
         contentPanel.add(newGameTitle);
         contentPanel.add(Box.createVerticalStrut(20));
         contentPanel.add(saveNameTextField);
-        contentPanel.add(Box.createVerticalStrut(40));
+        contentPanel.add(Box.createVerticalStrut(50));
         contentPanel.add(pleaseSelectDifficultyLabel);
         contentPanel.add(Box.createVerticalStrut(5));
         contentPanel.add(difficultyButtonPanel);
         contentPanel.add(Box.createVerticalStrut(5));
         contentPanel.add(difficultyDesciptionLabel);
-        contentPanel.add(Box.createVerticalStrut(50));
+        contentPanel.add(Box.createVerticalStrut(80));
         contentPanel.add(acceptButton);
 
         bottomBar.add(madeWithHeartLabel);
