@@ -19,41 +19,17 @@ public class InvestController {
     }
 
     private void initController() {
-        view.btnBuyAccept.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                handleBuyAccept();
-            }
-        });
+        view.btnBuyAccept.addActionListener(e -> handleBuyAccept());
 
-        view.btnAccept.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                handleAccept();
-            }
-        });
+        view.btnAccept.addActionListener(e -> handleAccept());
 
-        view.btnGoBack.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                handleGoBackTerm();
-            }
-        });
+        view.btnGoBack.addActionListener(e -> handleGoBackTerm());
 
-        view.btnSpin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                handleSpin();
-            }
-        });
+        view.btnSpin.addActionListener(e -> handleSpin());
 
-        view.btnBackToTerm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                handleGoBackSlot();
-            }
-        });
+        view.btnBackToTerm.addActionListener(e -> handleGoBackSlot());
 
-        view.chkAccept.addItemListener(new ItemListener() {
-            public void itemStateChanged(ItemEvent e) {
-                view.btnAccept.setEnabled(view.chkAccept.isSelected());
-            }
-        });
+        view.chkAccept.addItemListener(e -> view.btnAccept.setEnabled(view.chkAccept.isSelected()));
 
         view.lblInvestLink.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
