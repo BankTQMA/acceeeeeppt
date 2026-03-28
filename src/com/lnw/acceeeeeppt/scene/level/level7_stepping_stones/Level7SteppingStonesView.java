@@ -1,4 +1,4 @@
-package com.lnw.acceeeeeppt.scene.level.level7_stepping;
+package com.lnw.acceeeeeppt.scene.level.level7_stepping_stones;
 
 import java.awt.*;
 import javax.swing.*;
