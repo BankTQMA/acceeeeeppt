@@ -85,6 +85,7 @@ public class CreditView extends JPanel {
         agreeeeButton.setFont(FontPresets.H1PLAINFONT);
         agreeeeButton.setPreferredSize(
                 new Dimension(agreeeeButton.getPreferredSize().width + 100, agreeeeButton.getPreferredSize().height));
+        agreeeeButton.setToolTipText("This will open a Wikipedia link to Agreeee game");
 
         creditMessageAndButtonPanel.add(creditMessageLabel);
         creditMessageAndButtonPanel.add(Box.createHorizontalStrut(10));
