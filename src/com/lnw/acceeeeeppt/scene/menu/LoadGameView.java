@@ -34,6 +34,7 @@ public class LoadGameView extends JPanel {
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         bottomBar.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
+        backButton = new JButton("< Back");
         backButton.setBorderPainted(false);
         backButton.setContentAreaFilled(false);
         backButton.setFocusPainted(false);
