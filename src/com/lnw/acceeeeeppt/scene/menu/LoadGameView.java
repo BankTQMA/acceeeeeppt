@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -47,5 +48,9 @@ public class LoadGameView extends JPanel {
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
         add(bottomBar, BorderLayout.SOUTH);
+    }
+
+    public void addBackButtonActionListener(ActionListener l) {
+        backButton.addActionListener(l);
     }
 }
