@@ -47,5 +47,7 @@ public class NewGameController {
             newGameView.showJOptionPaneWarning("Error writing to disk.", "IO Exception");
         if (status == 1)
             newGameView.showJOptionPaneWarning("Filename already exists, please rename.", "Duplicate File");
+        loadGameController.addSaveEntriesView(playerModel.getSaveName(), playerModel.getCurrLevel().toString(),
+                playerModel.getCreatedDateTimeInstant().toString());
     }
 }

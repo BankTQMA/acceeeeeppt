@@ -26,6 +26,15 @@ public class LoadGameController {
         }
     }
 
+    public void refreshLoadGameView() {
+        loadGameView.refreshContentPanel();
+    }
+
+    public void addSaveEntriesView(String worldName, String level, String lastAccessDateTime) {
+        loadGameView.addSaveEntries(worldName, level, lastAccessDateTime);
+        refreshLoadGameView();
+    }
+
     private void onBack() {
         mainView.switchPanelCard(SceneConstants.MAINMENU);
     }

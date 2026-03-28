@@ -32,6 +32,7 @@ public class MainMenuController {
 
     public void onLoadGame(ActionEvent e) {
         mainView.switchPanelCard(SceneConstants.LOADGAMEMENU);
+        loadGameController.refreshLoadGameView();
     }
 
     public void onOption(ActionEvent e) {
