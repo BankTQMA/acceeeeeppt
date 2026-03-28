@@ -1,10 +1,10 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
+import javax.swing.event.ChangeListener;
+
 import com.lnw.acceeeeeppt.scene.MainView;
 import com.lnw.acceeeeeppt.system.SoundManager;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
-import javax.swing.JOptionPane;
-import javax.swing.event.ChangeListener;
 
 public class OptionController {
     private MainView mainView;
