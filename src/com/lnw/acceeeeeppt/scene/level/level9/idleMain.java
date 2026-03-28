@@ -3,21 +3,21 @@ package com.lnw.acceeeeeppt.scene.level.level9;
 import javax.swing.*;
 import java.awt.*;
 
-public class idleMain {
+public class idleMain extends JPanel {
 
     private startStat game;
+    @SuppressWarnings("unused")
+    private final Runnable onLevelComplete;
 
     private JLabel pointsLbl;
     private JLabel incomeLbl;
     private JLabel timerLbl;
 
-    public idleMain(startStat game) {
+    public idleMain(startStat game, Runnable onLevelComplete) {
         this.game = game;
+        this.onLevelComplete = onLevelComplete;
 
-        JFrame frame = new JFrame("Idle Game");
-        frame.setSize(800, 500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout(10,10));
+        setLayout(new BorderLayout(10,10));
 
         JPanel topPanel = new JPanel(new BorderLayout());
         JPanel leftTop = new JPanel(new GridLayout(2,1));
@@ -122,7 +122,7 @@ public class idleMain {
         mainPanel.add(leftPanel, BorderLayout.CENTER);
         mainPanel.add(rightWrapper, BorderLayout.EAST);
 
-        frame.add(mainPanel, BorderLayout.CENTER);
+        add(mainPanel, BorderLayout.CENTER);
 
         Timer timer = new Timer(1000, e -> {
             game.points += game.incomePerSecond;
@@ -135,6 +135,7 @@ public class idleMain {
 
             if(game.timeLeft <= 0){
                 ((Timer)e.getSource()).stop();
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
                 JDialog dialog = new JDialog(frame, "Game Over", true);
                 dialog.setSize(300,150);
                 dialog.setLayout(new BorderLayout());
@@ -147,19 +148,19 @@ public class idleMain {
                     dialog.dispose();
                     frame.dispose();
 
-                    if(game.tosFrameRef != null){
-                        game.tosFrameRef.dispose();
+                    if(onLevelComplete != null){
+                        onLevelComplete.run();
                     }
-
-                    startStat newGame = new startStat();
-                    new ToSPage(newGame);
                 });
 
                 dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
+                        frame.dispose();
+                        if(onLevelComplete != null){
+                            onLevelComplete.run();
+                        }
                     }
                 });
 
@@ -176,9 +177,6 @@ public class idleMain {
         });
 
         timer.start();
-        frame.setLocation(600, 150);
-        frame.setResizable(false);
-        frame.setVisible(true);
     }
 
     private void updateLabels(){
@@ -186,8 +184,19 @@ public class idleMain {
         incomeLbl.setText(" Income/Sec : " + game.incomePerSecond);
     }
 
+    public JPanel getPanel() {
+        return this;
+    }
+
     public static void main(String[] args) {
+        JFrame frame = new JFrame("Idle Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 500);
+
         startStat game = new startStat();
-        new ToSPage(game);
+        idleMain idleGame = new idleMain(game, () -> System.exit(0));
+        frame.add(idleGame);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }

@@ -81,7 +81,7 @@ public class ToSPage {
                 agreeBtn.setEnabled(false);
                 messageLabel.setText("Use Master Key to unlock Agree button");
 
-                new idleMain(game);
+                new idleMain(game, () -> {});
             }
             else{
                 JOptionPane.showMessageDialog(frame, "You win the level!");
