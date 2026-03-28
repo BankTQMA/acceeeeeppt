@@ -1,4 +1,4 @@
-package com.lnw.acceeeeeppt.scene.level.level3;
+package com.lnw.acceeeeeppt.scene.level.level3_term_of_service;
 
 public class CheckboxPuzzle {
     private boolean[] checkboxes;
@@ -14,18 +14,19 @@ public class CheckboxPuzzle {
     }
 
     public void toggle(int index) {
-        if (index < 0 || index >= checkboxes.length) return;
-        
+        if (index < 0 || index >= checkboxes.length)
+            return;
+
         checkboxes[index] = !checkboxes[index];
-        
+
         if (index > 0) {
             checkboxes[index - 1] = !checkboxes[index - 1];
         }
-        
+
         if (index < checkboxes.length - 1) {
             checkboxes[index + 1] = !checkboxes[index + 1];
         }
-        
+
         checkWinCondition();
     }
 
