@@ -3,9 +3,9 @@ package com.lnw.acceeeeeppt.scene.level.level7_stepping;
 import java.awt.*;
 import javax.swing.*;
 
-public class Level7GameUI extends JFrame {
+public class Level7SteppingStonesView extends JFrame {
 
-    private final Level7GameLogic logic;
+    private final Level7SteppingStonesModel logic;
     private final CardLayout cardLayout = new CardLayout();
     private final JPanel mainPanel = new JPanel(cardLayout);
     private JLabel lblStage;
@@ -13,7 +13,7 @@ public class Level7GameUI extends JFrame {
     private JLabel lblStats;
     private JLabel lblFinalStats;
 
-    public Level7GameUI(Level7GameLogic logic) {
+    public Level7SteppingStonesView(Level7SteppingStonesModel logic) {
         this.logic = logic;
         setTitle("Stepping Stones");
         setSize(460, 315);
@@ -77,7 +77,7 @@ public class Level7GameUI extends JFrame {
             b.setPreferredSize(new Dimension(85, 50));
             b.addActionListener(e -> {
                 logic.checkChoice(idx);
-                if (logic.getCurrentScreen() == Level7GameLogic.Screen.WIN) {
+                if (logic.getCurrentScreen() == Level7SteppingStonesModel.Screen.WIN) {
                     lblFinalStats.setText("Total Failures: " + logic.getFailCount());
                     cardLayout.show(mainPanel, "WIN");
                 } else {

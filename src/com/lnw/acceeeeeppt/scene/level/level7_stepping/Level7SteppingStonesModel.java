@@ -2,7 +2,7 @@ package com.lnw.acceeeeeppt.scene.level.level7_stepping;
 
 import java.util.Random;
 
-public class Level7GameLogic {
+public class Level7SteppingStonesModel {
 
     public static final int TOTAL_STAGES = 4;
     private int stage = 1;
