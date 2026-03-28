@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -15,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import com.lnw.acceeeeeppt.ui.FontPresets;
 
 public class Level7SteppingStonesView extends JPanel {
 
@@ -43,7 +44,7 @@ public class Level7SteppingStonesView extends JPanel {
         p.setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
 
         JLabel title = new JLabel("STEPPING STONES", SwingConstants.CENTER);
-        title.setFont(new Font("Monospaced", Font.BOLD, 28));
+        title.setFont(FontPresets.H1BOLDFONT);
 
         String rules = "<html><body style='width: 300px;'>"
                 + "<b>Instructions:</b><br>"
@@ -53,7 +54,7 @@ public class Level7SteppingStonesView extends JPanel {
                 + "- Paths are random every time!"
                 + "</body></html>";
         JLabel lblRules = new JLabel(rules);
-        lblRules.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        lblRules.setFont(FontPresets.REGULARPLAINFONT);
 
         JButton btnStart = new JButton("START");
         btnStart.addActionListener(e -> {
@@ -74,7 +75,7 @@ public class Level7SteppingStonesView extends JPanel {
 
         JPanel header = new JPanel(new GridLayout(2, 1));
         lblStage = new JLabel("STAGE 1", SwingConstants.CENTER);
-        lblStage.setFont(new Font("Monospaced", Font.BOLD, 36));
+        lblStage.setFont(FontPresets.H1BOLDFONT);
         lblQuote = new JLabel(logic.getQuote(), SwingConstants.CENTER);
         header.add(lblStage);
         header.add(lblQuote);
@@ -111,10 +112,10 @@ public class Level7SteppingStonesView extends JPanel {
         gbc.insets = new Insets(10, 10, 10, 10);
 
         JLabel win = new JLabel("Congratulations!", SwingConstants.CENTER);
-        win.setFont(new Font("Monospaced", Font.BOLD, 30));
+        win.setFont(FontPresets.H1BOLDFONT);
 
         lblFinalStats = new JLabel("", SwingConstants.CENTER);
-        lblFinalStats.setFont(new Font("Monospaced", Font.PLAIN, 18));
+        lblFinalStats.setFont(FontPresets.REGULARPLAINFONT);
 
         JButton btnAccept = new JButton("ACCEPT");
         btnAccept.addActionListener(e -> cardLayout.show(mainPanel, "START"));
