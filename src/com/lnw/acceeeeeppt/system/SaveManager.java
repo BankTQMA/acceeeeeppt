@@ -1,7 +1,9 @@
 package com.lnw.acceeeeeppt.system;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -9,6 +11,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 import com.lnw.acceeeeeppt.model.PlayerModel;
 
@@ -65,5 +70,35 @@ public class SaveManager {
         }
 
         return 0;
+    }
+
+    public static List<PlayerModel> getAllSaves() {
+        List<PlayerModel> saves = new ArrayList<>();
+        Path savesPath = Paths.get("saves");
+
+        if (!Files.exists(savesPath) || !Files.isDirectory(savesPath)) {
+            return saves;
+        }
+
+        try (Stream<Path> paths = Files.walk(savesPath)) {
+            paths.filter(Files::isRegularFile)
+                    .filter(p -> p.toString().endsWith(".dat"))
+                    .forEach(path -> {
+                        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path.toFile()))) {
+                            Object obj = ois.readObject();
+                            if (obj instanceof PlayerModel playerModel) {
+                                saves.add(playerModel);
+                            }
+                        } catch (IOException | ClassNotFoundException e) {
+                            // Log error but continue to next file
+                            System.err.println("Failed to load save file: " + path.getFileName());
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return saves;
     }
 }
