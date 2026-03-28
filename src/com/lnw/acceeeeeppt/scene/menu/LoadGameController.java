@@ -19,7 +19,8 @@ public class LoadGameController {
 
         List<PlayerModel> playerModelList = SaveManager.getAllSaves();
         for (PlayerModel p : playerModelList) {
-            loadGameView.addSaveEntries(p.getSaveName(), p.getCurrLevel().toString(), "WIP");
+            loadGameView.addSaveEntries(p.getSaveName(), p.getCurrLevel().toString(),
+                    p.getCreatedDateTimeInstant().toString());
         }
     }
 
