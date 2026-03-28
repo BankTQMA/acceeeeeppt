@@ -57,11 +57,11 @@ public class OptionView extends JPanel {
         backButton.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         optionsTitle = new JLabel("Options");
-        optionsTitle.setFont(new Font("Tahoma", Font.BOLD, 28));
+        optionsTitle.setFont(FontPresets.H1BOLDFONT);
         optionsTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         unappliedWarningLabel = new JLabel("* You have unapplied changes");
-        unappliedWarningLabel.setFont(new Font("Tahoma", Font.ITALIC, 14));
+        unappliedWarningLabel.setFont(FontPresets.REGULARITALICFONT);
         unappliedWarningLabel.setForeground(Color.RED);
         unappliedWarningLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         unappliedWarningLabel.setVisible(false);
