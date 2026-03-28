@@ -215,4 +215,8 @@ public class LoadGameView extends JPanel {
     public void showJOptionPaneInfo(String message, String title) {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
+
+    public String showJOptionPaneInputDialog(String message, String title) {
+        return JOptionPane.showInputDialog(this, message, title, JOptionPane.PLAIN_MESSAGE);
+    }
 }
