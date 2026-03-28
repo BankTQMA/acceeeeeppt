@@ -27,6 +27,12 @@ public class CreditController {
     }
 
     private void onAgreeeeButton() {
+        int confirmation = JOptionPane.showConfirmDialog(creditView,
+                "This will open a browser to the Wikipedia page of the Agreeee game. Do you want to continue?",
+                "Agreeee? Acceeeeeppt?",
+                JOptionPane.YES_NO_OPTION);
+        if (confirmation == JOptionPane.NO_OPTION)
+            return;
         String url = "https://ja.wikipedia.org/wiki/%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84%E3%81%AB%E5%90%8C%E6%84%8F%E3%81%97%E3%81%9F%E3%81%84";
         try {
             URI uri = new URI(url);
