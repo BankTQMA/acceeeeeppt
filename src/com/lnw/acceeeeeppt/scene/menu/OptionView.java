@@ -1,9 +1,24 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
+
+import com.lnw.acceeeeeppt.ui.FontPresets;
 
 public class OptionView extends JPanel {
     private JPanel topBar;
@@ -27,12 +42,19 @@ public class OptionView extends JPanel {
         setLayout(new BorderLayout());
 
         topBar = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        backButton = new JButton("<- Back");
+        backButton = new JButton("< Back");
         topBar.add(backButton);
 
         add(topBar, BorderLayout.NORTH);
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+
+        backButton.setBorderPainted(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setFocusPainted(false);
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        backButton.setFont(FontPresets.H2BOLDFONT);
+        backButton.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         optionsTitle = new JLabel("Options");
         optionsTitle.setFont(new Font("Tahoma", Font.BOLD, 28));
