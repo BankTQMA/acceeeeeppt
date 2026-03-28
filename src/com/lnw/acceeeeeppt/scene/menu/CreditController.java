@@ -41,6 +41,7 @@ public class CreditController {
                 JOptionPane.showMessageDialog(creditView,
                         "Desktop is not supported on this system.",
                         "Desktop is not supported", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             Desktop desktop = Desktop.getDesktop();
@@ -49,6 +50,7 @@ public class CreditController {
                 JOptionPane.showMessageDialog(creditView,
                         "Browsing is not supported on this system.",
                         "Browsing is not supported", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             desktop.browse(uri);
