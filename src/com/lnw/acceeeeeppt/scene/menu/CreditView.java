@@ -93,7 +93,7 @@ public class CreditView extends JPanel {
         topBar.add(backButton, BorderLayout.WEST);
 
         contentPanel.add(titleLabel);
-        contentPanel.add(Box.createVerticalStrut(10));
+        contentPanel.add(Box.createVerticalStrut(20));
         contentPanel.add(pictureLabel);
         contentPanel.add(Box.createVerticalStrut(15));
         contentPanel.add(creditMessageAndButtonPanel);
