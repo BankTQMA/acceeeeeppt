@@ -7,7 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.Color;
 import java.awt.Font;
 
-public abstract class BaseGameLevel extends JPanel implements GameLevel {
+public abstract class Level3BaseGameLevel extends JPanel implements Level3GameLevel {
     protected int readProgress = 0;
     protected boolean isReadingComplete = false;
 
@@ -22,6 +22,6 @@ public abstract class BaseGameLevel extends JPanel implements GameLevel {
         g2d.drawString("Acceeeeeppt - Level 3", getWidth() - 150, getHeight() - 10);
     }
 
-    public void checkAbstract(BaseGameLevel level) {
+    public void checkAbstract(Level3BaseGameLevel level) {
     }
 }

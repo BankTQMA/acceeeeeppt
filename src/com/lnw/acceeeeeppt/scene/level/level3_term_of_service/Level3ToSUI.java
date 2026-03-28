@@ -4,12 +4,12 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class ToS_UI extends BaseGameLevel {
+public class Level3ToSUI extends Level3BaseGameLevel {
     private JCheckBox[] uiCheckBoxes;
     private JButton agreeButton;
-    private CheckboxPuzzle puzzle;
+    private Level3CheckboxPuzzle puzzle;
 
-    public ToS_UI() {
+    public Level3ToSUI() {
         setPreferredSize(new Dimension(1080, 640));
         setLayout(new BorderLayout(10, 10));
         setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -49,7 +49,7 @@ public class ToS_UI extends BaseGameLevel {
         };
 
         boolean[] initialState = { false, false, false, false, false };
-        puzzle = new CheckboxPuzzle(initialState);
+        puzzle = new Level3CheckboxPuzzle(initialState);
         uiCheckBoxes = new JCheckBox[5];
 
         Font checkboxFont = new Font("Serif", Font.PLAIN, 14);
@@ -104,7 +104,7 @@ public class ToS_UI extends BaseGameLevel {
     }
 
     @Override
-    public void validatePuzzle(CheckboxPuzzle puzzle) {
+    public void validatePuzzle(Level3CheckboxPuzzle puzzle) {
         agreeButton.setEnabled(puzzle.isSolved());
     }
 
@@ -141,7 +141,7 @@ public class ToS_UI extends BaseGameLevel {
     }
 
     @Override
-    public void checkInterface(GameLevel level) {
+    public void checkInterface(Level3GameLevel level) {
     }
 
     @Override
