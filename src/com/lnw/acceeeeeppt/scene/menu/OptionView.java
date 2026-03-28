@@ -100,7 +100,7 @@ public class OptionView extends JPanel {
         contentPanel.add(Box.createVerticalStrut(10));
         contentPanel.add(musicBox);
 
-        contentPanel.add(Box.createVerticalStrut(20));
+        contentPanel.add(Box.createVerticalStrut(25));
         contentPanel.add(actionButtonPanel);
 
         add(contentPanel, BorderLayout.CENTER);
