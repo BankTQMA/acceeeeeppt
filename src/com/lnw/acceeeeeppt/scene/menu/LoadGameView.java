@@ -96,6 +96,7 @@ public class LoadGameView extends JPanel {
                 new EmptyBorder(10, 15, 10, 15)));
 
         slot.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
+        slot.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         JPanel leftInfo = new JPanel(new GridLayout(2, 1, 0, 5));
         leftInfo.setBackground(Color.WHITE);
