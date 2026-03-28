@@ -14,7 +14,6 @@ public class Level5AgreementStage extends JFrame {
     private Random random = new Random();
 
     private JPanel gridPanel;
-    private JButton agreeBtn;
     private int lastAgreeRow = -1;
     private int lastAgreeCol = -1;
 
@@ -148,7 +147,6 @@ public class Level5AgreementStage extends JFrame {
                 btn.setBounds(x, y, BTN_W, BTN_H);
 
                 if (isAgree) {
-                    agreeBtn = btn;
                     btn.addActionListener(e -> onAgree());
                 } else {
                     btn.addActionListener(e -> onDisagree());
