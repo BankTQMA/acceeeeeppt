@@ -19,6 +19,7 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
+import com.lnw.acceeeeeppt.ui.MarginConstants;
 
 public class OptionView extends JPanel {
     private JPanel topBar;
@@ -46,6 +47,8 @@ public class OptionView extends JPanel {
         topBar.add(backButton);
 
         add(topBar, BorderLayout.NORTH);
+        setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
+                MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
         contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
 
