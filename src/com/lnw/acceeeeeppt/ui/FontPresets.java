@@ -15,5 +15,6 @@ public class FontPresets {
     public static final Font H2PLAINFONT = new Font(MAINFONTNAME, Font.PLAIN, 20);
     public static final Font H3PLAINFONT = new Font(MAINFONTNAME, Font.PLAIN, 16);
     public static final Font REGULARPLAINFONT = new Font(MAINFONTNAME, Font.PLAIN, 12);
+    public static final Font REGULARBOLDFONT = new Font(MAINFONTNAME, Font.BOLD, 12);
     public static final Font REGULARITALICFONT = new Font(MAINFONTNAME, Font.ITALIC, 12);
 }
