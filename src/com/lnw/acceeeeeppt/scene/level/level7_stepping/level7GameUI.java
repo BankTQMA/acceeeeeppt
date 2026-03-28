@@ -8,7 +8,10 @@ public class Level7GameUI extends JFrame {
     private final Level7GameLogic logic;
     private final CardLayout cardLayout = new CardLayout();
     private final JPanel mainPanel = new JPanel(cardLayout);
-    private JLabel lblStage, lblQuote, lblStats, lblFinalStats;
+    private JLabel lblStage;
+    private JLabel lblQuote;
+    private JLabel lblStats;
+    private JLabel lblFinalStats;
 
     public Level7GameUI(Level7GameLogic logic) {
         this.logic = logic;
