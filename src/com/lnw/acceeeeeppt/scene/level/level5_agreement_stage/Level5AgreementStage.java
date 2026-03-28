@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-public class AgreementStage extends JFrame {
+public class Level5AgreementStage extends JFrame {
 
     private int targetClicks;
     private double currentClicks = 0;
@@ -28,7 +28,7 @@ public class AgreementStage extends JFrame {
 
     private Timer idleTimer;
 
-    public AgreementStage() {
+    public Level5AgreementStage() {
         targetClicks = 10 + random.nextInt(4);
 
         setTitle("Do you agree to the Terms of Use [Article 1]?");
@@ -231,6 +231,6 @@ public class AgreementStage extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new AgreementStage().setVisible(true));
+        SwingUtilities.invokeLater(() -> new Level5AgreementStage().setVisible(true));
     }
 }
