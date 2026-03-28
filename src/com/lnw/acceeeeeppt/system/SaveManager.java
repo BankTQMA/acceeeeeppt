@@ -22,7 +22,7 @@ public class SaveManager {
         /* This utility class should not be instantiated */
     }
 
-    public static String toHexString(byte[] hash) {
+    private static String toHexString(byte[] hash) {
         StringBuilder hexString = new StringBuilder(2 * hash.length);
         for (byte b : hash) {
             String hex = Integer.toHexString(0xff & b);
@@ -34,6 +34,17 @@ public class SaveManager {
         return hexString.toString();
     }
 
+    public static String hashTextSHA256(String text) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] encodedHash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
+            text = toHexString(encodedHash);
+        } catch (NoSuchAlgorithmException _) {
+            return null;
+        }
+        return text;
+    }
+
     public static PlayerModel createNewPlayerModel(String saveName) {
         return new PlayerModel(saveName);
     }
@@ -43,14 +54,8 @@ public class SaveManager {
      * @return 0 on success, 1 on file exists, 2 on IOException
      */
     public static int saveToDisk(PlayerModel playerModel) {
-        String fileName = playerModel.getSaveName();
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] encodedHash = digest.digest(fileName.getBytes(StandardCharsets.UTF_8));
-            fileName = toHexString(encodedHash) + ".dat";
-        } catch (NoSuchAlgorithmException _) {
-            fileName += ".dat";
-        }
+        String hash = hashTextSHA256(playerModel.getSaveName());
+        String fileName = hash != null ? hash + ".dat" : playerModel.getSaveName() + ".dat";
         Path path = Paths.get("saves", fileName);
 
         try {
