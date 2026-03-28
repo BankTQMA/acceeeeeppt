@@ -129,4 +129,8 @@ public class SaveManager {
         String fileName = (hash != null ? hash : saveName) + ".dat";
         Files.delete(Paths.get("saves", fileName));
     }
+
+    public static void deleteSave(PlayerModel playerModel) throws IOException {
+        deleteSave(playerModel.getSaveName());
+    }
 }
