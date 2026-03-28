@@ -46,6 +46,7 @@ public class LoadGameController {
         if (worldName == null) {
             loadGameView.showJOptionPaneInfo("Please select a world before pressing a rename button",
                     "World not Selected");
+            return;
         }
 
         try {
