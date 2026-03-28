@@ -106,4 +106,10 @@ public class SaveManager {
 
         return saves;
     }
+
+    public static void deleteSave(String saveName) throws IOException {
+        String hash = hashTextSHA256(saveName);
+        String fileName = (hash != null ? hash : saveName) + ".dat";
+        Files.delete(Paths.get("saves", fileName));
+    }
 }
