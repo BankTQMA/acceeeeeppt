@@ -14,6 +14,14 @@ public class PlayerModel implements Serializable {
         currLevel = Level.INITIAL;
     }
 
+    /* For cloning a save object */
+    public PlayerModel(PlayerModel playerModel, String newSaveName) {
+        this.saveName = newSaveName;
+
+        this.currLevel = playerModel.currLevel;
+        this.createdDateTimeInstant = playerModel.createdDateTimeInstant;
+    }
+
     public String getSaveName() {
         return saveName;
     }
