@@ -93,6 +93,11 @@ public class LoadGameView extends JPanel {
         add(bottomBar, BorderLayout.SOUTH);
     }
 
+    public void addSaveEntries(String worldName, String level, String lastAccessDateTime) {
+        contentPanel.add(createSaveSlot(worldName, lastAccessDateTime, level));
+        contentPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Spacing between items
+    }
+
     private JPanel createSaveSlot(String worldName, String date, String level) {
         JPanel slot = new JPanel(new BorderLayout(10, 10));
         slot.setBackground(Color.WHITE);
