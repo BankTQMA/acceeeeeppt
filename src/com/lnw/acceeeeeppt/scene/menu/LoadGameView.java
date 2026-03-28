@@ -144,6 +144,17 @@ public class LoadGameView extends JPanel {
         return slot;
     }
 
+    public void refreshContentPanel() {
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }
+
+    public void removeSelectedSaveSlotView() {
+        contentPanel.remove(saveEntriesMap.get(selectedWorldName));
+        selectedWorldName = null;
+        refreshContentPanel();
+    }
+
     private void setSlotSelected(JPanel slot, String worldName) {
 
         // Revert the previously selected slot back to normal colors

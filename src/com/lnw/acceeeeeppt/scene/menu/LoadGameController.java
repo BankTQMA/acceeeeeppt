@@ -43,5 +43,6 @@ public class LoadGameController {
             loadGameView.showJOptionPaneWarning("Unable to Delete a save file (IOException)", "Unable to Delete");
         }
         loadGameView.showJOptionPaneInfo("World deletion success.", "Deletion Success");
+        loadGameView.removeSelectedSaveSlotView();
     }
 }
