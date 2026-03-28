@@ -1,14 +1,13 @@
 package com.lnw.acceeeeeppt.scene.level.level3_term_of_service;
 
+import java.util.Arrays;
+
 public class Level3CheckboxPuzzle {
     private boolean[] checkboxes;
     private boolean isSolved;
 
     public Level3CheckboxPuzzle(boolean[] initialState) {
-        this.checkboxes = new boolean[5];
-        for (int i = 0; i < 5; i++) {
-            this.checkboxes[i] = initialState[i];
-        }
+        this.checkboxes = Arrays.copyOf(initialState, 5);
         this.isSolved = false;
         checkWinCondition();
     }
