@@ -59,6 +59,7 @@ public class LoadGameController {
         }
         loadGameView.showJOptionPaneInfo("World deletion success.", "Deletion Success");
         loadGameView.removeSelectedSaveSlotView();
+        loadGameView.setSelectedWorldName(null);
     }
 
     private void onLoad() {

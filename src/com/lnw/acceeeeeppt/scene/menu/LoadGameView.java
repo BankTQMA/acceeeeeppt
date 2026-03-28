@@ -208,6 +208,10 @@ public class LoadGameView extends JPanel {
         return selectedWorldName;
     }
 
+    public void setSelectedWorldName(String worldName) {
+        selectedWorldName = worldName;
+    }
+
     public void showJOptionPaneWarning(String message, String title) {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.WARNING_MESSAGE);
     }
