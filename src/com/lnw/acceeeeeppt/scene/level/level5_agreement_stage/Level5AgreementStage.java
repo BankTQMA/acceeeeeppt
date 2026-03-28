@@ -13,7 +13,6 @@ import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,7 +22,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-public class Level5AgreementStage extends JFrame {
+public class Level5AgreementStage extends JPanel {
 
     private int targetClicks;
     private double currentClicks = 0;
@@ -49,12 +48,6 @@ public class Level5AgreementStage extends JFrame {
     public Level5AgreementStage() {
         targetClicks = 10 + random.nextInt(4);
 
-        setTitle("Do you agree to the Terms of Use [Article 1]?");
-        setSize(680, 510);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().setBackground(Color.WHITE);
         setLayout(new BorderLayout(0, 10));
 
         JPanel topWrapper = new JPanel(new BorderLayout());
