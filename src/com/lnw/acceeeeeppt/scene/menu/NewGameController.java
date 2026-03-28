@@ -43,10 +43,15 @@ public class NewGameController {
             return;
         PlayerModel playerModel = SaveManager.createNewPlayerModel(newGameView.getSaveNameText());
         int status = SaveManager.saveToDisk(playerModel);
-        if (status == 2)
+        if (status == 2) {
             newGameView.showJOptionPaneWarning("Error writing to disk.", "IO Exception");
-        if (status == 1)
+            return;
+        }
+        if (status == 1) {
             newGameView.showJOptionPaneWarning("Filename already exists, please rename.", "Duplicate File");
+            return;
+        }
+
         loadGameController.addSaveEntriesView(playerModel.getSaveName(), playerModel.getCurrLevel().toString(),
                 playerModel.getCreatedDateTimeInstant().toString());
     }
