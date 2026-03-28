@@ -8,6 +8,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -28,6 +30,7 @@ public class LoadGameView extends JPanel {
     private final Color defaultBorder = new Color(30, 50, 100);
     private final Color selectedBorder = new Color(0, 120, 215); // Bright Blue
     private final Color selectedBG = new Color(230, 240, 255); // Light Blue Highlight
+    private final Map<String, JPanel> saveEntriesMap = new HashMap<>();
 
     private JPanel topBar;
     private JPanel contentPanel;
@@ -95,8 +98,10 @@ public class LoadGameView extends JPanel {
     }
 
     public void addSaveEntries(String worldName, String level, String lastAccessDateTime) {
-        contentPanel.add(createSaveSlot(worldName, lastAccessDateTime, level));
+        JPanel saveSlot = createSaveSlot(worldName, lastAccessDateTime, level);
+        contentPanel.add(saveSlot);
         contentPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Spacing between items
+        saveEntriesMap.put(worldName, saveSlot);
     }
 
     private JPanel createSaveSlot(String worldName, String date, String level) {
