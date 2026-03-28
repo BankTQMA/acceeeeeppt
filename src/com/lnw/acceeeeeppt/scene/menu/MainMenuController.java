@@ -8,10 +8,12 @@ import com.lnw.acceeeeeppt.ui.SceneConstants;
 public class MainMenuController {
     private MainMenuView mainMenuView;
     private MainView mainView;
+    private LoadGameController loadGameController;
 
-    public MainMenuController(MainMenuView mainMenuView, MainView mainView) {
+    public MainMenuController(MainMenuView mainMenuView, MainView mainView, LoadGameController loadGameController) {
         this.mainMenuView = mainMenuView;
         this.mainView = mainView;
+        this.loadGameController = loadGameController;
 
         setupButtonsActionHandler();
     }

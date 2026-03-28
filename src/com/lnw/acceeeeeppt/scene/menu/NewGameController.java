@@ -9,10 +9,12 @@ import com.lnw.acceeeeeppt.ui.SceneConstants;
 public class NewGameController {
     private MainView mainView;
     private NewGameView newGameView;
+    private LoadGameController loadGameController;
 
-    public NewGameController(MainView mainView, NewGameView view) {
+    public NewGameController(MainView mainView, NewGameView view, LoadGameController loadGameController) {
         this.newGameView = view;
         this.mainView = mainView;
+        this.loadGameController = loadGameController;
         this.newGameView.addBackButtonActionListener(e -> onBackButton());
         this.newGameView.addStandardButtonActionListener(e -> onStandardDifficulty());
         this.newGameView.addHardcoreButtonActionListener(e -> onHardcoreDifficulty());

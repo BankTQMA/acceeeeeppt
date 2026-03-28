@@ -19,18 +19,18 @@ public class Main {
             MainView mainView = new MainView();
             MainMenuView mainMenuView = new MainMenuView();
             NewGameView newGameView = new NewGameView();
-            CreditView creditView = new CreditView();
             LoadGameView loadGameView = new LoadGameView();
+            CreditView creditView = new CreditView();
 
-            new MainMenuController(mainMenuView, mainView);
-            new NewGameController(mainView, newGameView);
+            LoadGameController loadGameController = new LoadGameController(mainView, loadGameView);
+            new MainMenuController(mainMenuView, mainView, loadGameController);
+            new NewGameController(mainView, newGameView, loadGameController);
             new CreditController(mainView, creditView);
-            new LoadGameController(mainView, loadGameView);
 
             mainView.registerPanel(mainMenuView, SceneConstants.MAINMENU);
             mainView.registerPanel(newGameView, SceneConstants.NEWGAMEMENU);
-            mainView.registerPanel(creditView, SceneConstants.CREDITMENU);
             mainView.registerPanel(loadGameView, SceneConstants.LOADGAMEMENU);
+            mainView.registerPanel(creditView, SceneConstants.CREDITMENU);
 
             mainView.switchPanelCard(SceneConstants.MAINMENU);
             mainView.setFrameVisibility(true);
