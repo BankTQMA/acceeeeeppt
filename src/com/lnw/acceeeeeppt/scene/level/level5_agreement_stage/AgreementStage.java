@@ -1,4 +1,5 @@
-package AgreementStage;
+package level5_agreement_stage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -45,9 +46,8 @@ public class AgreementStage extends JFrame {
         JPanel textBox = new JPanel(new BorderLayout(0, 6));
         textBox.setBackground(Color.WHITE);
         textBox.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
-            BorderFactory.createEmptyBorder(8, 15, 10, 15)
-        ));
+                BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
+                BorderFactory.createEmptyBorder(8, 15, 10, 15)));
 
         JPanel topRow = new JPanel(new BorderLayout(8, 0));
         topRow.setBackground(Color.WHITE);
@@ -112,21 +112,20 @@ public class AgreementStage extends JFrame {
     }
 
     private void applyIdleDecay() {
-        if (completed || currentClicks <= 0) return;
-        
+        if (completed || currentClicks <= 0)
+            return;
+
         double currentPct = currentClicks / targetClicks;
-        
-        double decayPct = 0.01 + (0.14 * Math.pow(currentPct, 2)); 
-        
+
+        double decayPct = 0.01 + (0.14 * Math.pow(currentPct, 2));
+
         double decay = decayPct * targetClicks;
         currentClicks = Math.max(0, currentClicks - decay);
         updateProgress();
     }
 
-
     private void buildButtons() {
         gridPanel.removeAll();
-
 
         int newRow, newCol;
         do {
@@ -141,8 +140,8 @@ public class AgreementStage extends JFrame {
             for (int c = 0; c < COLS; c++) {
                 boolean isAgree = (r == newRow && c == newCol);
                 JButton btn = isAgree
-                    ? createStyledButton("Agree", new Color(60, 180, 60), new Color(30, 140, 30))
-                    : createStyledButton("Disagree", new Color(220, 40, 40), new Color(170, 20, 20));
+                        ? createStyledButton("Agree", new Color(60, 180, 60), new Color(30, 140, 30))
+                        : createStyledButton("Disagree", new Color(220, 40, 40), new Color(170, 20, 20));
 
                 int x = 20 + c * (BTN_W + GAP);
                 int y = 15 + r * (BTN_H + GAP);
@@ -164,18 +163,20 @@ public class AgreementStage extends JFrame {
     }
 
     private boolean isTooClose(int row, int col) {
-        if (lastAgreeRow == -1) return false;
+        if (lastAgreeRow == -1)
+            return false;
         int dr = Math.abs(row - lastAgreeRow);
         int dc = Math.abs(col - lastAgreeCol);
         return (dr + dc) < 3;
     }
 
     private void onAgree() {
-        if (completed) return;
-        
-        currentClicks = Math.min(targetClicks, currentClicks + 1.5); 
+        if (completed)
+            return;
+
+        currentClicks = Math.min(targetClicks, currentClicks + 1.5);
         updateProgress();
-        
+
         if (currentClicks >= targetClicks) {
             completed = true;
             idleTimer.stop();
@@ -190,7 +191,7 @@ public class AgreementStage extends JFrame {
         double decreasePct = 0.10 + (random.nextDouble() * 0.05);
         currentClicks = Math.max(0, currentClicks - decreasePct * targetClicks);
         updateProgress();
-        JOptionPane.showMessageDialog(this ,"You have to AGREE! Do It Again.", "WRONG!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "You have to AGREE! Do It Again.", "WRONG!", JOptionPane.ERROR_MESSAGE);
         buildButtons();
     }
 
@@ -200,9 +201,12 @@ public class AgreementStage extends JFrame {
         progressBar.setValue(percent);
         percentLabel.setText(percent + "%");
 
-        if (percent < 40) progressBar.setForeground(new Color(220, 40, 40));
-        else if (percent < 70) progressBar.setForeground(new Color(230, 150, 0));
-        else progressBar.setForeground(new Color(60, 180, 60));
+        if (percent < 40)
+            progressBar.setForeground(new Color(220, 40, 40));
+        else if (percent < 70)
+            progressBar.setForeground(new Color(230, 150, 0));
+        else
+            progressBar.setForeground(new Color(60, 180, 60));
     }
 
     private JButton createStyledButton(String text, Color topColor, Color bottomColor) {
