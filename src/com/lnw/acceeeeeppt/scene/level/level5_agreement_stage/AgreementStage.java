@@ -1,4 +1,4 @@
-package level5_agreement_stage;
+package com.lnw.acceeeeeppt.scene.level.level5_agreement_stage;
 
 import javax.swing.*;
 import java.awt.*;
