@@ -37,7 +37,7 @@ public class MainMenuController {
     }
 
     public void onCredit(ActionEvent e) {
-        System.out.println("Credit");
+        mainView.switchPanelCard(SceneConstants.CREDITMENU);
     }
 
     public void onExit(ActionEvent e) {
