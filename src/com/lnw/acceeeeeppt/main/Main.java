@@ -5,6 +5,7 @@ import javax.swing.SwingUtilities;
 import com.lnw.acceeeeeppt.scene.MainView;
 import com.lnw.acceeeeeppt.scene.menu.CreditController;
 import com.lnw.acceeeeeppt.scene.menu.CreditView;
+import com.lnw.acceeeeeppt.scene.menu.LoadGameController;
 import com.lnw.acceeeeeppt.scene.menu.LoadGameView;
 import com.lnw.acceeeeeppt.scene.menu.MainMenuController;
 import com.lnw.acceeeeeppt.scene.menu.MainMenuView;
@@ -24,6 +25,7 @@ public class Main {
             new MainMenuController(mainMenuView, mainView);
             new NewGameController(mainView, newGameView);
             new CreditController(mainView, creditView);
+            new LoadGameController(mainView, loadGameView);
 
             mainView.registerPanel(mainMenuView, SceneConstants.MAINMENU);
             mainView.registerPanel(newGameView, SceneConstants.NEWGAMEMENU);
