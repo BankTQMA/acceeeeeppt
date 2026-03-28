@@ -1,8 +1,27 @@
 package com.lnw.acceeeeeppt.scene.level.level5_agreement_stage;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.util.Random;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 public class Level5AgreementStage extends JFrame {
 
@@ -124,7 +143,9 @@ public class Level5AgreementStage extends JFrame {
     private void buildButtons() {
         gridPanel.removeAll();
 
-        int newRow, newCol;
+        int newRow;
+        int newCol;
+
         do {
             newRow = random.nextInt(ROWS);
             newCol = random.nextInt(COLS);
