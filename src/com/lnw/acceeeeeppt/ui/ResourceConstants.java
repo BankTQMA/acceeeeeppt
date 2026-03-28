@@ -5,5 +5,5 @@ public class ResourceConstants {
         /* This utility class should not be instantiated */
     }
 
-    public static final String TOKIDOKI_ACTIONGAME_PATH = "resources/images/tokidoki_action_game.jpg";
+    public static final String TOKIDOKI_ACTIONGAME_PATH = "resources/images/credits/tokidoki_action_game.jpg";
 }
