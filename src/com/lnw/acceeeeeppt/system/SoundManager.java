@@ -4,6 +4,10 @@ import java.io.File;
 import javax.sound.sampled.*;
 
 public class SoundManager {
+    private SoundManager() {
+        /* This utility class should not be instantiated */
+    }
+
     private static Clip bgmClip;
 
     private static int currentMasterVol = 50;
