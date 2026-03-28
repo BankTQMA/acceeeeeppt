@@ -63,9 +63,13 @@ public class LoadGameController {
                     break;
             }
             PlayerModel newPlayerModel = new PlayerModel(oldPlayerModel, newName);
+            int status = SaveManager.saveToDisk(newPlayerModel);
+            if (status != 0) {
+                loadGameView.showJOptionPaneWarning("Rename operation failed on saving, ABORTING.", "Rename Error");
+                return;
+            }
             SaveManager.deleteSave(oldPlayerModel);
             loadGameView.removeSelectedSaveSlotView();
-            SaveManager.saveToDisk(newPlayerModel);
             loadGameView.addSaveEntries(newPlayerModel.getSaveName(), newPlayerModel.getCurrLevel().toString(),
                     newPlayerModel.getCreatedDateTimeInstant().toString());
         } catch (ClassNotFoundException _) {
