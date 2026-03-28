@@ -1,6 +1,7 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
 import com.lnw.acceeeeeppt.scene.MainView;
+import com.lnw.acceeeeeppt.system.SoundManager;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeListener;
@@ -48,9 +49,7 @@ public class OptionController {
 
         optionView.setUnappliedWarningVisible(false);
 
-        System.out.println("Applied! Master: " + savedMasterVol + " SFX: " + savedSfxVol + " Music: " + savedMusicVol);
-        JOptionPane.showMessageDialog(null, "Settings applied successfully!", "Success",
-                JOptionPane.INFORMATION_MESSAGE);
+        SoundManager.setVolumeSettings(savedMasterVol, savedSfxVol, savedMusicVol);
     }
 
     private void checkUnappliedChanges() {

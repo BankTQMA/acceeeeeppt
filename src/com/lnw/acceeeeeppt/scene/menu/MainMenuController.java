@@ -1,7 +1,7 @@
 package com.lnw.acceeeeeppt.scene.menu;
 
 import java.awt.event.ActionEvent;
-
+import com.lnw.acceeeeeppt.system.SoundManager;
 import com.lnw.acceeeeeppt.scene.MainView;
 import com.lnw.acceeeeeppt.ui.SceneConstants;
 
@@ -16,6 +16,7 @@ public class MainMenuController {
         this.loadGameController = loadGameController;
 
         setupButtonsActionHandler();
+        SoundManager.playBGM("Acid Trumpet.wav");
     }
 
     private void setupButtonsActionHandler() {
