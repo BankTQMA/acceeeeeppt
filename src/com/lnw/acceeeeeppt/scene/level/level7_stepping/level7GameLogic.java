@@ -2,7 +2,7 @@ package com.lnw.acceeeeeppt.scene.level.level7_stepping;
 
 import java.util.Random;
 
-public class level7GameLogic {
+public class Level7GameLogic {
 
     public static final int TOTAL_STAGES = 4;
     private int stage = 1;
@@ -13,6 +13,7 @@ public class level7GameLogic {
     public enum Screen {
         START, GAME, WIN
     }
+
     private Screen currentScreen = Screen.START;
 
     public void rollNewPath() {
