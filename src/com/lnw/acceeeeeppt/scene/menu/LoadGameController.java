@@ -17,7 +17,9 @@ public class LoadGameController {
         this.loadGameView = loadGameView;
 
         this.loadGameView.addBackButtonActionListener(e -> onBack());
+        this.loadGameView.addRenameButtonActionListener(e -> onRename());
         this.loadGameView.addDeleteButtonActionListener(e -> onDelete());
+        this.loadGameView.addLoadButtonActionListener(e -> onLoad());
 
         List<PlayerModel> playerModelList = SaveManager.getAllSaves();
         for (PlayerModel p : playerModelList) {
@@ -39,6 +41,10 @@ public class LoadGameController {
         mainView.switchPanelCard(SceneConstants.MAINMENU);
     }
 
+    private void onRename() {
+
+    }
+
     private void onDelete() {
         String worldName = loadGameView.getSelectedWorldName();
         if (worldName == null) {
@@ -53,5 +59,9 @@ public class LoadGameController {
         }
         loadGameView.showJOptionPaneInfo("World deletion success.", "Deletion Success");
         loadGameView.removeSelectedSaveSlotView();
+    }
+
+    private void onLoad() {
+
     }
 }
