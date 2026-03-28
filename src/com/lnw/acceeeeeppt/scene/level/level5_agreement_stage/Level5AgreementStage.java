@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 public class Level5AgreementStage extends JPanel {
@@ -238,9 +237,5 @@ public class Level5AgreementStage extends JPanel {
         btn.setContentAreaFilled(false);
         btn.setOpaque(false);
         return btn;
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Level5AgreementStage().setVisible(true));
     }
 }
