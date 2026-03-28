@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionListener;
@@ -31,6 +32,7 @@ public class CreditView extends JPanel {
     private JLabel titleLabel;
     private JLabel pictureLabel;
     private JLabel creditMessageLabel;
+    private JButton agreeeeButton;
 
     public CreditView() {
         // Container initialisation
@@ -79,14 +81,21 @@ public class CreditView extends JPanel {
                 </html>
                     """);
 
+        agreeeeButton = new JButton("Agreeee");
+        agreeeeButton.setFont(FontPresets.H1PLAINFONT);
+        agreeeeButton.setPreferredSize(
+                new Dimension(agreeeeButton.getPreferredSize().width + 100, agreeeeButton.getPreferredSize().height));
+
         creditMessageAndButtonPanel.add(creditMessageLabel);
+        creditMessageAndButtonPanel.add(Box.createHorizontalStrut(10));
+        creditMessageAndButtonPanel.add(agreeeeButton);
 
         topBar.add(backButton, BorderLayout.WEST);
 
         contentPanel.add(titleLabel);
         contentPanel.add(Box.createVerticalStrut(10));
         contentPanel.add(pictureLabel);
-        contentPanel.add(Box.createVerticalStrut(20));
+        contentPanel.add(Box.createVerticalStrut(15));
         contentPanel.add(creditMessageAndButtonPanel);
 
         add(topBar, BorderLayout.NORTH);
