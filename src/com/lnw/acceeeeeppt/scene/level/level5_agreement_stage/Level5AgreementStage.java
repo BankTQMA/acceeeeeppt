@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -20,6 +19,8 @@ import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
+
+import com.lnw.acceeeeeppt.ui.FontPresets;
 
 public class Level5AgreementStage extends JPanel {
 
@@ -63,7 +64,7 @@ public class Level5AgreementStage extends JPanel {
         topRow.setBackground(Color.WHITE);
 
         JLabel subLabel = new JLabel("About addictiveness");
-        subLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        subLabel.setFont(FontPresets.REGULARPLAINFONT);
         subLabel.setForeground(new Color(130, 130, 130));
 
         progressBar = new JProgressBar(0, 100);
@@ -75,7 +76,7 @@ public class Level5AgreementStage extends JPanel {
         progressBar.setBorderPainted(true);
 
         percentLabel = new JLabel("0%");
-        percentLabel.setFont(new Font("Arial", Font.PLAIN, 11));
+        percentLabel.setFont(FontPresets.REGULARPLAINFONT);
         percentLabel.setForeground(new Color(80, 80, 80));
         percentLabel.setPreferredSize(new Dimension(32, 14));
         percentLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -91,7 +92,7 @@ public class Level5AgreementStage extends JPanel {
         String content = "(1) The developer shall not be held responsible in anyway if a user becomes " +
                 "too absorbed in this game and it interfaces with their work, studies, or social life.";
         JTextArea textArea = new JTextArea(content);
-        textArea.setFont(new Font("Arial", Font.BOLD, 14));
+        textArea.setFont(FontPresets.REGULARBOLDFONT);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         textArea.setEditable(false);
@@ -230,7 +231,7 @@ public class Level5AgreementStage extends JPanel {
                 super.paintComponent(g);
             }
         };
-        btn.setFont(new Font("Arial", Font.BOLD, 13));
+        btn.setFont(FontPresets.REGULARBOLDFONT);
         btn.setForeground(Color.WHITE);
         btn.setFocusPainted(false);
         btn.setBorderPainted(false);
