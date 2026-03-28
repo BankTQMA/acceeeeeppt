@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeListener;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
@@ -100,7 +101,7 @@ public class OptionView extends JPanel {
 
         add(contentPanel, BorderLayout.CENTER);
 
-        bottomBar = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        bottomBar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         madeWithHeartLabel = new JLabel("Made with ❤️ for your potato PC.");
         bottomBar.add(madeWithHeartLabel);
         add(bottomBar, BorderLayout.SOUTH);
