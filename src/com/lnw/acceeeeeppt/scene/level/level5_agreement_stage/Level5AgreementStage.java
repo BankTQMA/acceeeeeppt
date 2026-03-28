@@ -104,9 +104,7 @@ public class Level5AgreementStage extends JFrame {
         buildButtons();
         add(gridWrapper, BorderLayout.CENTER);
 
-        idleTimer = new Timer(500, e -> {
-            applyIdleDecay();
-        });
+        idleTimer = new Timer(500, e -> applyIdleDecay());
         idleTimer.start();
     }
 
