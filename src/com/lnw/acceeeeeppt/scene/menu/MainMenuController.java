@@ -29,7 +29,7 @@ public class MainMenuController {
     }
 
     public void onLoadGame(ActionEvent e) {
-        System.out.println("Load");
+        mainView.switchPanelCard(SceneConstants.LOADGAMEMENU);
     }
 
     public void onOption(ActionEvent e) {
