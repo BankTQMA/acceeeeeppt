@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class MainGame {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Agreement Idle - Level 9");
+        JFrame frame = new JFrame("Level 9 Idle Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(850, 750);
         frame.setLayout(new GridLayout(2, 1)); 
