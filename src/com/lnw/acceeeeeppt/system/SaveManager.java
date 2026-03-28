@@ -77,6 +77,23 @@ public class SaveManager {
         return 0;
     }
 
+    public static PlayerModel getPlayerModelByName(String saveName)
+            throws IOException, ClassNotFoundException {
+        String hash = hashTextSHA256(saveName);
+        String fileName = hash != null ? hash + ".dat" : saveName + ".dat";
+        Path path = Paths.get("saves", fileName);
+
+        if (!path.toFile().exists()) {
+            System.out.println("Save file not found: " + saveName);
+            return null;
+        }
+
+        try (FileInputStream fis = new FileInputStream(path.toFile());
+                ObjectInputStream ois = new ObjectInputStream(fis);) {
+            return (PlayerModel) ois.readObject();
+        }
+    }
+
     public static List<PlayerModel> getAllSaves() {
         List<PlayerModel> saves = new ArrayList<>();
         Path savesPath = Paths.get("saves");
