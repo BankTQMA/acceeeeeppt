@@ -126,8 +126,7 @@ public class Level5AgreementStage extends JPanel {
 
         double currentPct = currentClicks / targetClicks;
 
-        double decayPct = 0.01 + (0.14 * Math.pow(currentPct, 2));
-
+        double decayPct = 0.04 + (0.20 * Math.pow(currentPct, 2));
         double decay = decayPct * targetClicks;
         currentClicks = Math.max(0, currentClicks - decay);
         updateProgress();
@@ -138,7 +137,6 @@ public class Level5AgreementStage extends JPanel {
 
         int newRow;
         int newCol;
-
         do {
             newRow = random.nextInt(ROWS);
             newCol = random.nextInt(COLS);
