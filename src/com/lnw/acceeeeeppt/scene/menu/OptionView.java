@@ -81,6 +81,10 @@ public class OptionView extends JPanel {
 
         revertButton = new JButton("Revert");
         applyButton = new JButton("Apply");
+
+        revertButton.setFont(FontPresets.H2PLAINFONT);
+        applyButton.setFont(FontPresets.H2PLAINFONT);
+
         actionButtonPanel.add(revertButton);
         actionButtonPanel.add(applyButton);
 
