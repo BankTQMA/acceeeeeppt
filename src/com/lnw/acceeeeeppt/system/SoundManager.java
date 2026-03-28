@@ -12,7 +12,7 @@ public class SoundManager {
 
     // If the sound didn't play you can delete this path and Shft + Alt + C at
     // "sounds" folder and then paste it in here
-    private static final String SOUND_FOLDER = "C:\\Users\\Windows\\Desktop\\acceeeeeppt\\resources\\sounds";
+    private static final String SOUND_FOLDER = "resources/sounds";
 
     private static File findAudioFile(String fileName) {
         File folder = new File(SOUND_FOLDER);
