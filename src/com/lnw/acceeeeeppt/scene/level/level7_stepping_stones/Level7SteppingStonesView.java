@@ -12,12 +12,11 @@ import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class Level7SteppingStonesView extends JFrame {
+public class Level7SteppingStonesView extends JPanel {
 
     private final Level7SteppingStonesModel logic;
     private final CardLayout cardLayout = new CardLayout();
@@ -29,10 +28,7 @@ public class Level7SteppingStonesView extends JFrame {
 
     public Level7SteppingStonesView(Level7SteppingStonesModel logic) {
         this.logic = logic;
-        setTitle("Stepping Stones");
         setSize(460, 315);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
 
         mainPanel.add(createStartPanel(), "START");
         mainPanel.add(createGamePanel(), "GAME");
