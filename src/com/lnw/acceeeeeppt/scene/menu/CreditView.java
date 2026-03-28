@@ -3,6 +3,7 @@ package com.lnw.acceeeeeppt.scene.menu;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -25,14 +26,17 @@ import com.lnw.acceeeeeppt.ui.SceneConstants;
 public class CreditView extends JPanel {
     private JPanel topBar;
     private JPanel contentPanel;
+    private JPanel creditMessageAndButtonPanel;
     private JButton backButton;
     private JLabel titleLabel;
     private JLabel pictureLabel;
+    private JLabel creditMessageLabel;
 
     public CreditView() {
         // Container initialisation
         topBar = new JPanel();
         contentPanel = new JPanel();
+        creditMessageAndButtonPanel = new JPanel();
 
         // Container configuration
         setLayout(new BorderLayout());
@@ -40,6 +44,7 @@ public class CreditView extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
                 MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+        creditMessageAndButtonPanel.setLayout(new FlowLayout());
 
         backButton = new JButton("< Back");
         backButton.setBorderPainted(false);
@@ -64,11 +69,25 @@ public class CreditView extends JPanel {
 
         pictureLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        /* language=html */
+        creditMessageLabel = new JLabel("""
+                <html>
+                    <b>Inspired by Agreeee — </b>
+                    a brilliantly frustrating experience.<br>
+                    This version is an original re-implementation built from scratch<br>
+                    for learning and experimentation.<br>
+                </html>
+                    """);
+
+        creditMessageAndButtonPanel.add(creditMessageLabel);
+
         topBar.add(backButton, BorderLayout.WEST);
 
         contentPanel.add(titleLabel);
         contentPanel.add(Box.createVerticalStrut(10));
         contentPanel.add(pictureLabel);
+        contentPanel.add(Box.createVerticalStrut(20));
+        contentPanel.add(creditMessageAndButtonPanel);
 
         add(topBar, BorderLayout.NORTH);
         add(contentPanel, BorderLayout.CENTER);
