@@ -24,10 +24,16 @@ import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
 
 public class LoadGameView extends JPanel {
+    private final Color defaultBorder = new Color(30, 50, 100);
+    private final Color selectedBorder = new Color(0, 120, 215); // Bright Blue
+    private final Color selectedBG = new Color(230, 240, 255); // Light Blue Highlight
+
     private JPanel topBar;
     private JPanel contentPanel;
     private JPanel bottomBar;
     private JScrollPane scrollPane;
+    private JPanel currentlySelectedSlot;
+    private String selectedWorldName;
 
     private JButton backButton;
     private JButton renameButton;
@@ -92,18 +98,16 @@ public class LoadGameView extends JPanel {
         slot.setBackground(Color.WHITE);
 
         slot.setBorder(BorderFactory.createCompoundBorder(
-                new LineBorder(new Color(30, 50, 100), 2),
+                new LineBorder(defaultBorder, 2),
                 new EmptyBorder(10, 15, 10, 15)));
-
         slot.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
         slot.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         JPanel leftInfo = new JPanel(new GridLayout(2, 1, 0, 5));
-        leftInfo.setBackground(Color.WHITE);
+        leftInfo.setOpaque(false);
 
         JLabel nameLabel = new JLabel(worldName);
         nameLabel.setFont(FontPresets.H2BOLDFONT);
-
         JLabel dateLabel = new JLabel("Last accessed: " + date);
 
         leftInfo.add(nameLabel);
@@ -119,7 +123,36 @@ public class LoadGameView extends JPanel {
         slot.add(leftInfo, BorderLayout.CENTER);
         slot.add(lvlLabel, BorderLayout.EAST);
 
+        slot.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent e) {
+                setSlotSelected(slot, worldName);
+            }
+        });
+
         return slot;
+    }
+
+    private void setSlotSelected(JPanel slot, String worldName) {
+
+        // Revert the previously selected slot back to normal colors
+        if (currentlySelectedSlot != null) {
+            currentlySelectedSlot.setBackground(Color.WHITE);
+            currentlySelectedSlot.setBorder(BorderFactory.createCompoundBorder(
+                    new LineBorder(defaultBorder, 2),
+                    new EmptyBorder(10, 15, 10, 15)));
+        }
+
+        // Apply highlight colors to the newly clicked slot
+        currentlySelectedSlot = slot;
+        this.selectedWorldName = worldName;
+
+        currentlySelectedSlot.setBackground(selectedBG);
+        currentlySelectedSlot.setBorder(BorderFactory.createCompoundBorder(
+                new LineBorder(selectedBorder, 2),
+                new EmptyBorder(10, 15, 10, 15)));
+
+        contentPanel.repaint();
     }
 
     private JButton createActionButton(String text, boolean longButton) {
@@ -149,4 +182,7 @@ public class LoadGameView extends JPanel {
         loadButton.addActionListener(l);
     }
 
+    public String getSelectedWorldName() {
+        return selectedWorldName;
+    }
 }
