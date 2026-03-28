@@ -1,14 +1,25 @@
 package com.lnw.acceeeeeppt.model;
 
 import java.io.Serializable;
+import java.time.Instant;
 
 public class PlayerModel implements Serializable {
     private String saveName;
     private Level currLevel;
+    private Instant createdDateTimeInstant;
 
     public PlayerModel(String saveName) {
         this.saveName = saveName;
+        this.createdDateTimeInstant = Instant.now();
         currLevel = Level.INITIAL;
+    }
+
+    /* For cloning a save object */
+    public PlayerModel(PlayerModel playerModel, String newSaveName) {
+        this.saveName = newSaveName;
+
+        this.currLevel = playerModel.currLevel;
+        this.createdDateTimeInstant = playerModel.createdDateTimeInstant;
     }
 
     public String getSaveName() {
@@ -25,6 +36,14 @@ public class PlayerModel implements Serializable {
 
     public void setCurrLevel(Level currLevel) {
         this.currLevel = currLevel;
+    }
+
+    public Instant getCreatedDateTimeInstant() {
+        return createdDateTimeInstant;
+    }
+
+    public void setCreatedDateTimeInstant(Instant timeStampInstant) {
+        this.createdDateTimeInstant = timeStampInstant;
     }
 
 }

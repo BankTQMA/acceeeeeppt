@@ -1,8 +1,9 @@
 package com.lnw.acceeeeeppt.system;
 
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -10,6 +11,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 import com.lnw.acceeeeeppt.model.PlayerModel;
 
@@ -18,7 +22,7 @@ public class SaveManager {
         /* This utility class should not be instantiated */
     }
 
-    public static String toHexString(byte[] hash) {
+    private static String toHexString(byte[] hash) {
         StringBuilder hexString = new StringBuilder(2 * hash.length);
         for (byte b : hash) {
             String hex = Integer.toHexString(0xff & b);
@@ -30,6 +34,17 @@ public class SaveManager {
         return hexString.toString();
     }
 
+    public static String hashTextSHA256(String text) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] encodedHash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
+            text = toHexString(encodedHash);
+        } catch (NoSuchAlgorithmException _) {
+            return null;
+        }
+        return text;
+    }
+
     public static PlayerModel createNewPlayerModel(String saveName) {
         return new PlayerModel(saveName);
     }
@@ -39,14 +54,8 @@ public class SaveManager {
      * @return 0 on success, 1 on file exists, 2 on IOException
      */
     public static int saveToDisk(PlayerModel playerModel) {
-        String fileName = playerModel.getSaveName();
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] encodedHash = digest.digest(fileName.getBytes(StandardCharsets.UTF_8));
-            fileName = toHexString(encodedHash) + ".dat";
-        } catch (NoSuchAlgorithmException _) {
-            fileName += ".dat";
-        }
+        String hash = hashTextSHA256(playerModel.getSaveName());
+        String fileName = hash != null ? hash + ".dat" : playerModel.getSaveName() + ".dat";
         Path path = Paths.get("saves", fileName);
 
         try {
@@ -66,5 +75,62 @@ public class SaveManager {
         }
 
         return 0;
+    }
+
+    public static PlayerModel getPlayerModelByName(String saveName)
+            throws IOException, ClassNotFoundException {
+        String hash = hashTextSHA256(saveName);
+        String fileName = hash != null ? hash + ".dat" : saveName + ".dat";
+        Path path = Paths.get("saves", fileName);
+
+        if (!path.toFile().exists()) {
+            System.out.println("Save file not found: " + saveName);
+            return null;
+        }
+
+        try (FileInputStream fis = new FileInputStream(path.toFile());
+                ObjectInputStream ois = new ObjectInputStream(fis);) {
+            return (PlayerModel) ois.readObject();
+        }
+    }
+
+    public static List<PlayerModel> getAllSaves() {
+        List<PlayerModel> saves = new ArrayList<>();
+        Path savesPath = Paths.get("saves");
+
+        if (!Files.exists(savesPath) || !Files.isDirectory(savesPath)) {
+            return saves;
+        }
+
+        try (Stream<Path> paths = Files.walk(savesPath)) {
+            paths.filter(Files::isRegularFile)
+                    .filter(p -> p.toString().endsWith(".dat"))
+                    .forEach(path -> {
+                        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path.toFile()))) {
+                            Object obj = ois.readObject();
+                            if (obj instanceof PlayerModel playerModel) {
+                                saves.add(playerModel);
+                            }
+                        } catch (IOException | ClassNotFoundException e) {
+                            // Log error but continue to next file
+                            System.err.println("Failed to load save file: " + path.getFileName());
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return saves;
+    }
+
+    public static void deleteSave(String saveName) throws IOException {
+        String hash = hashTextSHA256(saveName);
+        String fileName = (hash != null ? hash : saveName) + ".dat";
+        Files.delete(Paths.get("saves", fileName));
+    }
+
+    public static void deleteSave(PlayerModel playerModel) throws IOException {
+        deleteSave(playerModel.getSaveName());
     }
 }

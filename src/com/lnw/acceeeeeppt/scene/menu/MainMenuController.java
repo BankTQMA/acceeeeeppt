@@ -8,10 +8,12 @@ import com.lnw.acceeeeeppt.ui.SceneConstants;
 public class MainMenuController {
     private MainMenuView mainMenuView;
     private MainView mainView;
+    private LoadGameController loadGameController;
 
-    public MainMenuController(MainMenuView mainMenuView, MainView mainView) {
+    public MainMenuController(MainMenuView mainMenuView, MainView mainView, LoadGameController loadGameController) {
         this.mainMenuView = mainMenuView;
         this.mainView = mainView;
+        this.loadGameController = loadGameController;
 
         setupButtonsActionHandler();
     }
@@ -29,7 +31,8 @@ public class MainMenuController {
     }
 
     public void onLoadGame(ActionEvent e) {
-        System.out.println("Load");
+        mainView.switchPanelCard(SceneConstants.LOADGAMEMENU);
+        loadGameController.refreshLoadGameView();
     }
 
     public void onOption(ActionEvent e) {

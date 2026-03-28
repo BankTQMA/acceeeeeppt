@@ -9,10 +9,12 @@ import com.lnw.acceeeeeppt.ui.SceneConstants;
 public class NewGameController {
     private MainView mainView;
     private NewGameView newGameView;
+    private LoadGameController loadGameController;
 
-    public NewGameController(MainView mainView, NewGameView view) {
+    public NewGameController(MainView mainView, NewGameView view, LoadGameController loadGameController) {
         this.newGameView = view;
         this.mainView = mainView;
+        this.loadGameController = loadGameController;
         this.newGameView.addBackButtonActionListener(e -> onBackButton());
         this.newGameView.addStandardButtonActionListener(e -> onStandardDifficulty());
         this.newGameView.addHardcoreButtonActionListener(e -> onHardcoreDifficulty());
@@ -41,9 +43,16 @@ public class NewGameController {
             return;
         PlayerModel playerModel = SaveManager.createNewPlayerModel(newGameView.getSaveNameText());
         int status = SaveManager.saveToDisk(playerModel);
-        if (status == 2)
+        if (status == 2) {
             newGameView.showJOptionPaneWarning("Error writing to disk.", "IO Exception");
-        if (status == 1)
+            return;
+        }
+        if (status == 1) {
             newGameView.showJOptionPaneWarning("Filename already exists, please rename.", "Duplicate File");
+            return;
+        }
+
+        loadGameController.addSaveEntriesView(playerModel.getSaveName(), playerModel.getCurrLevel().toString(),
+                playerModel.getCreatedDateTimeInstant().toString());
     }
 }

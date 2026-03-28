@@ -5,6 +5,8 @@ import javax.swing.SwingUtilities;
 import com.lnw.acceeeeeppt.scene.MainView;
 import com.lnw.acceeeeeppt.scene.menu.CreditController;
 import com.lnw.acceeeeeppt.scene.menu.CreditView;
+import com.lnw.acceeeeeppt.scene.menu.LoadGameController;
+import com.lnw.acceeeeeppt.scene.menu.LoadGameView;
 import com.lnw.acceeeeeppt.scene.menu.MainMenuController;
 import com.lnw.acceeeeeppt.scene.menu.MainMenuView;
 import com.lnw.acceeeeeppt.scene.menu.NewGameController;
@@ -17,14 +19,17 @@ public class Main {
             MainView mainView = new MainView();
             MainMenuView mainMenuView = new MainMenuView();
             NewGameView newGameView = new NewGameView();
+            LoadGameView loadGameView = new LoadGameView();
             CreditView creditView = new CreditView();
 
-            new MainMenuController(mainMenuView, mainView);
-            new NewGameController(mainView, newGameView);
+            LoadGameController loadGameController = new LoadGameController(mainView, loadGameView);
+            new MainMenuController(mainMenuView, mainView, loadGameController);
+            new NewGameController(mainView, newGameView, loadGameController);
             new CreditController(mainView, creditView);
 
             mainView.registerPanel(mainMenuView, SceneConstants.MAINMENU);
             mainView.registerPanel(newGameView, SceneConstants.NEWGAMEMENU);
+            mainView.registerPanel(loadGameView, SceneConstants.LOADGAMEMENU);
             mainView.registerPanel(creditView, SceneConstants.CREDITMENU);
 
             mainView.switchPanelCard(SceneConstants.MAINMENU);
