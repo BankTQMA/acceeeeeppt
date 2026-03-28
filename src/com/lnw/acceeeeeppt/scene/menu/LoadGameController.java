@@ -42,7 +42,38 @@ public class LoadGameController {
     }
 
     private void onRename() {
+        String worldName = loadGameView.getSelectedWorldName();
+        if (worldName == null) {
+            loadGameView.showJOptionPaneInfo("Please select a world before pressing a rename button",
+                    "World not Selected");
+        }
 
+        try {
+            PlayerModel oldPlayerModel = SaveManager.getPlayerModelByName(worldName);
+
+            String newName = null;
+            while (true) {
+                newName = loadGameView.showJOptionPaneInputDialog("Please new a new name", "Rename");
+                if (newName == null)
+                    return;
+                if (newName.equals(""))
+                    loadGameView.showJOptionPaneWarning("Invalid name, please try again.", "Invalid Name");
+                else
+                    break;
+            }
+            PlayerModel newPlayerModel = new PlayerModel(oldPlayerModel, newName);
+            SaveManager.deleteSave(oldPlayerModel);
+            loadGameView.removeSelectedSaveSlotView();
+            SaveManager.saveToDisk(newPlayerModel);
+            loadGameView.addSaveEntries(newPlayerModel.getSaveName(), newPlayerModel.getCurrLevel().toString(),
+                    newPlayerModel.getCreatedDateTimeInstant().toString());
+        } catch (ClassNotFoundException _) {
+            loadGameView.showJOptionPaneWarning("For some reason, the savefile is corrupted, so... Good luck!",
+                    "Save Corrupted");
+        } catch (IOException _) {
+            loadGameView.showJOptionPaneWarning("Read/Write error, please check your disk and try again later.",
+                    "IO Exception");
+        }
     }
 
     private void onDelete() {
