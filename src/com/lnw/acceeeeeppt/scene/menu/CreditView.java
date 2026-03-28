@@ -105,4 +105,8 @@ public class CreditView extends JPanel {
     public void addBackButtonActionListener(ActionListener l) {
         backButton.addActionListener(l);
     }
+
+    public void addAgreeeeButtonActionListener(ActionListener l) {
+        agreeeeButton.addActionListener(l);
+    }
 }

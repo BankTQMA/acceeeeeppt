@@ -12,9 +12,14 @@ public class CreditController {
         this.mainView = mainView;
 
         this.creditView.addBackButtonActionListener(e -> onBackButton());
+        this.creditView.addAgreeeeButtonActionListener(e -> onAgreeeeButton());
     }
 
     private void onBackButton() {
         mainView.switchPanelCard(SceneConstants.MAINMENU);
+    }
+
+    private void onAgreeeeButton() {
+
     }
 }
