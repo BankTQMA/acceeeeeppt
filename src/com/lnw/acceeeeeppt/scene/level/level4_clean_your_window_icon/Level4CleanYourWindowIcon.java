@@ -210,8 +210,4 @@ public class Level4CleanYourWindowIcon extends JPanel {
                 break;
         }
     }
-
-    public static void main(String[] args) {
-        new Level4CleanYourWindowIcon();
-    }
 }
