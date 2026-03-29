@@ -34,7 +34,7 @@ public class LevelPassView extends JPanel {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
                 MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
-        buttonRowPanel.setLayout(new FlowLayout());
+        buttonRowPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         passLabel.setForeground(new Color(0xFFFFFF));
         passLabel.setFont(FontPresets.PASSFAILFONT);
