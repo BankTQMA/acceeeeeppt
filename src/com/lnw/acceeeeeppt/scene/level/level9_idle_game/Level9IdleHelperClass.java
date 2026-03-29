@@ -3,7 +3,7 @@ package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 import javax.swing.*;
 import java.awt.*;
 
-public class Level9IdleHelperClass {
+class Level9IdleHelperClass {
     public static JButton createButton(String name, int cost, String effect) {
         JButton btn = new JButton();
         btn.setBackground(new Color(240, 240, 240));

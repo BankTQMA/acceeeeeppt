@@ -3,7 +3,7 @@ package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 import javax.swing.*;
 import java.awt.*;
 
-public class Level9IdleGameView extends JPanel implements Runnable {
+class Level9IdleGameView extends JPanel implements Runnable {
     private Level9IdleModel game;
     private JLabel pointsLbl, incomeLbl, timerLbl;
     private JButton upg1, upg2, upg3, keyBtn;

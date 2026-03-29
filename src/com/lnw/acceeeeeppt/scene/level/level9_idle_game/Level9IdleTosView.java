@@ -3,7 +3,7 @@ package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 import javax.swing.*;
 import java.awt.*;
 
-public class Level9IdleTosView extends JPanel {
+class Level9IdleTosView extends JPanel {
     public Level9IdleTosView(Level9IdleModel game) {
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
