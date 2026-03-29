@@ -18,7 +18,9 @@ public class LevelFailController {
     }
 
     private void onRetry() {
-
+        // TODO: Add method in old controller to dispose old M,V,C
+        // mainView.restart(currSceneIdentifier);
+        dispose();
     }
 
     private void onMainMenu() {
