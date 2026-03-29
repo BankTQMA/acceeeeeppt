@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Lv10 extends JFrame {
+public class Level10ReadItAllBeforePass extends JFrame {
 
     private JButton acceptButton;
     private JScrollPane scrollPane;
@@ -89,7 +89,7 @@ public class Lv10 extends JFrame {
             +
             "                                                                                                                                              If anything strange happens, please consider it part of the experience.\n\n";
 
-    public Lv10() {
+    public Level10ReadItAllBeforePass() {
         setTitle("Term of Information usage");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -159,7 +159,7 @@ public class Lv10 extends JFrame {
         acceptButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
 
         acceptButton.addActionListener(e -> {
-            JOptionPane.showMessageDialog(Lv10.this,
+            JOptionPane.showMessageDialog(Level10ReadItAllBeforePass.this,
                     "Congratulations! You unlocked the secret terms.",
                     "Level Cleared",
                     JOptionPane.INFORMATION_MESSAGE);
@@ -377,7 +377,7 @@ public class Lv10 extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new Lv10().setVisible(true);
+            new Level10ReadItAllBeforePass().setVisible(true);
         });
     }
 }
