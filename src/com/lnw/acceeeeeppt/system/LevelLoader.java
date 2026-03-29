@@ -1,7 +1,5 @@
 package com.lnw.acceeeeeppt.system;
 
-import javax.swing.JOptionPane;
-
 import com.lnw.acceeeeeppt.scene.MainView;
 import com.lnw.acceeeeeppt.scene.level.level2_term_of_investment.Level2InvestController;
 import com.lnw.acceeeeeppt.scene.level.level2_term_of_investment.Level2InvestIntegration;
