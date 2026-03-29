@@ -228,6 +228,9 @@ public class Level4CleanYourWindowIcon extends JPanel {
                 fileLabel.setLocation(350, 150);
                 binLabel.setLocation(120, 150);
                 break;
+
+            default:
+                break;
         }
     }
 }
