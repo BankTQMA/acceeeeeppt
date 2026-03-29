@@ -2,7 +2,7 @@ package com.lnw.acceeeeeppt.scene.level.level3_term_of_service;
 
 import java.util.Arrays;
 
-public class Level3CheckboxPuzzle {
+class Level3CheckboxPuzzle {
     private boolean[] checkboxes;
     private boolean isSolved;
 

@@ -7,7 +7,7 @@ import java.awt.RenderingHints;
 import java.awt.Color;
 import java.awt.Font;
 
-public abstract class Level3BaseGameLevel extends JPanel implements Level3GameLevel {
+abstract class Level3BaseGameLevel extends JPanel implements Level3GameLevel {
     protected int readProgress = 0;
     protected boolean isReadingComplete = false;
 
