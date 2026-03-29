@@ -28,6 +28,7 @@ public class Level4CleanYourWindowIcon extends JPanel {
     private JLabel bgLabel;
     private int round = 1;
     private static final int MAX_ROUND = 10;
+    private static final String RECYCLEBIN = "Recycle Bin";
     private JLabel draggedLabel = null;
     private Random rand = new Random();
     private ImageIcon fileIcon;
@@ -57,7 +58,7 @@ public class Level4CleanYourWindowIcon extends JPanel {
         fileLabel.setBounds(120, 150, 120, 100);
         add(fileLabel);
 
-        binLabel = new JLabel("Recycle Bin", binIcon, SwingConstants.CENTER);
+        binLabel = new JLabel(RECYCLEBIN, binIcon, SwingConstants.CENTER);
         binLabel.setHorizontalTextPosition(SwingConstants.CENTER);
         binLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
         binLabel.setBounds(350, 150, 120, 100);
@@ -196,14 +197,14 @@ public class Level4CleanYourWindowIcon extends JPanel {
 
             case 0:
                 fileLabel.setText("File" + round);
-                binLabel.setText("Recycle Bin");
+                binLabel.setText(RECYCLEBIN);
 
                 fileLabel.setIcon(fileIcon);
                 binLabel.setIcon(binIcon);
                 break;
 
             case 1:
-                fileLabel.setText("Recycle Bin");
+                fileLabel.setText(RECYCLEBIN);
                 binLabel.setText("File" + round);
 
                 fileLabel.setIcon(fileIcon);
@@ -212,7 +213,7 @@ public class Level4CleanYourWindowIcon extends JPanel {
 
             case 2:
                 fileLabel.setText("File" + round);
-                binLabel.setText("Recycle Bin");
+                binLabel.setText(RECYCLEBIN);
 
                 fileLabel.setIcon(binIcon);
                 binLabel.setIcon(fileIcon);
@@ -220,7 +221,7 @@ public class Level4CleanYourWindowIcon extends JPanel {
 
             case 3:
                 fileLabel.setText("File" + round);
-                binLabel.setText("Recycle Bin");
+                binLabel.setText(RECYCLEBIN);
 
                 fileLabel.setIcon(fileIcon);
                 binLabel.setIcon(binIcon);
