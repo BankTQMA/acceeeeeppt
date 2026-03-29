@@ -1,15 +1,28 @@
 package com.lnw.acceeeeeppt.scene.transition;
 
+import com.lnw.acceeeeeppt.scene.MainView;
+import com.lnw.acceeeeeppt.ui.SceneConstants;
+
 public class LevelPassController {
-    public LevelPassController() {
+    LevelPassView levelPassView;
+    MainView mainView;
+    String nextScene;
 
+    public LevelPassController(LevelPassView levelPassView, MainView mainView, String nextScene) {
+        this.levelPassView = levelPassView;
+        this.mainView = mainView;
+        this.nextScene = nextScene;
+
+        this.levelPassView.addMainMenuButtonActionListener(e -> onMainMenu());
+        this.levelPassView.addSaveAndContinueButtonActionListener(e -> onSaveAndContinue());
     }
 
-    private onMainMenu() {
-
+    private void onMainMenu() {
+        mainView.switchPanelCard(SceneConstants.MAINMENU);
     }
 
-    private onContinue() {
-
+    private void onSaveAndContinue() {
+        // TODO: Saving system
+        mainView.switchPanelCard(nextScene);
     }
 }
