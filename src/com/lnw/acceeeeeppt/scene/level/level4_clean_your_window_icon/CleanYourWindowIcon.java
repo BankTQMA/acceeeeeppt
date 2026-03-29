@@ -1,4 +1,4 @@
-package com.lnw.acceeeeepppt.scene.level.level4_clean;
+package com.lnw.acceeeeeppt.scene.level.level4_clean_your_window_icon;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,12 +23,12 @@ public class CleanYourWindowIcon extends JFrame {
         ImageIcon rawFile = new ImageIcon("resources/images/file.png");
         Image fileImg = rawFile.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
         fileIcon = new ImageIcon(fileImg);
-        
-        ImageIcon rawBin  = new ImageIcon( "resources/images/bin.png");
+
+        ImageIcon rawBin = new ImageIcon("resources/images/bin.png");
         Image binImg = rawBin.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
         binIcon = new ImageIcon(binImg);
-        
-        ImageIcon bgIcon  = new ImageIcon("resources/images/bg.jpg");
+
+        ImageIcon bgIcon = new ImageIcon("resources/images/bg.jpg");
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         Image bgImg = bgIcon.getImage().getScaledInstance(screen.width, screen.height, Image.SCALE_SMOOTH);
 
@@ -46,17 +46,17 @@ public class CleanYourWindowIcon extends JFrame {
         binLabel.setVerticalTextPosition(JLabel.BOTTOM);
         binLabel.setBounds(350, 150, 120, 100);
         add(binLabel);
-        
+
         getContentPane().add(bgLabel);
-        getContentPane().setComponentZOrder(bgLabel, getContentPane().getComponentCount()-1);
+        getContentPane().setComponentZOrder(bgLabel, getContentPane().getComponentCount() - 1);
         enableDrag(fileLabel);
         enableDrag(binLabel);
-        
+
         nextRound();
         setVisible(true);
         showMessageFrame();
     }
-    
+
     private void showMessageFrame() {
         JDialog dialog = new JDialog(this, "Message", true);
 
@@ -71,14 +71,14 @@ public class CleanYourWindowIcon extends JFrame {
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }
-    
+
     private void enableDrag(JLabel label) {
         label.addMouseMotionListener(new MouseMotionAdapter() {
             public void mouseDragged(MouseEvent e) {
                 draggedLabel = label;
-                
+
                 label.setLocation(label.getX() + e.getX() - 60,
-                                  label.getY() + e.getY() - 50);
+                        label.getY() + e.getY() - 50);
             }
         });
 
@@ -90,7 +90,8 @@ public class CleanYourWindowIcon extends JFrame {
     }
 
     private void checkDrop() {
-        if (draggedLabel == null) return;
+        if (draggedLabel == null)
+            return;
 
         JLabel targetLabel = (draggedLabel == fileLabel) ? binLabel : fileLabel;
 
@@ -102,15 +103,15 @@ public class CleanYourWindowIcon extends JFrame {
 
         boolean overlap = r1.intersects(r2);
 
-        if (!overlap) return;
+        if (!overlap)
+            return;
 
         String dragText = draggedLabel.getText();
         String targetText = targetLabel.getText();
 
         if (dragText.contains("File") && targetText.contains("Recycle")) {
             correctAction();
-        } 
-        else if (dragText.contains("Recycle") && targetText.contains("File")) {
+        } else if (dragText.contains("Recycle") && targetText.contains("File")) {
             wrongAction();
         }
     }
