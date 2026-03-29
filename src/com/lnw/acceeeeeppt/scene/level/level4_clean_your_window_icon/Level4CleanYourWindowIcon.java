@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class CleanYourWindowIcon extends JFrame {
+public class Level4CleanYourWindowIcon extends JFrame {
 
     private JLabel fileLabel, binLabel, bgLabel;
     private int round = 1;
@@ -14,7 +14,7 @@ public class CleanYourWindowIcon extends JFrame {
     private Random rand = new Random();
     private ImageIcon fileIcon, binIcon;
 
-    public CleanYourWindowIcon() {
+    public Level4CleanYourWindowIcon() {
         setTitle("Clean Your Window");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
@@ -216,6 +216,6 @@ public class CleanYourWindowIcon extends JFrame {
     }
 
     public static void main(String[] args) {
-        new CleanYourWindowIcon();
+        new Level4CleanYourWindowIcon();
     }
 }
