@@ -90,6 +90,7 @@ public class Level4CleanYourWindowIcon extends JPanel {
 
     private void enableDrag(JLabel label) {
         label.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
             public void mouseDragged(MouseEvent e) {
                 draggedLabel = label;
 
@@ -99,6 +100,7 @@ public class Level4CleanYourWindowIcon extends JPanel {
         });
 
         label.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseReleased(MouseEvent e) {
                 checkDrop();
             }
