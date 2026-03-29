@@ -166,9 +166,8 @@ public class Level4CleanYourWindowIcon extends JPanel {
             wrongFrame.setVisible(true);
         }
 
-        new javax.swing.Timer(2000, e -> {
-            System.exit(0);
-        }).start();
+        // TODO: Switch to a global lose panel (to be implemented)
+        new javax.swing.Timer(2000, e -> System.exit(0)).start();
     }
 
     private void randomPosition() {
