@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.lnw.acceeeeeppt.ui.WindowConfiguration;
+
 public class Level4CleanYourWindowIcon extends JPanel {
 
     private JLabel fileLabel, binLabel, bgLabel;
@@ -40,11 +42,11 @@ public class Level4CleanYourWindowIcon extends JPanel {
         binIcon = new ImageIcon(binImg);
 
         ImageIcon bgIcon = new ImageIcon("resources/images/bg.jpg");
-        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        Image bgImg = bgIcon.getImage().getScaledInstance(screen.width, screen.height, Image.SCALE_SMOOTH);
+        Image bgImg = bgIcon.getImage().getScaledInstance(WindowConfiguration.DISPLAYSIZE.width,
+                WindowConfiguration.DISPLAYSIZE.height, Image.SCALE_SMOOTH);
 
         bgLabel = new JLabel(new ImageIcon(bgImg));
-        bgLabel.setBounds(0, 0, screen.width, screen.height);
+        bgLabel.setBounds(0, 0, WindowConfiguration.DISPLAYSIZE.width, WindowConfiguration.DISPLAYSIZE.height);
 
         fileLabel = new JLabel("File", fileIcon, JLabel.CENTER);
         fileLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -164,10 +166,8 @@ public class Level4CleanYourWindowIcon extends JPanel {
     }
 
     private void randomPosition() {
-        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-
-        int maxX = screen.width - 150;
-        int maxY = screen.height - 150;
+        int maxX = WindowConfiguration.DISPLAYSIZE.width - 150;
+        int maxY = WindowConfiguration.DISPLAYSIZE.height - 150;
 
         int x1 = rand.nextInt(maxX);
         int y1 = rand.nextInt(maxY);
