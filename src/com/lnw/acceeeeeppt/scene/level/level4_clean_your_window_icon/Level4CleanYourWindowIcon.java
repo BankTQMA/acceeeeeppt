@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class Level4CleanYourWindowIcon extends JFrame {
+public class Level4CleanYourWindowIcon extends JPanel {
 
     private JLabel fileLabel, binLabel, bgLabel;
     private int round = 1;
@@ -15,10 +15,7 @@ public class Level4CleanYourWindowIcon extends JFrame {
     private ImageIcon fileIcon, binIcon;
 
     public Level4CleanYourWindowIcon() {
-        setTitle("Clean Your Window");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         ImageIcon rawFile = new ImageIcon("resources/images/file.png");
         Image fileImg = rawFile.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
@@ -47,8 +44,8 @@ public class Level4CleanYourWindowIcon extends JFrame {
         binLabel.setBounds(350, 150, 120, 100);
         add(binLabel);
 
-        getContentPane().add(bgLabel);
-        getContentPane().setComponentZOrder(bgLabel, getContentPane().getComponentCount() - 1);
+        add(bgLabel);
+        setComponentZOrder(bgLabel, getComponentCount() - 1);
         enableDrag(fileLabel);
         enableDrag(binLabel);
 
@@ -58,7 +55,7 @@ public class Level4CleanYourWindowIcon extends JFrame {
     }
 
     private void showMessageFrame() {
-        JDialog dialog = new JDialog(this, "Message", true);
+        JDialog dialog = new JDialog();
 
         dialog.setSize(400, 150);
         dialog.setLayout(new BorderLayout());
@@ -119,7 +116,6 @@ public class Level4CleanYourWindowIcon extends JFrame {
     private void correctAction() {
         if (round >= MAX_ROUND) {
             JOptionPane.showMessageDialog(this, "Congrats! NEXT LEVEL!");
-            dispose();
             return;
         }
 
