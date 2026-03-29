@@ -27,7 +27,11 @@ public class LevelFailController {
     }
 
     private void onMainMenu() {
-
+        mainView.switchPanelCard(SceneConstants.MAINMENU);
+        dispose();
     }
 
+    private void dispose() {
+        this.levelFailView = null;
+    }
 }

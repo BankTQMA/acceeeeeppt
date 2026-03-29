@@ -19,10 +19,17 @@ public class LevelPassController {
 
     private void onMainMenu() {
         mainView.switchPanelCard(SceneConstants.MAINMENU);
+        dispose();
     }
 
     private void onSaveAndContinue() {
         // TODO: Saving system
         mainView.switchPanelCard(nextScene);
+        dispose();
     }
+
+    private void dispose() {
+        this.levelPassView = null;
+    }
+
 }
