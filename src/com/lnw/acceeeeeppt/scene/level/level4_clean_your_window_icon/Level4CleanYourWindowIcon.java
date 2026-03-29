@@ -23,12 +23,15 @@ import com.lnw.acceeeeeppt.ui.WindowConfiguration;
 
 public class Level4CleanYourWindowIcon extends JPanel {
 
-    private JLabel fileLabel, binLabel, bgLabel;
+    private JLabel fileLabel;
+    private JLabel binLabel;
+    private JLabel bgLabel;
     private int round = 1;
     private final int MAX_ROUND = 10;
     private JLabel draggedLabel = null;
     private Random rand = new Random();
-    private ImageIcon fileIcon, binIcon;
+    private ImageIcon fileIcon;
+    private ImageIcon binIcon;
 
     public Level4CleanYourWindowIcon() {
         setLayout(null);
