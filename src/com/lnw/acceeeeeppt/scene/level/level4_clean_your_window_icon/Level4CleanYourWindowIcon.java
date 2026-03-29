@@ -51,15 +51,15 @@ public class Level4CleanYourWindowIcon extends JPanel {
         bgLabel = new JLabel(new ImageIcon(bgImg));
         bgLabel.setBounds(0, 0, WindowConfiguration.DISPLAYSIZE.width, WindowConfiguration.DISPLAYSIZE.height);
 
-        fileLabel = new JLabel("File", fileIcon, JLabel.CENTER);
-        fileLabel.setHorizontalTextPosition(JLabel.CENTER);
-        fileLabel.setVerticalTextPosition(JLabel.BOTTOM);
+        fileLabel = new JLabel("File", fileIcon, SwingConstants.CENTER);
+        fileLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+        fileLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
         fileLabel.setBounds(120, 150, 120, 100);
         add(fileLabel);
 
-        binLabel = new JLabel("Recycle Bin", binIcon, JLabel.CENTER);
-        binLabel.setHorizontalTextPosition(JLabel.CENTER);
-        binLabel.setVerticalTextPosition(JLabel.BOTTOM);
+        binLabel = new JLabel("Recycle Bin", binIcon, SwingConstants.CENTER);
+        binLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+        binLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
         binLabel.setBounds(350, 150, 120, 100);
         add(binLabel);
 
