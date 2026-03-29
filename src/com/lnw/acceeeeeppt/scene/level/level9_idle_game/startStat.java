@@ -1,4 +1,4 @@
-package com.lnw.acceeeeeppt.scene.level.level9;
+package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 
 import javax.swing.JButton;
 

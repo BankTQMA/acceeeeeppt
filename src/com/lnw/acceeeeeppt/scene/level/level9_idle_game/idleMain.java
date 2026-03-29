@@ -1,4 +1,4 @@
-package com.lnw.acceeeeeppt.scene.level.level9;
+package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,10 +18,12 @@ public class idleMain extends JPanel implements Runnable {
         pointsLbl = new JLabel(" Agree Points : 0");
         incomeLbl = new JLabel(" Income/Sec : 0");
         timerLbl = new JLabel("Time : 02:30 ", SwingConstants.RIGHT);
-        topPanel.add(pointsLbl); topPanel.add(incomeLbl); topPanel.add(timerLbl);
+        topPanel.add(pointsLbl);
+        topPanel.add(incomeLbl);
+        topPanel.add(timerLbl);
 
         JButton generatorBtn = new JButton("Agree Points Generator");
-        generatorBtn.setBackground(new Color(190, 255, 190)); 
+        generatorBtn.setBackground(new Color(190, 255, 190));
         generatorBtn.setFont(new Font("Arial", Font.BOLD, 14));
         generatorBtn.addActionListener(e -> {
             game.points++;
@@ -37,18 +39,22 @@ public class idleMain extends JPanel implements Runnable {
         upg1.addActionListener(e -> purchase(1, 1, upg1, "Clicker", "1 Point/sec"));
         upg2.addActionListener(e -> purchase(5, 2, upg2, "Upgrade Clicker", "5 Points/sec"));
         upg3.addActionListener(e -> purchase(10, 3, upg3, "Mega Clicker", "10 Points/sec"));
-        
+
         keyBtn.addActionListener(e -> {
             if (game.points >= game.keyCost) {
                 game.points -= game.keyCost;
                 game.tosUnlocked = true;
-                if(game.agreeButtonRef != null) game.agreeButtonRef.setEnabled(true);
+                if (game.agreeButtonRef != null)
+                    game.agreeButtonRef.setEnabled(true);
                 keyBtn.setEnabled(false);
                 updateLabels();
             }
         });
 
-        upgradePanel.add(upg1); upgradePanel.add(upg2); upgradePanel.add(upg3); upgradePanel.add(keyBtn);
+        upgradePanel.add(upg1);
+        upgradePanel.add(upg2);
+        upgradePanel.add(upg3);
+        upgradePanel.add(keyBtn);
 
         add(topPanel, BorderLayout.NORTH);
         add(generatorBtn, BorderLayout.CENTER);
@@ -62,7 +68,7 @@ public class idleMain extends JPanel implements Runnable {
         while (running) {
             try {
                 Thread.sleep(1000);
-                
+
                 if (game.timeLeft > 0) {
                     game.points += game.incomePerSecond;
                     game.timeLeft--;
@@ -75,7 +81,9 @@ public class idleMain extends JPanel implements Runnable {
                         }
                     });
                 }
-            } catch (InterruptedException e) { break; }
+            } catch (InterruptedException e) {
+                break;
+            }
         }
     }
 
@@ -84,8 +92,8 @@ public class idleMain extends JPanel implements Runnable {
         game.incomePerSecond = 0;
         game.timeLeft = 150;
         game.tosUnlocked = false;
-        game.upg1Cost = 10; 
-        game.upg2Cost = 50; 
+        game.upg1Cost = 10;
+        game.upg2Cost = 50;
         game.upg3Cost = 200;
 
         if (game.agreeButtonRef != null) {
@@ -97,17 +105,22 @@ public class idleMain extends JPanel implements Runnable {
         idleUI.updateButton(upg2, "Upgrade Clicker", game.upg2Cost, "5 Points/sec");
         idleUI.updateButton(upg3, "Mega Clicker", game.upg3Cost, "10 Points/sec");
         idleUI.updateButton(keyBtn, "Master Key", game.keyCost, "Unlock Agree Button");
-        
+
         updateLabels();
     }
 
     private void purchase(int addInc, int type, JButton btn, String name, String desc) {
-        int cost = (type==1) ? game.upg1Cost : (type==2) ? game.upg2Cost : game.upg3Cost;
+        int cost = (type == 1) ? game.upg1Cost : (type == 2) ? game.upg2Cost : game.upg3Cost;
         if (game.points >= cost) {
             game.points -= cost;
             game.incomePerSecond += addInc;
-            int next = (int)(cost * 1.2);
-            if(type==1) game.upg1Cost = next; else if(type==2) game.upg2Cost = next; else game.upg3Cost = next;
+            int next = (int) (cost * 1.2);
+            if (type == 1)
+                game.upg1Cost = next;
+            else if (type == 2)
+                game.upg2Cost = next;
+            else
+                game.upg3Cost = next;
             idleUI.updateButton(btn, name, next, desc);
             updateLabels();
         }
@@ -116,6 +129,6 @@ public class idleMain extends JPanel implements Runnable {
     private void updateLabels() {
         pointsLbl.setText(" Agree Points : " + game.points);
         incomeLbl.setText(" Income/Sec : " + game.incomePerSecond);
-        timerLbl.setText(String.format("Time : %02d:%02d ", game.timeLeft/60, game.timeLeft%60));
+        timerLbl.setText(String.format("Time : %02d:%02d ", game.timeLeft / 60, game.timeLeft % 60));
     }
 }
