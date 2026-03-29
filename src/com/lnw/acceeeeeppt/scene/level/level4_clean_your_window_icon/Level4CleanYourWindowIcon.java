@@ -177,7 +177,8 @@ public class Level4CleanYourWindowIcon extends JPanel {
         int x1 = rand.nextInt(maxX);
         int y1 = rand.nextInt(maxY);
 
-        int x2, y2;
+        int x2;
+        int y2;
 
         do {
             x2 = rand.nextInt(maxX);
