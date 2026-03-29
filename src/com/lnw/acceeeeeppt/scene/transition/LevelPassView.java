@@ -7,7 +7,9 @@ import java.awt.FlowLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
+import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
 
 public class LevelPassView extends JPanel {
@@ -27,5 +29,10 @@ public class LevelPassView extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN,
                 MarginConstants.GLOBALMARGIN, MarginConstants.GLOBALMARGIN));
         buttonRowPanel.setLayout(new FlowLayout());
+
+        passLabel.setForeground(new Color(0xFFFFFF));
+        passLabel.setFont(FontPresets.PASSFAILFONT);
+        passLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        add(passLabel, BorderLayout.CENTER);
     }
 }
