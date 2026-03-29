@@ -10,4 +10,9 @@ public class SceneConstants {
     public static final String LOADGAMEMENU = "Load";
     public static final String OPTIONMENU = "OPTIONMENU";
     public static final String CREDITMENU = "Credit";
+
+    public static final String LEVELPASS = "Passed";
+    public static final String LEVELFAIL = "Failed";
+
+    public static final String LEVEL1 = "Level 1 - Term of Investment";
 }
