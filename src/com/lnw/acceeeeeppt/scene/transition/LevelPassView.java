@@ -2,14 +2,18 @@ package com.lnw.acceeeeeppt.scene.transition;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
@@ -25,8 +29,8 @@ public class LevelPassView extends JPanel {
         topPanel = new JPanel();
         buttonRowPanel = new JPanel();
         passLabel = new JLabel("PASSED");
-        mainMenuButton = new JButton("Go Back to Main Menu");
-        saveAndContinueButton = new JButton("Save & Continue");
+        mainMenuButton = createButton("Go Back to Main Menu");
+        saveAndContinueButton = createButton("Save & Continue");
 
         setBackground(new Color(0x2CB714));
 
@@ -40,6 +44,25 @@ public class LevelPassView extends JPanel {
         passLabel.setFont(FontPresets.PASSFAILFONT);
         passLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(passLabel, BorderLayout.CENTER);
+
+        buttonRowPanel.setBackground(new Color(0x000000, true));
+        buttonRowPanel.add(mainMenuButton);
+        buttonRowPanel.add(Box.createHorizontalStrut(10));
+        buttonRowPanel.add(saveAndContinueButton);
+
+        add(buttonRowPanel, BorderLayout.SOUTH);
+    }
+
+    private JButton createButton(String text) {
+        JButton button = new JButton(text);
+        button.setFocusPainted(false);
+        button.setBorderPainted(false);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button.setOpaque(true);
+        button.setFont(FontPresets.H2BOLDFONT);
+        button.setForeground(Color.WHITE);
+        button.setBackground(new Color(0x1a700c));
+        return button;
     }
 
     public void addMainMenuButtonActionListener(ActionListener l) {
