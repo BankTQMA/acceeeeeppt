@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 class Level9IdleHelperClass {
+    private Level9IdleHelperClass() {
+        /* This utility class should not be instantiated */
+    }
+
     public static JButton createButton(String name, int cost, String effect) {
         JButton btn = new JButton();
         btn.setBackground(new Color(240, 240, 240));
