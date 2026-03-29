@@ -54,5 +54,8 @@ public class NewGameController {
             loadGameController.addSaveEntriesView(playerModel.getSaveName(), playerModel.getCurrLevel().toString(),
                     playerModel.getCreatedDateTimeInstant().toString());
         }
+
+        LevelLoader.createLevel2(mainView);
+        LevelLoader.loadLevel2(mainView);
     }
 }
