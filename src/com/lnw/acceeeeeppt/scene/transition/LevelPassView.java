@@ -3,7 +3,6 @@ package com.lnw.acceeeeeppt.scene.transition;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
@@ -13,20 +12,17 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
 import com.lnw.acceeeeeppt.ui.FontPresets;
 import com.lnw.acceeeeeppt.ui.MarginConstants;
 
 public class LevelPassView extends JPanel {
-    private JPanel topPanel;
     private JPanel buttonRowPanel;
     private JLabel passLabel;
     private JButton mainMenuButton;
     private JButton saveAndContinueButton;
 
     public LevelPassView() {
-        topPanel = new JPanel();
         buttonRowPanel = new JPanel();
         passLabel = new JLabel("PASSED");
         mainMenuButton = createButton("Go Back to Main Menu");
