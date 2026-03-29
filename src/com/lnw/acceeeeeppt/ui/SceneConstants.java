@@ -15,4 +15,5 @@ public class SceneConstants {
     public static final String LEVELFAIL = "Failed";
 
     public static final String LEVEL1 = "Level 1 - Term of Investment";
+    public static final String LEVEL3 = "Level 3 - Term of Service";
 }
