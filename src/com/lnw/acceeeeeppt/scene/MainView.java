@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import com.lnw.acceeeeeppt.system.LookAndFeelManager;
+import com.lnw.acceeeeeppt.ui.WindowConfiguration;
 
 public class MainView {
     private JFrame mainJFrame;
@@ -23,7 +24,7 @@ public class MainView {
 
         mainJFrame.setLayout(new BorderLayout());
         mainJFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        mainJFrame.setSize(1080, 640);
+        mainJFrame.setSize(WindowConfiguration.DISPLAYSIZE);
         mainJFrame.setResizable(false);
 
         mainJFrame.add(mainJPanel);
