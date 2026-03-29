@@ -16,7 +16,6 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -26,7 +25,7 @@ import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingUtilities;
 
-public class Level10ReadItAllBeforePass extends JFrame {
+public class Level10ReadItAllBeforePass extends JPanel {
 
     private JButton acceptButton;
     private JScrollPane scrollPane;
@@ -112,12 +111,6 @@ public class Level10ReadItAllBeforePass extends JFrame {
             "                                                                                                                                              If anything strange happens, please consider it part of the experience.\n\n";
 
     public Level10ReadItAllBeforePass() {
-        setTitle("Term of Information usage");
-        setSize(700, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
-
         setLayout(new BorderLayout());
 
         JPanel wrapperPanel = new JPanel(new GridBagLayout());
