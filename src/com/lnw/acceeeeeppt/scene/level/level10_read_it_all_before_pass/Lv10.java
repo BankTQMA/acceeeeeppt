@@ -1,3 +1,5 @@
+package com.lnw.acceeeeeppt.scene.level.level10_read_it_all_before_pass;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,7 +9,7 @@ public class Lv10 extends JFrame {
     private JButton acceptButton;
     private JScrollPane scrollPane;
     private JTextArea termsText;
-    
+
     // Custom Scrollbars
     private CustomVerticalScrollBarPanel verticalScroll;
     private CustomHorizontalScrollBarPanel horizontalScroll;
@@ -18,29 +20,28 @@ public class Lv10 extends JFrame {
 
     // --- ค่าคงที่ ---
     private final int HORIZONTAL_HEIGHT = 26;
-    private final int FAKE_TOP_MARGIN = 26;   
-    
-    private final int H_THUMB_SIZE = 570;     
-    private final int V_THUMB_SIZE = 50;      
-    
-    // สีของ Scrollbar 
+    private final int FAKE_TOP_MARGIN = 26;
+
+    private final int H_THUMB_SIZE = 570;
+    private final int V_THUMB_SIZE = 50;
+
+    // สีของ Scrollbar
     private final Color TRACK_COLOR = new Color(160, 160, 160);
     private final Color THUMB_COLOR = new Color(210, 210, 210);
     private final Color LINE_COLOR = new Color(100, 100, 100);
 
     // ข้อความที่ถูกจัดหน้าใหม่ ย้ายข้อ 7 ไปขวาสุด
-    private final String TERMS_CONTENT =
-            " \n\n" +
+    private final String TERMS_CONTENT = " \n\n" +
             " 0. Common Sense (Yes, This Is Important)\n" +
             " Before using this game, please remember that this is just a game.\n" +
             " If something weird happens, it’s probably part of the game… or maybe a bug. Who knows?\n\n" +
             "By continuing, you agree to.\n\n" +
-            "-Not scream at your screen (too much).\n"+
-            "-Not blame the developer for your skill issues.\n"+
-            "Accept that losing is sometimes your own fault.\n"+
+            "-Not scream at your screen (too much).\n" +
+            "-Not blame the developer for your skill issues.\n" +
+            "Accept that losing is sometimes your own fault.\n" +
             "\n\n" + // เว้นระยะห่างให้ซ่อนเนียนๆ
             "Terms of Information Usage\n\n" +
-            "By accessing or using this game.\n" + 
+            "By accessing or using this game.\n" +
             "You agree to the collection and use of information in accordance with these terms.\n\n" +
             "1. Information We Collect\n" +
             "We may collect basic information such as:\n" +
@@ -61,24 +62,31 @@ public class Lv10 extends JFrame {
             "From unauthorized access, alteration, or disclosure.\n\n" +
 
             "4. Third-Party Services\n" +
-            "The game may use third-party services to enhance functionality.\n" + 
-            "These services may process limited data necessary for operation.\n\n"+ 
+            "The game may use third-party services to enhance functionality.\n" +
+            "These services may process limited data necessary for operation.\n\n" +
 
             "5. User Rights\n" +
             "Users may request to review, update, or\n" +
             "delete their personal information by contacting the game administrator.\n\n" +
 
             "6. Changes to These Terms\n" +
-            "We reserve the right to update or modify these terms at any time.\n"  +
-            "Continued use of the game constitutes acceptance of any changes.\n\n"  +
+            "We reserve the right to update or modify these terms at any time.\n" +
+            "Continued use of the game constitutes acceptance of any changes.\n\n" +
 
-            "7.Player Responsibility                                                                                                                             \n" +
-            "By playing this game, you acknowledge that:                                                                             8. Unexpected Behavior\n" +
-            "- Your wins are your skill.                                                                                                         This game may occasionally behave in unexpected or unintended ways.\n" +
-            "- Your losses are also… your skill.                                                                                             By continuing to play, you agree that:\n" +
-            "- Any emotional damage caused by losing, lag, or bad luck is entirely on you.                               - Not everything will always work perfectly (yes, bugs exist).\n" +
-            "The developer is not responsible for broken keyboards or rage quits during gameplay.                    - Some features may change, break, or mysteriously disappear.\n" +
-            "                                                                                                                                               - You will not take the game (or its developer) too seriously.\n" +
+            "7.Player Responsibility                                                                                                                             \n"
+            +
+            "By playing this game, you acknowledge that:                                                                             8. Unexpected Behavior\n"
+            +
+            "- Your wins are your skill.                                                                                                         This game may occasionally behave in unexpected or unintended ways.\n"
+            +
+            "- Your losses are also… your skill.                                                                                             By continuing to play, you agree that:\n"
+            +
+            "- Any emotional damage caused by losing, lag, or bad luck is entirely on you.                               - Not everything will always work perfectly (yes, bugs exist).\n"
+            +
+            "The developer is not responsible for broken keyboards or rage quits during gameplay.                    - Some features may change, break, or mysteriously disappear.\n"
+            +
+            "                                                                                                                                               - You will not take the game (or its developer) too seriously.\n"
+            +
             "                                                                                                                                              If anything strange happens, please consider it part of the experience.\n\n";
 
     public Lv10() {
@@ -87,9 +95,9 @@ public class Lv10 extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
-        
+
         setLayout(new BorderLayout());
-        
+
         JPanel wrapperPanel = new JPanel(new GridBagLayout());
         wrapperPanel.setBackground(new Color(220, 220, 220));
 
@@ -120,7 +128,7 @@ public class Lv10 extends JFrame {
 
         JPanel innerPanel = new JPanel(new BorderLayout());
         horizontalScroll = new CustomHorizontalScrollBarPanel();
-        
+
         innerPanel.add(horizontalScroll, BorderLayout.NORTH);
         innerPanel.add(scrollPane, BorderLayout.CENTER);
         contentBorderPanel.add(innerPanel, BorderLayout.CENTER);
@@ -140,7 +148,7 @@ public class Lv10 extends JFrame {
         hintLabel.setFont(new Font("SansSerif", Font.PLAIN, 11));
 
         acceptButton = new JButton("Accept button");
-        acceptButton.setEnabled(false); 
+        acceptButton.setEnabled(false);
         acceptButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         acceptButton.setPreferredSize(new Dimension(160, 45));
         acceptButton.setMaximumSize(new Dimension(160, 45));
@@ -151,9 +159,9 @@ public class Lv10 extends JFrame {
         acceptButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
 
         acceptButton.addActionListener(e -> {
-            JOptionPane.showMessageDialog(Lv10.this, 
-                    "Congratulations! You unlocked the secret terms.", 
-                    "Level Cleared", 
+            JOptionPane.showMessageDialog(Lv10.this,
+                    "Congratulations! You unlocked the secret terms.",
+                    "Level Cleared",
                     JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         });
@@ -178,20 +186,24 @@ public class Lv10 extends JFrame {
         private boolean isInitialized = false;
 
         public CustomHorizontalScrollBarPanel() {
-            setPreferredSize(new Dimension(0, HORIZONTAL_HEIGHT)); 
+            setPreferredSize(new Dimension(0, HORIZONTAL_HEIGHT));
             setBackground(TRACK_COLOR);
-            setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.DARK_GRAY)); 
+            setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.DARK_GRAY));
 
             MouseAdapter mouseHandler = new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     if (e.getX() >= thumbX && e.getX() <= thumbX + H_THUMB_SIZE) {
                         dragOffsetX = e.getX() - thumbX;
-                    } else { dragOffsetX = -1; }
+                    } else {
+                        dragOffsetX = -1;
+                    }
                 }
+
                 @Override
                 public void mouseDragged(MouseEvent e) {
-                    if (dragOffsetX == -1) return;
+                    if (dragOffsetX == -1)
+                        return;
                     int newX = e.getX() - dragOffsetX;
                     int maxX = getWidth() - H_THUMB_SIZE;
                     thumbX = Math.max(0, Math.min(maxX, newX));
@@ -200,9 +212,9 @@ public class Lv10 extends JFrame {
                         hasReachedLeftmost = true;
                     }
 
-                    syncTextScrollHorizontal(maxX); 
+                    syncTextScrollHorizontal(maxX);
                     repaint();
-                    verticalScroll.repaint(); 
+                    verticalScroll.repaint();
                 }
             };
             addMouseListener(mouseHandler);
@@ -213,7 +225,7 @@ public class Lv10 extends JFrame {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             if (!isInitialized && getWidth() > 0) {
-                thumbX = getWidth() - H_THUMB_SIZE; 
+                thumbX = getWidth() - H_THUMB_SIZE;
                 syncTextScrollHorizontal(getWidth() - H_THUMB_SIZE);
                 isInitialized = true;
             }
@@ -253,30 +265,33 @@ public class Lv10 extends JFrame {
     // =========================================================
     private class CustomVerticalScrollBarPanel extends JPanel {
         private int dragOffsetY = -1;
-        private int thumbY = FAKE_TOP_MARGIN; 
+        private int thumbY = FAKE_TOP_MARGIN;
         private boolean isInitialized = false;
 
         public CustomVerticalScrollBarPanel() {
-            setPreferredSize(new Dimension(22, 0)); 
+            setPreferredSize(new Dimension(22, 0));
             setBackground(TRACK_COLOR);
-            setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, Color.DARK_GRAY)); 
+            setBorder(BorderFactory.createMatteBorder(0, 1, 0, 0, Color.DARK_GRAY));
 
             MouseAdapter mouseHandler = new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     if (e.getY() >= thumbY && e.getY() <= thumbY + V_THUMB_SIZE) {
-                        dragOffsetY = e.getY() - thumbY; 
-                    } else { dragOffsetY = -1; }
+                        dragOffsetY = e.getY() - thumbY;
+                    } else {
+                        dragOffsetY = -1;
+                    }
                 }
 
                 @Override
                 public void mouseDragged(MouseEvent e) {
-                    if (dragOffsetY == -1) return;
+                    if (dragOffsetY == -1)
+                        return;
                     int newY = e.getY() - dragOffsetY;
                     int maxY = getHeight() - V_THUMB_SIZE;
-                    
-                    int minY = (hasReachedBottom && hasReachedLeftmost) ? 0 : FAKE_TOP_MARGIN; 
-                    
+
+                    int minY = (hasReachedBottom && hasReachedLeftmost) ? 0 : FAKE_TOP_MARGIN;
+
                     thumbY = Math.max(minY, Math.min(maxY, newY));
 
                     if (!hasReachedBottom && thumbY >= maxY) {
@@ -291,7 +306,7 @@ public class Lv10 extends JFrame {
                     }
 
                     syncTextScrollVertical(maxY);
-                    repaint(); 
+                    repaint();
                 }
             };
             addMouseListener(mouseHandler);
@@ -301,20 +316,20 @@ public class Lv10 extends JFrame {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            
+
             if (!isInitialized && getHeight() > 0) {
                 thumbY = FAKE_TOP_MARGIN;
                 syncTextScrollVertical(getHeight() - V_THUMB_SIZE);
                 isInitialized = true;
             }
-            
+
             boolean isUnlocked = (hasReachedBottom && hasReachedLeftmost);
-            
+
             if (!isUnlocked) {
                 g.setColor(TRACK_COLOR);
                 g.fillRect(0, 0, getWidth(), FAKE_TOP_MARGIN);
                 g.setColor(Color.DARK_GRAY);
-                g.drawLine(0, FAKE_TOP_MARGIN - 1, getWidth(), FAKE_TOP_MARGIN - 1); 
+                g.drawLine(0, FAKE_TOP_MARGIN - 1, getWidth(), FAKE_TOP_MARGIN - 1);
             } else {
                 g.setColor(TRACK_COLOR);
                 g.fillRect(0, 0, getWidth(), FAKE_TOP_MARGIN);
@@ -341,9 +356,9 @@ public class Lv10 extends JFrame {
             int maxScroll = viewHeight - extent;
 
             if (maxScroll > 0 && maxY > 0) {
-                int secretScrollLimit = 220; 
+                int secretScrollLimit = 220;
                 int currentScrollY;
-                
+
                 if (thumbY <= FAKE_TOP_MARGIN) {
                     double ratio = (double) thumbY / FAKE_TOP_MARGIN;
                     currentScrollY = (int) (ratio * secretScrollLimit);
