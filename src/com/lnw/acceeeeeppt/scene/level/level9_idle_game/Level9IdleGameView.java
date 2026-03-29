@@ -3,13 +3,13 @@ package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 import javax.swing.*;
 import java.awt.*;
 
-public class idleMain extends JPanel implements Runnable {
-    private startStat game;
+public class Level9IdleGameView extends JPanel implements Runnable {
+    private Level9IdleModel game;
     private JLabel pointsLbl, incomeLbl, timerLbl;
     private JButton upg1, upg2, upg3, keyBtn;
     private volatile boolean running = true;
 
-    public idleMain(startStat game) {
+    public Level9IdleGameView(Level9IdleModel game) {
         this.game = game;
         setLayout(new BorderLayout(10, 10));
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -31,10 +31,10 @@ public class idleMain extends JPanel implements Runnable {
         });
 
         JPanel upgradePanel = new JPanel(new GridLayout(4, 1, 5, 5));
-        upg1 = idleUI.createButton("Clicker", game.upg1Cost, "1 Point/sec");
-        upg2 = idleUI.createButton("Upgrade Clicker", game.upg2Cost, "5 Points/sec");
-        upg3 = idleUI.createButton("Mega Clicker", game.upg3Cost, "10 Points/sec");
-        keyBtn = idleUI.createButton("Master Key", game.keyCost, "Unlock Agree Button");
+        upg1 = Level9IdleHelperClass.createButton("Clicker", game.upg1Cost, "1 Point/sec");
+        upg2 = Level9IdleHelperClass.createButton("Upgrade Clicker", game.upg2Cost, "5 Points/sec");
+        upg3 = Level9IdleHelperClass.createButton("Mega Clicker", game.upg3Cost, "10 Points/sec");
+        keyBtn = Level9IdleHelperClass.createButton("Master Key", game.keyCost, "Unlock Agree Button");
 
         upg1.addActionListener(e -> purchase(1, 1, upg1, "Clicker", "1 Point/sec"));
         upg2.addActionListener(e -> purchase(5, 2, upg2, "Upgrade Clicker", "5 Points/sec"));
@@ -101,10 +101,10 @@ public class idleMain extends JPanel implements Runnable {
         }
 
         keyBtn.setEnabled(true);
-        idleUI.updateButton(upg1, "Clicker", game.upg1Cost, "1 Point/sec");
-        idleUI.updateButton(upg2, "Upgrade Clicker", game.upg2Cost, "5 Points/sec");
-        idleUI.updateButton(upg3, "Mega Clicker", game.upg3Cost, "10 Points/sec");
-        idleUI.updateButton(keyBtn, "Master Key", game.keyCost, "Unlock Agree Button");
+        Level9IdleHelperClass.updateButton(upg1, "Clicker", game.upg1Cost, "1 Point/sec");
+        Level9IdleHelperClass.updateButton(upg2, "Upgrade Clicker", game.upg2Cost, "5 Points/sec");
+        Level9IdleHelperClass.updateButton(upg3, "Mega Clicker", game.upg3Cost, "10 Points/sec");
+        Level9IdleHelperClass.updateButton(keyBtn, "Master Key", game.keyCost, "Unlock Agree Button");
 
         updateLabels();
     }
@@ -121,7 +121,7 @@ public class idleMain extends JPanel implements Runnable {
                 game.upg2Cost = next;
             else
                 game.upg3Cost = next;
-            idleUI.updateButton(btn, name, next, desc);
+            Level9IdleHelperClass.updateButton(btn, name, next, desc);
             updateLabels();
         }
     }

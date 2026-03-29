@@ -2,7 +2,7 @@ package com.lnw.acceeeeeppt.scene.level.level9_idle_game;
 
 import javax.swing.JButton;
 
-public class startStat {
+public class Level9IdleModel {
     public int points = 0;
     public int incomePerSecond = 0;
     public int upg1Cost = 10;
