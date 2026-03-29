@@ -34,7 +34,8 @@ class Level9IdleTosView extends JPanel {
 
         agreeBtn.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Level Complete!");
-            System.exit(0);
+            // TODO: Switch to global winning page
+            return;
         });
 
         buttonWrapper.add(agreeBtn);
